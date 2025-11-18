@@ -84,7 +84,7 @@
            <number>0</number>
           </property>
           <item>
-           <widget class="QFrame" name="frame_3">
+           <widget class="QFrame" name="menuIzquierdo">
             <property name="minimumSize">
              <size>
               <width>180</width>
@@ -138,7 +138,7 @@ background: #00A2E8;
                <property name="frameShadow">
                 <enum>QFrame::Shadow::Raised</enum>
                </property>
-               <widget class="QPushButton" name="pushButton">
+               <widget class="QPushButton" name="pb_Desplace">
                 <property name="geometry">
                  <rect>
                   <x>0</x>
@@ -178,7 +178,7 @@ background: #0070A1;
               </widget>
              </item>
              <item>
-              <widget class="QFrame" name="frame_6">
+              <widget class="QFrame" name="SubmenuIzquierdo">
                <property name="styleSheet">
                 <string notr="true">QFrame{
 background: #00A2E8;
@@ -335,6 +335,9 @@ background: #0070A1;
             <layout class="QVBoxLayout" name="verticalLayout_3">
              <item>
               <widget class="QStackedWidget" name="stackedWidget">
+               <property name="currentIndex">
+                <number>2</number>
+               </property>
                <widget class="QWidget" name="pg_Indices">
                 <layout class="QVBoxLayout" name="verticalLayout_4">
                  <property name="spacing">
@@ -355,7 +358,7 @@ background: #0070A1;
                  <item>
                   <widget class="QLabel" name="label">
                    <property name="text">
-                    <string>Indices</string>
+                    <string>Indices segundo</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -435,6 +438,84 @@ background: #0070A1;
     </item>
    </layout>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Verdana</family>
+     <pointsize>7</pointsize>
+    </font>
+   </property>
+   <widget class="QMenu" name="menuArchivo">
+    <property name="geometry">
+     <rect>
+      <x>356</x>
+      <y>106</y>
+      <width>110</width>
+      <height>110</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="title">
+     <string>Archivo</string>
+    </property>
+    <addaction name="actionNuevo_Archivo"/>
+    <addaction name="actionAbrir_Archivo"/>
+    <addaction name="actionGuardar_Archivo"/>
+    <addaction name="actionCerrar_Archivo"/>
+    <addaction name="separator"/>
+   </widget>
+   <addaction name="menuArchivo"/>
+  </widget>
+  <action name="actionNuevo_Archivo">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::DocumentNew"/>
+   </property>
+   <property name="text">
+    <string>Nuevo Archivo</string>
+   </property>
+  </action>
+  <action name="actionAbrir_Archivo">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::DocumentOpen"/>
+   </property>
+   <property name="text">
+    <string>Abrir Archivo</string>
+   </property>
+  </action>
+  <action name="actionGuardar_Archivo">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::DocumentSave"/>
+   </property>
+   <property name="text">
+    <string>Guardar Archivo</string>
+   </property>
+  </action>
+  <action name="actionCerrar_Archivo">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::EditClear"/>
+   </property>
+   <property name="text">
+    <string>Cerrar Archivo</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
