@@ -1,0 +1,9 @@
+# ninja log v6
+6	1197	7851473206969329	Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
+6	1197	7851473206969329	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
+6	1197	7851473206969329	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
+6	1197	7851473206969329	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
+1203	3078	7851473207687879	CMakeFiles/Gestor_Stock_EstruII.dir/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp.obj	80d23c773576a129
+1206	3084	7851473207732678	CMakeFiles/Gestor_Stock_EstruII.dir/main.cpp.obj	b6727dae4c81d438
+1209	3276	7851473207757861	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	77b6e31c1fa4b726
+3276	3544	7851473228435983	Gestor_Stock_EstruII.exe	eff0b5557c059e03
