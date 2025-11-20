@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include <QFile>
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -16,7 +16,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
+    void cerrarArchivo();
 private slots:
     // Botones de Uso
     void on_pb_Campos_clicked();
@@ -26,13 +26,18 @@ private slots:
     // Boton de Desplace
     void on_pb_Desplace_clicked();
 
-    // Botones de Acciones de Menu de Archivo
-    void on_actionNuevoArchivo_triggered();
-    void on_actionAbrirArchivo_triggered();
-    void on_actionGuardarArchivo_triggered();
-    void on_actionCerrarArchivo_triggered();
+
+    void on_actionNuevo_Archivo_triggered();
+
+    void on_actionAbrir_Archivo_triggered();
+
+    void on_actionGuardar_Archivo_triggered();
+
+    void on_pushButtonCrearCampo_clicked();
 
 private:
     Ui::MainWindow *ui;
+    QFile file;
+
 };
 #endif // MAINWINDOW_H

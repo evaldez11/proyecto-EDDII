@@ -4,12 +4,24 @@
 #include <QPropertyAnimation>
 #include <QEasingCurve>
 #include <QAbstractAnimation>
+#include <QFileDialog>
+#include <QMessageBox>
 
+QString archivo;
+bool archivoGuardado = false;
+QString metaData;
+bool campos = false;
+bool modificar = false;
+bool eliminar = false;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->pushButtonConfirmar->setVisible(false);
+
+
 }
 
 MainWindow::~MainWindow()
@@ -70,34 +82,94 @@ void MainWindow::on_pb_Desplace_clicked()
     animacion->start(QAbstractAnimation::DeleteWhenStopped);
 }
 
-// Botones de Accion de Archivo
-void MainWindow::on_actionNuevoArchivo_triggered()
+
+
+
+void MainWindow::cerrarArchivo(){
+    if (file.isOpen()){
+        file.close();
+    }
+    archivoGuardado = false;
+    archivo.clear();
+    QMessageBox::information(this, "Archivo cerrado","Se cerro correctamente el archivo:\n" + archivo);
+}
+void MainWindow::on_actionNuevo_Archivo_triggered()
 {
-    // Aquí limpias todo lo necesario para empezar un archivo nuevo
-    // Ejemplo:
-    // limpiarCampos();
-    // currentFilePath.clear();
+
+    if(!archivo.isEmpty()){
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::question(this, "Archivo abierto","Ya tienes un archivo abierto\n""¿Deseas cerrarlo y crear uno nuevo?", QMessageBox::Yes | QMessageBox::No);
+
+        if (reply == QMessageBox::No){
+            return;
+
+        }else{
+           cerrarArchivo();
+        }
+
+    }else{
+        archivo = QFileDialog::getSaveFileName(this,"Crear archivo .txt", "","Archivo de texto (*.txt)");
+        if (archivo.isEmpty()){
+            return;
+        }
+
+        if (!archivo.endsWith(".txt")){
+            archivo += ".txt";
+        }
+
+        file.setFileName(archivo);
+        if (file.open(QIODevice::WriteOnly)) {
+            file.close();
+            QMessageBox::information(this, "Archivo creado","Se creó correctamente el archivo:\n" + archivo);
+        } else {
+            QMessageBox::warning(this, "Error", "No se pudo crear el archivo .txt");
+        }
+    }
 }
 
-void MainWindow::on_actionAbrirArchivo_triggered()
-{
 
-    // Aquí llamas a tu FileManager para abrir el archivo
-    // fileManager.abrirArchivo(fileName);
+void MainWindow::on_actionAbrir_Archivo_triggered()
+{
+    if(!archivo.isEmpty()){
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::question(this, "Archivo abierto","Ya tienes un archivo abierto\n""¿Deseas cerrarlo y abrir otro?", QMessageBox::Yes | QMessageBox::No);
+
+        if (reply == QMessageBox::No){
+            return;
+
+        }else{
+            cerrarArchivo();
+            archivo = QFileDialog::getOpenFileName(this,"Seleccionar archivo", "", "Archivos de texto (*.txt)");
+
+            if (archivo.isEmpty()){
+                return; // si el usuario cancela
+            }
+            QMessageBox::information(this,"Archivo seleccionado","Abriste el archivo:\n" + archivo);
+        }
+
+    }else{
+         archivo = QFileDialog::getOpenFileName(this,"Seleccionar archivo", "", "Archivos de texto (*.txt)");
+
+        if (archivo.isEmpty()){
+            return; // si el usuario cancela
+        }
+        QMessageBox::information(this,"Archivo seleccionado","AbristeS el archivo:\n" + archivo);
+    }
 }
 
-void MainWindow::on_actionGuardarArchivo_triggered()
-{
-    // Si ya tienes ruta guardada:
-    // fileManager.guardarArchivo();
 
-    // Si quieres “Guardar como…”:
-    // QString fileName = QFileDialog::getSaveFileName(this, tr("Guardar archivo"), ...);
+void MainWindow::on_actionGuardar_Archivo_triggered()
+{
+
+    archivoGuardado = true;
+    QMessageBox::information(this, "Guardado", "Los cambios se guardaron correctamente.");
 }
 
-void MainWindow::on_actionCerrarArchivo_triggered()
+
+void MainWindow::on_pushButtonCrearCampo_clicked()
 {
-    // Cerrar archivo actual, limpiar índices, etc.
-    // fileManager.cerrarArchivo();
-    // limpiarCampos();
+    QMessageBox::information(this,"Crear Campo","Llena la nueva fila al final de la tabla, con los datos requeridos, y luego darle al boton de confirmar");
+    ui->pushButtonConfirmar->setVisible(true);
+    ui->tableWidget->insertRow(ui->tableWidget->rowCount());
 }
+

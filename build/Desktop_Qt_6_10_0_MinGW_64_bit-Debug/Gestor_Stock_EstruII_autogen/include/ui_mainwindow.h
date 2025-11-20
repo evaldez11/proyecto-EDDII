@@ -15,12 +15,14 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStackedWidget>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -57,8 +59,11 @@ public:
     QVBoxLayout *verticalLayout_6;
     QLabel *label_3;
     QWidget *pg_Campos;
-    QVBoxLayout *verticalLayout_5;
-    QLabel *label_2;
+    QTableWidget *tableWidget;
+    QPushButton *pushButtonCrearCampo;
+    QPushButton *pushButtonModificarCampo;
+    QPushButton *pushButtonBorrarCampo;
+    QPushButton *pushButtonConfirmar;
     QMenuBar *menuBar;
     QMenu *menuArchivo;
 
@@ -66,7 +71,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(800, 600);
+        MainWindow->resize(1090, 591);
         QFont font;
         font.setFamilies({QString::fromUtf8("Verdana")});
         MainWindow->setFont(font);
@@ -252,16 +257,41 @@ public:
         stackedWidget->addWidget(pg_Registros);
         pg_Campos = new QWidget();
         pg_Campos->setObjectName("pg_Campos");
-        verticalLayout_5 = new QVBoxLayout(pg_Campos);
-        verticalLayout_5->setSpacing(0);
-        verticalLayout_5->setObjectName("verticalLayout_5");
-        verticalLayout_5->setContentsMargins(0, 0, 0, 0);
-        label_2 = new QLabel(pg_Campos);
-        label_2->setObjectName("label_2");
-        label_2->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        verticalLayout_5->addWidget(label_2);
-
+        tableWidget = new QTableWidget(pg_Campos);
+        if (tableWidget->columnCount() < 4)
+            tableWidget->setColumnCount(4);
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(2, __qtablewidgetitem2);
+        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(3, __qtablewidgetitem3);
+        tableWidget->setObjectName("tableWidget");
+        tableWidget->setGeometry(QRect(0, 0, 591, 421));
+        tableWidget->setMaximumSize(QSize(886, 536));
+        pushButtonCrearCampo = new QPushButton(pg_Campos);
+        pushButtonCrearCampo->setObjectName("pushButtonCrearCampo");
+        pushButtonCrearCampo->setGeometry(QRect(650, 120, 181, 51));
+        QIcon icon8(QIcon::fromTheme(QIcon::ThemeIcon::FolderNew));
+        pushButtonCrearCampo->setIcon(icon8);
+        pushButtonCrearCampo->setFlat(false);
+        pushButtonModificarCampo = new QPushButton(pg_Campos);
+        pushButtonModificarCampo->setObjectName("pushButtonModificarCampo");
+        pushButtonModificarCampo->setGeometry(QRect(650, 190, 181, 51));
+        pushButtonModificarCampo->setIcon(icon5);
+        pushButtonModificarCampo->setFlat(false);
+        pushButtonBorrarCampo = new QPushButton(pg_Campos);
+        pushButtonBorrarCampo->setObjectName("pushButtonBorrarCampo");
+        pushButtonBorrarCampo->setGeometry(QRect(650, 260, 181, 51));
+        QIcon icon9(QIcon::fromTheme(QIcon::ThemeIcon::EditDelete));
+        pushButtonBorrarCampo->setIcon(icon9);
+        pushButtonBorrarCampo->setFlat(false);
+        pushButtonConfirmar = new QPushButton(pg_Campos);
+        pushButtonConfirmar->setObjectName("pushButtonConfirmar");
+        pushButtonConfirmar->setGeometry(QRect(650, 370, 181, 51));
+        pushButtonConfirmar->setFlat(false);
         stackedWidget->addWidget(pg_Campos);
 
         verticalLayout_3->addWidget(stackedWidget);
@@ -278,7 +308,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName("menuBar");
-        menuBar->setGeometry(QRect(0, 0, 800, 16));
+        menuBar->setGeometry(QRect(0, 0, 1090, 16));
         menuBar->setMaximumSize(QSize(16777215, 16777215));
         QFont font2;
         font2.setFamilies({QString::fromUtf8("Verdana")});
@@ -286,7 +316,7 @@ public:
         menuBar->setFont(font2);
         menuArchivo = new QMenu(menuBar);
         menuArchivo->setObjectName("menuArchivo");
-        menuArchivo->setGeometry(QRect(356, 106, 110, 110));
+        menuArchivo->setGeometry(QRect(345, 102, 154, 152));
         QFont font3;
         font3.setPointSize(10);
         menuArchivo->setFont(font3);
@@ -320,7 +350,18 @@ public:
         pb_Indices->setText(QCoreApplication::translate("MainWindow", "Indices", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Indices segundo", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Registros", nullptr));
-        label_2->setText(QCoreApplication::translate("MainWindow", "Campos", nullptr));
+        QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
+        ___qtablewidgetitem->setText(QCoreApplication::translate("MainWindow", "Campo", nullptr));
+        QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
+        ___qtablewidgetitem1->setText(QCoreApplication::translate("MainWindow", "Tipo de Dato", nullptr));
+        QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(2);
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Longitud Estimada", nullptr));
+        QTableWidgetItem *___qtablewidgetitem3 = tableWidget->horizontalHeaderItem(3);
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "Tipo de Llave", nullptr));
+        pushButtonCrearCampo->setText(QCoreApplication::translate("MainWindow", "Crear Campo", nullptr));
+        pushButtonModificarCampo->setText(QCoreApplication::translate("MainWindow", "Modificar Campo", nullptr));
+        pushButtonBorrarCampo->setText(QCoreApplication::translate("MainWindow", "Borrar Campo", nullptr));
+        pushButtonConfirmar->setText(QCoreApplication::translate("MainWindow", "Confirmar", nullptr));
         menuArchivo->setTitle(QCoreApplication::translate("MainWindow", "Archivo", nullptr));
     } // retranslateUi
 

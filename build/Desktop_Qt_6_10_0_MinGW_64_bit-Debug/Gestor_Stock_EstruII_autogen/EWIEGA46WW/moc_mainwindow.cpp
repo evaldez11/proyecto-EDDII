@@ -44,10 +44,10 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "on_pb_Registros_clicked",
         "on_pb_Indices_clicked",
         "on_pb_Desplace_clicked",
-        "on_actionNuevoArchivo_triggered",
-        "on_actionAbrirArchivo_triggered",
-        "on_actionGuardarArchivo_triggered",
-        "on_actionCerrarArchivo_triggered"
+        "on_actionNuevo_Archivo_triggered",
+        "on_actionAbrir_Archivo_triggered",
+        "on_actionGuardar_Archivo_triggered",
+        "on_pushButtonCrearCampo_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -59,13 +59,13 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_pb_Desplace_clicked'
         QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_actionNuevoArchivo_triggered'
+        // Slot 'on_actionNuevo_Archivo_triggered'
         QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_actionAbrirArchivo_triggered'
+        // Slot 'on_actionAbrir_Archivo_triggered'
         QtMocHelpers::SlotData<void()>(7, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_actionGuardarArchivo_triggered'
+        // Slot 'on_actionGuardar_Archivo_triggered'
         QtMocHelpers::SlotData<void()>(8, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_actionCerrarArchivo_triggered'
+        // Slot 'on_pushButtonCrearCampo_clicked'
         QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
@@ -94,10 +94,10 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->on_pb_Registros_clicked(); break;
         case 2: _t->on_pb_Indices_clicked(); break;
         case 3: _t->on_pb_Desplace_clicked(); break;
-        case 4: _t->on_actionNuevoArchivo_triggered(); break;
-        case 5: _t->on_actionAbrirArchivo_triggered(); break;
-        case 6: _t->on_actionGuardarArchivo_triggered(); break;
-        case 7: _t->on_actionCerrarArchivo_triggered(); break;
+        case 4: _t->on_actionNuevo_Archivo_triggered(); break;
+        case 5: _t->on_actionAbrir_Archivo_triggered(); break;
+        case 6: _t->on_actionGuardar_Archivo_triggered(); break;
+        case 7: _t->on_pushButtonCrearCampo_clicked(); break;
         default: ;
         }
     }

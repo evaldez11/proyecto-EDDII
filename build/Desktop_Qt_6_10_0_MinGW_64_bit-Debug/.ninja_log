@@ -1,92 +1,83 @@
 # ninja log v6
-6	1197	7851473206969329	Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-6	1197	7851473206969329	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-6	1197	7851473206969329	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-6	1197	7851473206969329	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-1203	3078	7851473207687879	CMakeFiles/Gestor_Stock_EstruII.dir/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp.obj	80d23c773576a129
-1206	3084	7851473207732678	CMakeFiles/Gestor_Stock_EstruII.dir/main.cpp.obj	b6727dae4c81d438
-1209	3276	7851473207757861	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	77b6e31c1fa4b726
-3276	3544	7851473228435983	Gestor_Stock_EstruII.exe	eff0b5557c059e03
-29	764	7851482131545793	Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-29	764	7851482131545793	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-29	764	7851482131545793	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-29	764	7851482131545793	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-767	3215	7851482132368483	CMakeFiles/Gestor_Stock_EstruII.dir/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp.obj	80d23c773576a129
-771	3221	7851482132408729	CMakeFiles/Gestor_Stock_EstruII.dir/main.cpp.obj	b6727dae4c81d438
-775	3289	7851482132457675	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	77b6e31c1fa4b726
-3289	3517	7851482157595215	Gestor_Stock_EstruII.exe	eff0b5557c059e03
-38	670	7851488480439070	Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-38	670	7851488480439070	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-38	670	7851488480439070	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-38	670	7851488480439070	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-673	2898	7851488481291434	CMakeFiles/Gestor_Stock_EstruII.dir/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp.obj	80d23c773576a129
-677	2901	7851488481336956	CMakeFiles/Gestor_Stock_EstruII.dir/main.cpp.obj	b6727dae4c81d438
-681	3041	7851488481370099	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	77b6e31c1fa4b726
-3041	3237	7851488504969691	Gestor_Stock_EstruII.exe	eff0b5557c059e03
-29	151	7851489616651584	Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-29	151	7851489616651584	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-29	151	7851489616651584	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-29	151	7851489616651584	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-155	1876	7851489617912170	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	77b6e31c1fa4b726
-39	213	7851489752576913	Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-39	213	7851489752576913	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-39	213	7851489752576913	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-39	213	7851489752576913	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-213	2077	7851489754329490	CMakeFiles/Gestor_Stock_EstruII.dir/main.cpp.obj	b6727dae4c81d438
-218	2304	7851489754366259	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	77b6e31c1fa4b726
-2305	2484	7851489775236163	Gestor_Stock_EstruII.exe	eff0b5557c059e03
-32	219	7851492884011195	Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-32	219	7851492884011195	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-32	219	7851492884011195	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-32	219	7851492884011195	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-221	1899	7851492885897461	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	77b6e31c1fa4b726
-1900	2091	7851492902687059	Gestor_Stock_EstruII.exe	eff0b5557c059e03
-33	200	7851493707258986	Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-33	200	7851493707258986	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-33	200	7851493707258986	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-33	200	7851493707258986	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-201	1838	7851493708901088	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	77b6e31c1fa4b726
-1838	2020	7851493725270751	Gestor_Stock_EstruII.exe	eff0b5557c059e03
-34	619	7851495607971832	Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-34	619	7851495607971832	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-34	619	7851495607971832	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-34	619	7851495607971832	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-621	2515	7851495608751650	CMakeFiles/Gestor_Stock_EstruII.dir/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp.obj	80d23c773576a129
-624	2516	7851495608782770	CMakeFiles/Gestor_Stock_EstruII.dir/main.cpp.obj	b6727dae4c81d438
-628	2735	7851495608827622	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	77b6e31c1fa4b726
-33	176	7851496344881659	Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-33	176	7851496344881659	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-33	176	7851496344881659	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-33	176	7851496344881659	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-177	2068	7851496346314572	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	77b6e31c1fa4b726
-2068	2268	7851496365231819	Gestor_Stock_EstruII.exe	eff0b5557c059e03
-27	173	7851496760936716	Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-27	173	7851496760936716	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-27	173	7851496760936716	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-27	173	7851496760936716	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-174	1696	7851496762418003	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	77b6e31c1fa4b726
-1696	1853	7851496777630414	Gestor_Stock_EstruII.exe	eff0b5557c059e03
-29	182	7851497106169060	Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-29	182	7851497106169060	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-29	182	7851497106169060	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-29	182	7851497106169060	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-183	1964	7851497107714290	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	77b6e31c1fa4b726
-1964	2196	7851497125522195	Gestor_Stock_EstruII.exe	eff0b5557c059e03
-29	174	7851497209140462	Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-29	174	7851497209140462	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-29	174	7851497209140462	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-29	174	7851497209140462	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-175	2103	7851497210593413	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	77b6e31c1fa4b726
-2103	2299	7851497229881744	Gestor_Stock_EstruII.exe	eff0b5557c059e03
-31	176	7851497313361322	Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-31	176	7851497313361322	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-31	176	7851497313361322	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-31	176	7851497313361322	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-176	1977	7851497314822270	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	77b6e31c1fa4b726
-1977	2156	7851497332835796	Gestor_Stock_EstruII.exe	eff0b5557c059e03
-33	174	7851497620413978	Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-33	174	7851497620413978	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-33	174	7851497620413978	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	20e6d4cdec40a8c6
-33	174	7851497620413978	C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	20e6d4cdec40a8c6
-175	1827	7851497621828801	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	77b6e31c1fa4b726
-1827	1997	7851497638347737	Gestor_Stock_EstruII.exe	eff0b5557c059e03
+68	1066	7853149178447693	Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+68	1066	7853149178447693	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+68	1066	7853149178447693	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+1067	5903	7853149179353762	CMakeFiles/Gestor_Stock_EstruII.dir/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp.obj	8a0f380f5b0988a6
+1071	6068	7853149179383812	CMakeFiles/Gestor_Stock_EstruII.dir/main.cpp.obj	ba9c3b772664fb32
+1074	7251	7853149179413751	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	371c5d85c033a577
+7252	7583	7853149241199687	Gestor_Stock_EstruII.exe	eff0b5557c059e03
+68	1066	7853149178447693	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+107	463	7853150911044092	Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+107	463	7853150911044092	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+107	463	7853150911044092	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+107	463	7853150911044092	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+465	7897	7853150914622056	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	371c5d85c033a577
+7898	8246	7853150988951596	Gestor_Stock_EstruII.exe	eff0b5557c059e03
+109	525	7853151281155478	Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+109	525	7853151281155478	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+109	525	7853151281155478	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+109	525	7853151281155478	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+528	6984	7853151285343582	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	371c5d85c033a577
+6985	7393	7853151349900780	Gestor_Stock_EstruII.exe	eff0b5557c059e03
+53	322	7853155026838774	Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+53	322	7853155026838774	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+53	322	7853155026838774	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+53	322	7853155026838774	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+324	4426	7853155029546405	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	371c5d85c033a577
+4427	4735	7853155070575020	Gestor_Stock_EstruII.exe	eff0b5557c059e03
+14	260	7853156833793198	Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+14	260	7853156833793198	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+14	260	7853156833793198	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+14	260	7853156833793198	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+261	4624	7853156836264843	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	371c5d85c033a577
+4624	4907	7853156879890666	Gestor_Stock_EstruII.exe	eff0b5557c059e03
+65	439	7853157292406930	Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+65	439	7853157292406930	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+65	439	7853157292406930	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+65	439	7853157292406930	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+440	5414	7853157296153126	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	371c5d85c033a577
+5414	5712	7853157345896318	Gestor_Stock_EstruII.exe	eff0b5557c059e03
+59	299	7853158583456987	Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+59	299	7853158583456987	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+59	299	7853158583456987	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+59	299	7853158583456987	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+300	4440	7853158585857772	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	371c5d85c033a577
+4440	4742	7853158627260606	Gestor_Stock_EstruII.exe	eff0b5557c059e03
+67	308	7853159584141768	Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+67	308	7853159584141768	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+67	308	7853159584141768	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+67	308	7853159584141768	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+309	4283	7853159586554650	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	371c5d85c033a577
+4283	4564	7853159626295350	Gestor_Stock_EstruII.exe	eff0b5557c059e03
+75	409	7853160059762536	Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+75	409	7853160059762536	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+75	409	7853160059762536	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+75	409	7853160059762536	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+410	5225	7853160063114392	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	371c5d85c033a577
+5225	5530	7853160111265470	Gestor_Stock_EstruII.exe	eff0b5557c059e03
+65	315	7853160762556710	Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+65	315	7853160762556710	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+65	315	7853160762556710	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+65	315	7853160762556710	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+316	4610	7853160765063714	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	371c5d85c033a577
+4610	4911	7853160808004536	Gestor_Stock_EstruII.exe	eff0b5557c059e03
+48	269	7853161608768086	Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+48	269	7853161608768086	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+48	269	7853161608768086	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+48	269	7853161608768086	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+270	4345	7853161610989231	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	371c5d85c033a577
+4345	4640	7853161651733775	Gestor_Stock_EstruII.exe	eff0b5557c059e03
+79	1485	7853163704138698	Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+79	1485	7853163704138698	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+79	1485	7853163704138698	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+79	1485	7853163704138698	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+1487	7530	7853163706081335	CMakeFiles/Gestor_Stock_EstruII.dir/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp.obj	8a0f380f5b0988a6
+1495	7681	7853163706151345	CMakeFiles/Gestor_Stock_EstruII.dir/main.cpp.obj	ba9c3b772664fb32
+1504	8874	7853163706251337	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	371c5d85c033a577
+8874	9232	7853163779940497	Gestor_Stock_EstruII.exe	eff0b5557c059e03
+62	466	7853164730378114	Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+62	466	7853164730378114	Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+62	466	7853164730378114	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/timestamp	9fb8401402d5f748
+62	466	7853164730378114	C:/Users/gualo/Documents/proyecto Estru/proyecto-EDDII/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp	9fb8401402d5f748
+468	7021	7853164734441243	CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj	371c5d85c033a577
+7021	7332	7853164799966518	Gestor_Stock_EstruII.exe	eff0b5557c059e03

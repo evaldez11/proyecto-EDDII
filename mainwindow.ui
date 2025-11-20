@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1090</width>
+    <height>591</height>
    </rect>
   </property>
   <property name="font">
@@ -397,33 +397,115 @@ background: #0070A1;
                 </layout>
                </widget>
                <widget class="QWidget" name="pg_Campos">
-                <layout class="QVBoxLayout" name="verticalLayout_5">
-                 <property name="spacing">
-                  <number>0</number>
+                <widget class="QTableWidget" name="tableWidget">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>591</width>
+                   <height>421</height>
+                  </rect>
                  </property>
-                 <property name="leftMargin">
-                  <number>0</number>
+                 <property name="maximumSize">
+                  <size>
+                   <width>886</width>
+                   <height>536</height>
+                  </size>
                  </property>
-                 <property name="topMargin">
-                  <number>0</number>
+                 <column>
+                  <property name="text">
+                   <string>Campo</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>Tipo de Dato</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>Longitud Estimada</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>Tipo de Llave</string>
+                  </property>
+                 </column>
+                </widget>
+                <widget class="QPushButton" name="pushButtonCrearCampo">
+                 <property name="geometry">
+                  <rect>
+                   <x>650</x>
+                   <y>120</y>
+                   <width>181</width>
+                   <height>51</height>
+                  </rect>
                  </property>
-                 <property name="rightMargin">
-                  <number>0</number>
+                 <property name="text">
+                  <string>Crear Campo</string>
                  </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
+                 <property name="icon">
+                  <iconset theme="QIcon::ThemeIcon::FolderNew"/>
                  </property>
-                 <item>
-                  <widget class="QLabel" name="label_2">
-                   <property name="text">
-                    <string>Campos</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignmentFlag::AlignCenter</set>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
+                 <property name="flat">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+                <widget class="QPushButton" name="pushButtonModificarCampo">
+                 <property name="geometry">
+                  <rect>
+                   <x>650</x>
+                   <y>190</y>
+                   <width>181</width>
+                   <height>51</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>Modificar Campo</string>
+                 </property>
+                 <property name="icon">
+                  <iconset theme="QIcon::ThemeIcon::DocumentProperties"/>
+                 </property>
+                 <property name="flat">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+                <widget class="QPushButton" name="pushButtonBorrarCampo">
+                 <property name="geometry">
+                  <rect>
+                   <x>650</x>
+                   <y>260</y>
+                   <width>181</width>
+                   <height>51</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>Borrar Campo</string>
+                 </property>
+                 <property name="icon">
+                  <iconset theme="QIcon::ThemeIcon::EditDelete"/>
+                 </property>
+                 <property name="flat">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+                <widget class="QPushButton" name="pushButtonConfirmar">
+                 <property name="geometry">
+                  <rect>
+                   <x>650</x>
+                   <y>370</y>
+                   <width>181</width>
+                   <height>51</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>Confirmar</string>
+                 </property>
+                 <property name="flat">
+                  <bool>false</bool>
+                 </property>
+                </widget>
                </widget>
               </widget>
              </item>
@@ -443,7 +525,7 @@ background: #0070A1;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1090</width>
      <height>16</height>
     </rect>
    </property>
@@ -462,10 +544,10 @@ background: #0070A1;
    <widget class="QMenu" name="menuArchivo">
     <property name="geometry">
      <rect>
-      <x>356</x>
-      <y>106</y>
-      <width>110</width>
-      <height>110</height>
+      <x>345</x>
+      <y>102</y>
+      <width>154</width>
+      <height>152</height>
      </rect>
     </property>
     <property name="font">
