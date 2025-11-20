@@ -232,6 +232,12 @@ background: #0070A1;
                   <height>30</height>
                  </size>
                 </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+                <property name="autoExclusive">
+                 <bool>true</bool>
+                </property>
                </widget>
                <widget class="QPushButton" name="pb_Registros">
                 <property name="geometry">
@@ -275,14 +281,20 @@ background: #0070A1;
                   <height>30</height>
                  </size>
                 </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+                <property name="autoExclusive">
+                 <bool>true</bool>
+                </property>
                </widget>
                <widget class="QPushButton" name="pb_Indices">
                 <property name="geometry">
                  <rect>
                   <x>0</x>
-                  <y>250</y>
+                  <y>259</y>
                   <width>180</width>
-                  <height>50</height>
+                  <height>41</height>
                  </rect>
                 </property>
                 <property name="font">
@@ -318,6 +330,12 @@ background: #0070A1;
                   <height>30</height>
                  </size>
                 </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+                <property name="autoExclusive">
+                 <bool>true</bool>
+                </property>
                </widget>
               </widget>
              </item>
@@ -326,6 +344,11 @@ background: #0070A1;
           </item>
           <item>
            <widget class="QFrame" name="frame_4">
+            <property name="styleSheet">
+             <string notr="true">QFrame{
+background: #FFFFFF;
+}</string>
+            </property>
             <property name="frameShape">
              <enum>QFrame::Shape::StyledPanel</enum>
             </property>
@@ -333,6 +356,21 @@ background: #0070A1;
              <enum>QFrame::Shadow::Raised</enum>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_3">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
              <item>
               <widget class="QStackedWidget" name="stackedWidget">
                <property name="currentIndex">
@@ -397,115 +435,321 @@ background: #0070A1;
                 </layout>
                </widget>
                <widget class="QWidget" name="pg_Campos">
-                <widget class="QTableWidget" name="tableWidget">
-                 <property name="geometry">
-                  <rect>
-                   <x>0</x>
-                   <y>0</y>
-                   <width>591</width>
-                   <height>421</height>
-                  </rect>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>886</width>
-                   <height>536</height>
-                  </size>
-                 </property>
-                 <column>
-                  <property name="text">
-                   <string>Campo</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>Tipo de Dato</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>Longitud Estimada</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>Tipo de Llave</string>
-                  </property>
-                 </column>
-                </widget>
-                <widget class="QPushButton" name="pushButtonCrearCampo">
-                 <property name="geometry">
-                  <rect>
-                   <x>650</x>
-                   <y>120</y>
-                   <width>181</width>
-                   <height>51</height>
-                  </rect>
-                 </property>
-                 <property name="text">
-                  <string>Crear Campo</string>
-                 </property>
-                 <property name="icon">
-                  <iconset theme="QIcon::ThemeIcon::FolderNew"/>
-                 </property>
-                 <property name="flat">
-                  <bool>false</bool>
-                 </property>
-                </widget>
-                <widget class="QPushButton" name="pushButtonModificarCampo">
-                 <property name="geometry">
-                  <rect>
-                   <x>650</x>
-                   <y>190</y>
-                   <width>181</width>
-                   <height>51</height>
-                  </rect>
-                 </property>
-                 <property name="text">
-                  <string>Modificar Campo</string>
-                 </property>
-                 <property name="icon">
-                  <iconset theme="QIcon::ThemeIcon::DocumentProperties"/>
-                 </property>
-                 <property name="flat">
-                  <bool>false</bool>
-                 </property>
-                </widget>
-                <widget class="QPushButton" name="pushButtonBorrarCampo">
-                 <property name="geometry">
-                  <rect>
-                   <x>650</x>
-                   <y>260</y>
-                   <width>181</width>
-                   <height>51</height>
-                  </rect>
-                 </property>
-                 <property name="text">
-                  <string>Borrar Campo</string>
-                 </property>
-                 <property name="icon">
-                  <iconset theme="QIcon::ThemeIcon::EditDelete"/>
-                 </property>
-                 <property name="flat">
-                  <bool>false</bool>
-                 </property>
-                </widget>
-                <widget class="QPushButton" name="pushButtonConfirmar">
-                 <property name="geometry">
-                  <rect>
-                   <x>650</x>
-                   <y>370</y>
-                   <width>181</width>
-                   <height>51</height>
-                  </rect>
-                 </property>
-                 <property name="text">
-                  <string>Confirmar</string>
-                 </property>
-                 <property name="flat">
-                  <bool>false</bool>
-                 </property>
-                </widget>
+                <layout class="QHBoxLayout" name="horizontalLayout_3">
+                 <item>
+                  <widget class="QFrame" name="frame_3">
+                   <property name="frameShape">
+                    <enum>QFrame::Shape::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Shadow::Raised</enum>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_5">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QTableWidget" name="tableWidget">
+                      <property name="maximumSize">
+                       <size>
+                        <width>886</width>
+                        <height>536</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QTableWidget {
+    background-color: #ffffff;
+    border: none;
+    gridline-color: #d0d0d0;
+    font-size: 14px;
+    color: #2f2f2f;
+    selection-background-color: #009fe3;   /* azul corporativo */
+    selection-color: white;
+}
+
+QHeaderView::section {
+    background-color: #009fe3;      /* azul */
+    color: white;
+    padding: 6px;
+    border: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+QTableCornerButton::section {
+    background-color: #009fe3;
+}
+
+QTableWidget QTableView {
+    outline: 0; 
+}
+
+QScrollBar:vertical {
+    width: 10px;
+    background: #e0e0e0;
+}
+
+QScrollBar::handle:vertical {
+    background: #009fe3;
+    border-radius: 5px;
+}
+
+QScrollBar::add-line,
+QScrollBar::sub-line {
+    height: 0px;
+}</string>
+                      </property>
+                      <property name="frameShape">
+                       <enum>QFrame::Shape::WinPanel</enum>
+                      </property>
+                      <column>
+                       <property name="text">
+                        <string>Campo</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Tipo de Dato</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Longitud Estimada</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Tipo de Llave</string>
+                       </property>
+                      </column>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QFrame" name="frame_7">
+                      <property name="styleSheet">
+                       <string notr="true">QFrame{
+background: #00A2E8;
+}</string>
+                      </property>
+                      <property name="frameShape">
+                       <enum>QFrame::Shape::NoFrame</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Shadow::Raised</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="frame_6">
+                   <property name="styleSheet">
+                    <string notr="true">QFrame{
+background: #00A2E8;
+}</string>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::Shape::NoFrame</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Shadow::Raised</enum>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_7">
+                    <item>
+                     <widget class="QPushButton" name="pushButtonCrearCampo">
+                      <property name="font">
+                       <font>
+                        <family>Verdana</family>
+                        <pointsize>10</pointsize>
+                       </font>
+                      </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+background: transparent;
+color: #fff;
+border: none;
+padding: 10px;
+text-align: left;
+}
+QPushButton:Hover{
+background: #0070A1;
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>Crear Campo</string>
+                      </property>
+                      <property name="icon">
+                       <iconset theme="QIcon::ThemeIcon::FolderNew"/>
+                      </property>
+                      <property name="checkable">
+                       <bool>true</bool>
+                      </property>
+                      <property name="checked">
+                       <bool>true</bool>
+                      </property>
+                      <property name="autoExclusive">
+                       <bool>true</bool>
+                      </property>
+                      <property name="flat">
+                       <bool>false</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButtonModificarCampo">
+                      <property name="font">
+                       <font>
+                        <family>Verdana</family>
+                        <pointsize>10</pointsize>
+                       </font>
+                      </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+background: transparent;
+color: #fff;
+border: none;
+padding: 10px;
+text-align: left;
+}
+QPushButton:Hover{
+background: #0070A1;
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>Modificar Campo</string>
+                      </property>
+                      <property name="icon">
+                       <iconset theme="QIcon::ThemeIcon::DocumentProperties"/>
+                      </property>
+                      <property name="checkable">
+                       <bool>true</bool>
+                      </property>
+                      <property name="checked">
+                       <bool>false</bool>
+                      </property>
+                      <property name="autoExclusive">
+                       <bool>true</bool>
+                      </property>
+                      <property name="flat">
+                       <bool>false</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButtonBorrarCampo">
+                      <property name="font">
+                       <font>
+                        <family>Verdana</family>
+                        <pointsize>10</pointsize>
+                       </font>
+                      </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+background: transparent;
+color: #fff;
+border: none;
+padding: 10px;
+text-align: left;
+}
+QPushButton:Hover{
+background: #0070A1;
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>Borrar Campo</string>
+                      </property>
+                      <property name="icon">
+                       <iconset theme="QIcon::ThemeIcon::EditDelete"/>
+                      </property>
+                      <property name="checkable">
+                       <bool>true</bool>
+                      </property>
+                      <property name="checked">
+                       <bool>false</bool>
+                      </property>
+                      <property name="autoExclusive">
+                       <bool>true</bool>
+                      </property>
+                      <property name="flat">
+                       <bool>false</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButtonConfirmar">
+                      <property name="font">
+                       <font>
+                        <family>Verdana</family>
+                        <pointsize>10</pointsize>
+                       </font>
+                      </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton {
+    background: transparent;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Hover */
+QPushButton:hover:enabled {
+    background: #0070A1;
+}
+
+/* Estado deshabilitado — elegante */
+QPushButton:disabled {
+    background:  #00A2E8;   /* un brillo leve */
+    color: rgba(255, 255, 255, 120);         /* texto blanco apagado */
+    border: none;
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>Confirmar</string>
+                      </property>
+                      <property name="icon">
+                       <iconset theme="QIcon::ThemeIcon::AppointmentNew"/>
+                      </property>
+                      <property name="checkable">
+                       <bool>true</bool>
+                      </property>
+                      <property name="autoExclusive">
+                       <bool>true</bool>
+                      </property>
+                      <property name="flat">
+                       <bool>false</bool>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
                </widget>
               </widget>
              </item>
@@ -546,12 +790,13 @@ background: #0070A1;
      <rect>
       <x>345</x>
       <y>102</y>
-      <width>154</width>
-      <height>152</height>
+      <width>164</width>
+      <height>146</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>Verdana</family>
       <pointsize>10</pointsize>
      </font>
     </property>

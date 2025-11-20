@@ -17,10 +17,22 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    //Font usado para mantener formato
+    QFont fuente("Segoe UI", 10);
+    QApplication::setFont(fuente);
+
     ui->setupUi(this);
     ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    ui->pushButtonConfirmar->setVisible(false);
+    //Deshabilitar boton de confirmar Campos
+    ui->pushButtonConfirmar->setEnabled(false);
 
+    ui->tableWidget->setAlternatingRowColors(true);
+    ui->tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->tableWidget->setEditTriggers(QAbstractItemView::DoubleClicked);
+
+    ui->tableWidget->horizontalHeader()->setStretchLastSection(true);
+    ui->tableWidget->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft | Qt::AlignVCenter);
 
 }
 
@@ -82,9 +94,6 @@ void MainWindow::on_pb_Desplace_clicked()
     animacion->start(QAbstractAnimation::DeleteWhenStopped);
 }
 
-
-
-
 void MainWindow::cerrarArchivo(){
     if (file.isOpen()){
         file.close();
@@ -93,6 +102,7 @@ void MainWindow::cerrarArchivo(){
     archivo.clear();
     QMessageBox::information(this, "Archivo cerrado","Se cerro correctamente el archivo:\n" + archivo);
 }
+
 void MainWindow::on_actionNuevo_Archivo_triggered()
 {
 
@@ -169,7 +179,8 @@ void MainWindow::on_actionGuardar_Archivo_triggered()
 void MainWindow::on_pushButtonCrearCampo_clicked()
 {
     QMessageBox::information(this,"Crear Campo","Llena la nueva fila al final de la tabla, con los datos requeridos, y luego darle al boton de confirmar");
-    ui->pushButtonConfirmar->setVisible(true);
+    //Reactivo el boton de "confirmar" para guardar cambios
+    ui->pushButtonConfirmar->setEnabled(true);
     ui->tableWidget->insertRow(ui->tableWidget->rowCount());
 }
 

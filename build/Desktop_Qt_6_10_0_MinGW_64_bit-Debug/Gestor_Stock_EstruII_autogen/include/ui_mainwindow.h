@@ -59,7 +59,13 @@ public:
     QVBoxLayout *verticalLayout_6;
     QLabel *label_3;
     QWidget *pg_Campos;
+    QHBoxLayout *horizontalLayout_3;
+    QFrame *frame_3;
+    QVBoxLayout *verticalLayout_5;
     QTableWidget *tableWidget;
+    QFrame *frame_7;
+    QFrame *frame_6;
+    QVBoxLayout *verticalLayout_7;
     QPushButton *pushButtonCrearCampo;
     QPushButton *pushButtonModificarCampo;
     QPushButton *pushButtonBorrarCampo;
@@ -179,6 +185,8 @@ public:
         QIcon icon5(QIcon::fromTheme(QIcon::ThemeIcon::DocumentProperties));
         pb_Campos->setIcon(icon5);
         pb_Campos->setIconSize(QSize(30, 30));
+        pb_Campos->setCheckable(true);
+        pb_Campos->setAutoExclusive(true);
         pb_Registros = new QPushButton(SubmenuIzquierdo);
         pb_Registros->setObjectName("pb_Registros");
         pb_Registros->setGeometry(QRect(0, 180, 180, 50));
@@ -197,9 +205,11 @@ public:
         QIcon icon6(QIcon::fromTheme(QIcon::ThemeIcon::FolderOpen));
         pb_Registros->setIcon(icon6);
         pb_Registros->setIconSize(QSize(30, 30));
+        pb_Registros->setCheckable(true);
+        pb_Registros->setAutoExclusive(true);
         pb_Indices = new QPushButton(SubmenuIzquierdo);
         pb_Indices->setObjectName("pb_Indices");
-        pb_Indices->setGeometry(QRect(0, 250, 180, 50));
+        pb_Indices->setGeometry(QRect(0, 259, 180, 41));
         pb_Indices->setFont(font1);
         pb_Indices->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
         pb_Indices->setStyleSheet(QString::fromUtf8("QPushButton{\n"
@@ -215,6 +225,8 @@ public:
         QIcon icon7(QIcon::fromTheme(QIcon::ThemeIcon::SystemSearch));
         pb_Indices->setIcon(icon7);
         pb_Indices->setIconSize(QSize(30, 30));
+        pb_Indices->setCheckable(true);
+        pb_Indices->setAutoExclusive(true);
 
         verticalLayout_2->addWidget(SubmenuIzquierdo);
 
@@ -223,10 +235,15 @@ public:
 
         frame_4 = new QFrame(frame_2);
         frame_4->setObjectName("frame_4");
+        frame_4->setStyleSheet(QString::fromUtf8("QFrame{\n"
+"background: #FFFFFF;\n"
+"}"));
         frame_4->setFrameShape(QFrame::Shape::StyledPanel);
         frame_4->setFrameShadow(QFrame::Shadow::Raised);
         verticalLayout_3 = new QVBoxLayout(frame_4);
+        verticalLayout_3->setSpacing(0);
         verticalLayout_3->setObjectName("verticalLayout_3");
+        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
         stackedWidget = new QStackedWidget(frame_4);
         stackedWidget->setObjectName("stackedWidget");
         pg_Indices = new QWidget();
@@ -257,7 +274,17 @@ public:
         stackedWidget->addWidget(pg_Registros);
         pg_Campos = new QWidget();
         pg_Campos->setObjectName("pg_Campos");
-        tableWidget = new QTableWidget(pg_Campos);
+        horizontalLayout_3 = new QHBoxLayout(pg_Campos);
+        horizontalLayout_3->setObjectName("horizontalLayout_3");
+        frame_3 = new QFrame(pg_Campos);
+        frame_3->setObjectName("frame_3");
+        frame_3->setFrameShape(QFrame::Shape::StyledPanel);
+        frame_3->setFrameShadow(QFrame::Shadow::Raised);
+        verticalLayout_5 = new QVBoxLayout(frame_3);
+        verticalLayout_5->setSpacing(0);
+        verticalLayout_5->setObjectName("verticalLayout_5");
+        verticalLayout_5->setContentsMargins(0, 0, 0, 0);
+        tableWidget = new QTableWidget(frame_3);
         if (tableWidget->columnCount() < 4)
             tableWidget->setColumnCount(4);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
@@ -269,29 +296,176 @@ public:
         QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(3, __qtablewidgetitem3);
         tableWidget->setObjectName("tableWidget");
-        tableWidget->setGeometry(QRect(0, 0, 591, 421));
         tableWidget->setMaximumSize(QSize(886, 536));
-        pushButtonCrearCampo = new QPushButton(pg_Campos);
+        tableWidget->setStyleSheet(QString::fromUtf8("QTableWidget {\n"
+"    background-color: #ffffff;\n"
+"    border: none;\n"
+"    gridline-color: #d0d0d0;\n"
+"    font-size: 14px;\n"
+"    color: #2f2f2f;\n"
+"    selection-background-color: #009fe3;   /* azul corporativo */\n"
+"    selection-color: white;\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: #009fe3;      /* azul */\n"
+"    color: white;\n"
+"    padding: 6px;\n"
+"    border: none;\n"
+"    font-weight: bold;\n"
+"    font-size: 14px;\n"
+"}\n"
+"\n"
+"QTableCornerButton::section {\n"
+"    background-color: #009fe3;\n"
+"}\n"
+"\n"
+"QTableWidget QTableView {\n"
+"    outline: 0; \n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    width: 10px;\n"
+"    background: #e0e0e0;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical {\n"
+"    background: #009fe3;\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QScrollBar::add-line,\n"
+"QScrollBar::sub-line {\n"
+"    height: 0px;\n"
+"}"));
+        tableWidget->setFrameShape(QFrame::Shape::WinPanel);
+
+        verticalLayout_5->addWidget(tableWidget);
+
+        frame_7 = new QFrame(frame_3);
+        frame_7->setObjectName("frame_7");
+        frame_7->setStyleSheet(QString::fromUtf8("QFrame{\n"
+"background: #00A2E8;\n"
+"}"));
+        frame_7->setFrameShape(QFrame::Shape::NoFrame);
+        frame_7->setFrameShadow(QFrame::Shadow::Raised);
+
+        verticalLayout_5->addWidget(frame_7);
+
+
+        horizontalLayout_3->addWidget(frame_3);
+
+        frame_6 = new QFrame(pg_Campos);
+        frame_6->setObjectName("frame_6");
+        frame_6->setStyleSheet(QString::fromUtf8("QFrame{\n"
+"background: #00A2E8;\n"
+"}"));
+        frame_6->setFrameShape(QFrame::Shape::NoFrame);
+        frame_6->setFrameShadow(QFrame::Shadow::Raised);
+        verticalLayout_7 = new QVBoxLayout(frame_6);
+        verticalLayout_7->setObjectName("verticalLayout_7");
+        pushButtonCrearCampo = new QPushButton(frame_6);
         pushButtonCrearCampo->setObjectName("pushButtonCrearCampo");
-        pushButtonCrearCampo->setGeometry(QRect(650, 120, 181, 51));
+        pushButtonCrearCampo->setFont(font1);
+        pushButtonCrearCampo->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
+        pushButtonCrearCampo->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"background: transparent;\n"
+"color: #fff;\n"
+"border: none;\n"
+"padding: 10px;\n"
+"text-align: left;\n"
+"}\n"
+"QPushButton:Hover{\n"
+"background: #0070A1;\n"
+"}"));
         QIcon icon8(QIcon::fromTheme(QIcon::ThemeIcon::FolderNew));
         pushButtonCrearCampo->setIcon(icon8);
+        pushButtonCrearCampo->setCheckable(true);
+        pushButtonCrearCampo->setChecked(true);
+        pushButtonCrearCampo->setAutoExclusive(true);
         pushButtonCrearCampo->setFlat(false);
-        pushButtonModificarCampo = new QPushButton(pg_Campos);
+
+        verticalLayout_7->addWidget(pushButtonCrearCampo);
+
+        pushButtonModificarCampo = new QPushButton(frame_6);
         pushButtonModificarCampo->setObjectName("pushButtonModificarCampo");
-        pushButtonModificarCampo->setGeometry(QRect(650, 190, 181, 51));
+        pushButtonModificarCampo->setFont(font1);
+        pushButtonModificarCampo->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
+        pushButtonModificarCampo->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"background: transparent;\n"
+"color: #fff;\n"
+"border: none;\n"
+"padding: 10px;\n"
+"text-align: left;\n"
+"}\n"
+"QPushButton:Hover{\n"
+"background: #0070A1;\n"
+"}"));
         pushButtonModificarCampo->setIcon(icon5);
+        pushButtonModificarCampo->setCheckable(true);
+        pushButtonModificarCampo->setChecked(false);
+        pushButtonModificarCampo->setAutoExclusive(true);
         pushButtonModificarCampo->setFlat(false);
-        pushButtonBorrarCampo = new QPushButton(pg_Campos);
+
+        verticalLayout_7->addWidget(pushButtonModificarCampo);
+
+        pushButtonBorrarCampo = new QPushButton(frame_6);
         pushButtonBorrarCampo->setObjectName("pushButtonBorrarCampo");
-        pushButtonBorrarCampo->setGeometry(QRect(650, 260, 181, 51));
+        pushButtonBorrarCampo->setFont(font1);
+        pushButtonBorrarCampo->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
+        pushButtonBorrarCampo->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"background: transparent;\n"
+"color: #fff;\n"
+"border: none;\n"
+"padding: 10px;\n"
+"text-align: left;\n"
+"}\n"
+"QPushButton:Hover{\n"
+"background: #0070A1;\n"
+"}"));
         QIcon icon9(QIcon::fromTheme(QIcon::ThemeIcon::EditDelete));
         pushButtonBorrarCampo->setIcon(icon9);
+        pushButtonBorrarCampo->setCheckable(true);
+        pushButtonBorrarCampo->setChecked(false);
+        pushButtonBorrarCampo->setAutoExclusive(true);
         pushButtonBorrarCampo->setFlat(false);
-        pushButtonConfirmar = new QPushButton(pg_Campos);
+
+        verticalLayout_7->addWidget(pushButtonBorrarCampo);
+
+        pushButtonConfirmar = new QPushButton(frame_6);
         pushButtonConfirmar->setObjectName("pushButtonConfirmar");
-        pushButtonConfirmar->setGeometry(QRect(650, 370, 181, 51));
+        pushButtonConfirmar->setFont(font1);
+        pushButtonConfirmar->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
+        pushButtonConfirmar->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background: transparent;\n"
+"    color: #ffffff;\n"
+"    border: none;\n"
+"    padding: 10px;\n"
+"    text-align: left;\n"
+"}\n"
+"\n"
+"/* Hover */\n"
+"QPushButton:hover:enabled {\n"
+"    background: #0070A1;\n"
+"}\n"
+"\n"
+"/* Estado deshabilitado \342\200\224 elegante */\n"
+"QPushButton:disabled {\n"
+"    background:  #00A2E8;   /* un brillo leve */\n"
+"    color: rgba(255, 255, 255, 120);         /* texto blanco apagado */\n"
+"    border: none;\n"
+"}"));
+        QIcon icon10(QIcon::fromTheme(QIcon::ThemeIcon::AppointmentNew));
+        pushButtonConfirmar->setIcon(icon10);
+        pushButtonConfirmar->setCheckable(true);
+        pushButtonConfirmar->setAutoExclusive(true);
         pushButtonConfirmar->setFlat(false);
+
+        verticalLayout_7->addWidget(pushButtonConfirmar);
+
+
+        horizontalLayout_3->addWidget(frame_6);
+
         stackedWidget->addWidget(pg_Campos);
 
         verticalLayout_3->addWidget(stackedWidget);
@@ -316,10 +490,8 @@ public:
         menuBar->setFont(font2);
         menuArchivo = new QMenu(menuBar);
         menuArchivo->setObjectName("menuArchivo");
-        menuArchivo->setGeometry(QRect(345, 102, 154, 152));
-        QFont font3;
-        font3.setPointSize(10);
-        menuArchivo->setFont(font3);
+        menuArchivo->setGeometry(QRect(345, 102, 164, 146));
+        menuArchivo->setFont(font1);
         MainWindow->setMenuBar(menuBar);
 
         menuBar->addAction(menuArchivo->menuAction());
