@@ -6,7 +6,8 @@
 #include <QAbstractAnimation>
 #include <QFileDialog>
 #include <QMessageBox>
-
+#include <string>
+using namespace std;
 QString archivo;
 bool archivoGuardado = false;
 QString metaData;
@@ -29,10 +30,17 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableWidget->setAlternatingRowColors(true);
     ui->tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);
-    ui->tableWidget->setEditTriggers(QAbstractItemView::DoubleClicked);
+
 
     ui->tableWidget->horizontalHeader()->setStretchLastSection(true);
     ui->tableWidget->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+    ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->spinBoxLongitud->setMinimum(0);
+    ui->frame_7->setVisible(false);
+
+    connect(ui->tableWidget, &QTableWidget::cellClicked,this, &MainWindow::onTablaCellClicked);
+
+
 
 }
 
@@ -45,6 +53,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_pb_Campos_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->pg_Campos);
+    leerArchivo();
 }
 
 // Registros
@@ -128,15 +137,21 @@ void MainWindow::on_actionNuevo_Archivo_triggered()
         }
 
         file.setFileName(archivo);
-        if (file.open(QIODevice::WriteOnly)) {
-            file.close();
+        if (file.open(QIODevice::ReadWrite | QIODevice::Text)) {
+            //file.close();
             QMessageBox::information(this, "Archivo creado","Se creó correctamente el archivo:\n" + archivo);
         } else {
             QMessageBox::warning(this, "Error", "No se pudo crear el archivo .txt");
         }
     }
 }
-
+void MainWindow::vaciarPanelCampos(){
+    ui->lineEditCampos->clear();
+    ui->comboBoxTipoDato->setCurrentIndex(0);
+    ui->spinBoxLongitud->setValue(0);
+    ui->radioButtonLlavePrimaria->setChecked(false);
+    ui->radioButtonLlaveSecundaria->setChecked(false);
+}
 
 void MainWindow::on_actionAbrir_Archivo_triggered()
 {
@@ -154,6 +169,13 @@ void MainWindow::on_actionAbrir_Archivo_triggered()
             if (archivo.isEmpty()){
                 return; // si el usuario cancela
             }
+            file.setFileName(archivo);
+            if (file.open(QIODevice::ReadWrite | QIODevice::Text)) {
+                //file.close();
+                QMessageBox::information(this, "Archivo creado","Se creó correctamente el archivo:\n" + archivo);
+            } else {
+                QMessageBox::warning(this, "Error", "No se pudo abrir el archivo .txt");
+            }
             QMessageBox::information(this,"Archivo seleccionado","Abriste el archivo:\n" + archivo);
         }
 
@@ -163,24 +185,246 @@ void MainWindow::on_actionAbrir_Archivo_triggered()
         if (archivo.isEmpty()){
             return; // si el usuario cancela
         }
-        QMessageBox::information(this,"Archivo seleccionado","AbristeS el archivo:\n" + archivo);
+        file.setFileName(archivo);
+        if (file.open(QIODevice::ReadWrite | QIODevice::Text)) {
+            //file.close();
+            QMessageBox::information(this, "Archivo creado","Se abrio correctamente el archivo:\n" + archivo);
+        } else {
+            QMessageBox::warning(this, "Error", "No se pudo abrir el archivo .txt");
+        }
     }
 }
+void MainWindow::leerArchivo(){
+    QTextStream in(&file);
+    metaData = in.readLine();
 
+    QStringList filas = metaData.split('|', Qt::SkipEmptyParts);
+    ui->tableWidget->setRowCount(filas.size());
+
+    for (int r = 0; r < filas.size(); ++r) {
+        QStringList cols = filas[r].split(QChar(0x0192)); // 'ƒ'
+
+        if (ui->tableWidget->columnCount() < cols.size())
+            ui->tableWidget->setColumnCount(cols.size());
+
+        for (int c = 0; c < cols.size(); ++c) {
+            ui->tableWidget->setItem(r, c, new QTableWidgetItem(cols[c]));
+        }
+    }
+    metaData = "";
+}
 
 void MainWindow::on_actionGuardar_Archivo_triggered()
 {
+    int filas = ui->tableWidget->rowCount();
+    bool hayLlavePrimaria = false;
+    for (int r = 0; r < filas; ++r) {
+        QTableWidgetItem *it = ui->tableWidget->item(r, 3);
+        if (!it) continue;
+        QString texto = it->text();
+        if (texto == "Primaria") {
+            hayLlavePrimaria = true;
+        }
+    }
+
+    if(hayLlavePrimaria){
+        for(int r = 0; r < filas;r++){
+            QTableWidgetItem *campoNombre = ui->tableWidget->item(r, 0);
+            QTableWidgetItem *TipoDato = ui->tableWidget->item(r, 1);
+            QTableWidgetItem *Longitud = ui->tableWidget->item(r, 2);
+            QTableWidgetItem *TipoLlave = ui->tableWidget->item(r, 3);
+            metaData += campoNombre->text() + "ƒ" + TipoDato->text() + "ƒ" + Longitud->text() + "ƒ" + TipoLlave->text() + "|" ;
+        }
+        file.resize(0);
+        file.seek(0);
+        QTextStream out(&file);
+        out << metaData;
+        metaData  = "";
+        QMessageBox::information(this, "Guardado", "Los cambios se guardaron correctamente.");
+
+        //file.close();
+
+    }else{
+         QMessageBox::information(this,"No Hay Llave Primaria","No hay ningun campo marcado como llave primaria, no puedes guardar asi el archivo");
+    }
 
     archivoGuardado = true;
-    QMessageBox::information(this, "Guardado", "Los cambios se guardaron correctamente.");
 }
 
 
 void MainWindow::on_pushButtonCrearCampo_clicked()
 {
+    vaciarPanelCampos();
     QMessageBox::information(this,"Crear Campo","Llena la nueva fila al final de la tabla, con los datos requeridos, y luego darle al boton de confirmar");
-    //Reactivo el boton de "confirmar" para guardar cambios
+    campos = true;
+    modificar = false;
+    eliminar = false;
+    ui->frame_7->setVisible(true);
     ui->pushButtonConfirmar->setEnabled(true);
-    ui->tableWidget->insertRow(ui->tableWidget->rowCount());
+    int row = ui->tableWidget->rowCount();
+    ui->tableWidget->insertRow(row);
+}
+bool  MainWindow::verificarCampos(int fila){
+    if(ui->lineEditCampos->text().isEmpty()){
+        QMessageBox::information(this,"Creacion de Campo Fallida","El apartado de Campo esta vacio");
+        return false;
+    }
+    switch(ui->comboBoxTipoDato->currentIndex()){
+    case 0:
+        if(ui->spinBoxLongitud->value() == 0){
+             QMessageBox::information(this,"Creacion de Campo Fallida","Si el tipo de dato es string, no puede tener longitud 0");
+            return false;
+        }
+        break;
+    case 1:
+        if(ui->spinBoxLongitud->value() == 0){
+            QMessageBox::information(this,"Creacion de Campo Fallida","Si el tipo de dato es int, no puede tener maximo de 0");
+            return false;
+        }
+        break;
+    case 2:
+        break;
+    case 3:
+        if(ui->spinBoxLongitud->value() == 0){
+            QMessageBox::information(this,"Creacion de Campo Fallida","Si el tipo de dato es float, no puede tener maximo de 0");
+            return false;
+        }
+        break;
+    }
+
+    if(!ui->radioButtonLlavePrimaria->isChecked() && !ui->radioButtonLlaveSecundaria->isChecked()){
+        QMessageBox::information(this,"Creacion de Campo Fallida","No has seleccionado el tipo de llave");
+        return false;
+    }
+    if(ui->radioButtonLlavePrimaria->isChecked()){
+        int filas = ui->tableWidget->rowCount();
+        for (int r = 0; r < filas; ++r) {
+            QTableWidgetItem *it = ui->tableWidget->item(r, 3);
+            if (!it) continue;
+            QString texto = it->text();
+            if (texto == "Primaria" && r!=fila) {
+                QMessageBox::information(this,"Creacion de Campo Fallida","Ya hay una llave primaria");
+                return false;
+            }
+        }
+    }
+
+
+    return true;
+}
+
+void MainWindow::on_pushButtonConfirmar_clicked()
+{
+    if (campos){
+        if(verificarCampos(ui->tableWidget->rowCount()-1)){
+            ui->tableWidget->setItem(ui->tableWidget->rowCount()-1, 0, new QTableWidgetItem(ui->lineEditCampos->text()));
+            ui->tableWidget->setItem(ui->tableWidget->rowCount()-1, 1, new QTableWidgetItem(ui->comboBoxTipoDato->currentText()));
+            ui->tableWidget->setItem(ui->tableWidget->rowCount()-1, 2, new QTableWidgetItem(QString::number(ui->spinBoxLongitud->value())));
+            if(ui->radioButtonLlavePrimaria->isChecked()){
+                ui->tableWidget->setItem(ui->tableWidget->rowCount()-1, 3, new QTableWidgetItem("Primaria"));
+            }else if (ui->radioButtonLlaveSecundaria->isChecked()){
+                ui->tableWidget->setItem(ui->tableWidget->rowCount()-1, 3, new QTableWidgetItem("Secundaria"));
+            }
+            QMessageBox::information(this,"Creacion de Campo Existosa","El campo se creo correctamente");
+            vaciarPanelCampos();
+            ui->frame_7->setVisible(false);
+            ui->pushButtonConfirmar->setEnabled(false);
+        }
+    }else if(modificar){
+        if(verificarCampos(ui->tableWidget->currentRow())){
+            ui->tableWidget->setItem(ui->tableWidget->currentRow(), 0, new QTableWidgetItem(ui->lineEditCampos->text()));
+            ui->tableWidget->setItem(ui->tableWidget->currentRow(), 1, new QTableWidgetItem(ui->comboBoxTipoDato->currentText()));
+            ui->tableWidget->setItem(ui->tableWidget->currentRow(), 2, new QTableWidgetItem(QString::number(ui->spinBoxLongitud->value())));
+            if(ui->radioButtonLlavePrimaria->isChecked()){
+                ui->tableWidget->setItem(ui->tableWidget->currentRow(), 3, new QTableWidgetItem("Primaria"));
+            }else if (ui->radioButtonLlaveSecundaria->isChecked()){
+                ui->tableWidget->setItem(ui->tableWidget->currentRow(), 3, new QTableWidgetItem("Secundaria"));
+            }
+            QMessageBox::information(this,"Modificacion de Campo Existosa","El campo se modifico correctamente");
+            vaciarPanelCampos();
+            ui->frame_7->setVisible(false);
+            ui->pushButtonConfirmar->setEnabled(false);
+        }
+    }else if(eliminar){
+        int fila = ui->tableWidget->currentRow();
+        if (fila >= 0) {
+            ui->tableWidget->removeRow(fila);
+        }
+        QMessageBox::information(this,"Eliminacion de Campo Existosa","El campo se elimino correctamente");
+         ui->pushButtonConfirmar->setEnabled(false);
+    }
+
+
+
+
+}
+
+
+void MainWindow::on_comboBoxTipoDato_currentIndexChanged(int index)
+{
+    if(index == 2){
+        ui->spinBoxLongitud->setValue(1);
+        ui->spinBoxLongitud->setEnabled(false);
+    }else{
+         ui->spinBoxLongitud->setEnabled(true);
+    }
+
+    if(index == 1 || index == 3){
+        ui->label_5->setText("Maximo");
+    }else{
+        ui->label_5->setText("Longitud:");
+    }
+}
+void MainWindow::onTablaCellClicked(int row, int columna)
+{
+    QTableWidgetItem *Campo   = ui->tableWidget->item(row, 0);
+    QTableWidgetItem *TipoDato = ui->tableWidget->item(row, 1);
+    QTableWidgetItem *Longitud = ui->tableWidget->item(row, 2);
+    QTableWidgetItem *TipoLlave = ui->tableWidget->item(row, 3);
+
+
+    // llenar los widgets del panel
+    ui->lineEditCampos->setText(Campo->text());
+    if(TipoDato->text() == "String"){
+        ui->comboBoxTipoDato->setCurrentIndex(0);
+    }else if(TipoDato->text() == "Int"){
+        ui->comboBoxTipoDato->setCurrentIndex(1);
+    }else if(TipoDato->text() == "Char"){
+        ui->comboBoxTipoDato->setCurrentIndex(2);
+    }else if(TipoDato->text() == "Float"){
+        ui->comboBoxTipoDato->setCurrentIndex(3);
+    }
+
+    ui->spinBoxLongitud->setValue(Longitud->text().toInt());
+
+    if(TipoLlave->text() == "Primaria"){
+        ui->radioButtonLlavePrimaria->setChecked(true);
+    }else if(TipoLlave->text() == "Secundaria"){
+        ui->radioButtonLlaveSecundaria->setChecked(true);
+    }
+}
+
+void MainWindow::on_pushButtonModificarCampo_clicked()
+{
+    vaciarPanelCampos();
+    QMessageBox::information(this,"Modificar Campo","Modifica la fila seleccionada, con los datos requeridos, y luego darle al boton de confirmar");
+    modificar = true;
+    campos = false;
+    eliminar = false;
+    ui->pushButtonConfirmar->setEnabled(true);
+
+    ui->frame_7->setVisible(true);
+
+}
+
+
+void MainWindow::on_pushButtonBorrarCampo_clicked()
+{
+    vaciarPanelCampos();
+    QMessageBox::information(this,"Eliminar Campo"," Selecciona la fila que deseas eliminar y luego darle al boton de confirmar");
+    modificar = false;
+    campos = false;
+    eliminar = true;
+    ui->pushButtonConfirmar->setEnabled(true);
 }
 

@@ -435,41 +435,38 @@ background: #FFFFFF;
                 </layout>
                </widget>
                <widget class="QWidget" name="pg_Campos">
-                <layout class="QHBoxLayout" name="horizontalLayout_3">
-                 <item>
-                  <widget class="QFrame" name="frame_3">
-                   <property name="frameShape">
-                    <enum>QFrame::Shape::StyledPanel</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Shadow::Raised</enum>
-                   </property>
-                   <layout class="QVBoxLayout" name="verticalLayout_5">
-                    <property name="spacing">
-                     <number>0</number>
-                    </property>
-                    <property name="leftMargin">
-                     <number>0</number>
-                    </property>
-                    <property name="topMargin">
-                     <number>0</number>
-                    </property>
-                    <property name="rightMargin">
-                     <number>0</number>
-                    </property>
-                    <property name="bottomMargin">
-                     <number>0</number>
-                    </property>
-                    <item>
-                     <widget class="QTableWidget" name="tableWidget">
-                      <property name="maximumSize">
-                       <size>
-                        <width>886</width>
-                        <height>536</height>
-                       </size>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">QTableWidget {
+                <widget class="QFrame" name="frame_3">
+                 <property name="geometry">
+                  <rect>
+                   <x>9</x>
+                   <y>9</y>
+                   <width>731</width>
+                   <height>551</height>
+                  </rect>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::Shape::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Shadow::Raised</enum>
+                 </property>
+                 <widget class="QTableWidget" name="tableWidget">
+                  <property name="geometry">
+                   <rect>
+                    <x>1</x>
+                    <y>1</y>
+                    <width>721</width>
+                    <height>421</height>
+                   </rect>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>886</width>
+                    <height>536</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QTableWidget {
     background-color: #ffffff;
     border: none;
     gridline-color: #d0d0d0;
@@ -510,77 +507,759 @@ QScrollBar::add-line,
 QScrollBar::sub-line {
     height: 0px;
 }</string>
-                      </property>
-                      <property name="frameShape">
-                       <enum>QFrame::Shape::WinPanel</enum>
-                      </property>
-                      <column>
-                       <property name="text">
-                        <string>Campo</string>
-                       </property>
-                      </column>
-                      <column>
-                       <property name="text">
-                        <string>Tipo de Dato</string>
-                       </property>
-                      </column>
-                      <column>
-                       <property name="text">
-                        <string>Longitud Estimada</string>
-                       </property>
-                      </column>
-                      <column>
-                       <property name="text">
-                        <string>Tipo de Llave</string>
-                       </property>
-                      </column>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QFrame" name="frame_7">
-                      <property name="styleSheet">
-                       <string notr="true">QFrame{
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::Shape::WinPanel</enum>
+                  </property>
+                  <column>
+                   <property name="text">
+                    <string>Campo</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Tipo de Dato</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Longitud Estimada</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Tipo de Llave</string>
+                   </property>
+                  </column>
+                 </widget>
+                 <widget class="QFrame" name="frame_7">
+                  <property name="geometry">
+                   <rect>
+                    <x>1</x>
+                    <y>425</y>
+                    <width>711</width>
+                    <height>131</height>
+                   </rect>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QFrame{
 background: #00A2E8;
 }</string>
-                      </property>
-                      <property name="frameShape">
-                       <enum>QFrame::Shape::NoFrame</enum>
-                      </property>
-                      <property name="frameShadow">
-                       <enum>QFrame::Shadow::Raised</enum>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::Shape::NoFrame</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Shadow::Raised</enum>
+                  </property>
+                  <widget class="QRadioButton" name="radioButtonLlavePrimaria">
+                   <property name="geometry">
+                    <rect>
+                     <x>470</x>
+                     <y>11</y>
+                     <width>131</width>
+                     <height>20</height>
+                    </rect>
+                   </property>
+                   <property name="palette">
+                    <palette>
+                     <active>
+                      <colorrole role="Highlight">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>31</red>
+                         <green>155</green>
+                         <blue>93</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                     </active>
+                     <inactive>
+                      <colorrole role="Highlight">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>31</red>
+                         <green>155</green>
+                         <blue>93</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                     </inactive>
+                     <disabled>
+                      <colorrole role="Highlight">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>31</red>
+                         <green>155</green>
+                         <blue>93</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                     </disabled>
+                    </palette>
+                   </property>
+                   <property name="text">
+                    <string>Llave Primaria</string>
+                   </property>
                   </widget>
-                 </item>
-                 <item>
-                  <widget class="QFrame" name="frame_6">
-                   <property name="styleSheet">
-                    <string notr="true">QFrame{
+                  <widget class="QRadioButton" name="radioButtonLlaveSecundaria">
+                   <property name="geometry">
+                    <rect>
+                     <x>470</x>
+                     <y>30</y>
+                     <width>121</width>
+                     <height>21</height>
+                    </rect>
+                   </property>
+                   <property name="palette">
+                    <palette>
+                     <active>
+                      <colorrole role="Highlight">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>31</red>
+                         <green>155</green>
+                         <blue>93</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                     </active>
+                     <inactive>
+                      <colorrole role="Highlight">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>31</red>
+                         <green>155</green>
+                         <blue>93</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                     </inactive>
+                     <disabled>
+                      <colorrole role="Highlight">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>31</red>
+                         <green>155</green>
+                         <blue>93</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                     </disabled>
+                    </palette>
+                   </property>
+                   <property name="text">
+                    <string>Llave Secundaria</string>
+                   </property>
+                  </widget>
+                  <widget class="QLabel" name="label_2">
+                   <property name="geometry">
+                    <rect>
+                     <x>40</x>
+                     <y>10</y>
+                     <width>61</width>
+                     <height>21</height>
+                    </rect>
+                   </property>
+                   <property name="palette">
+                    <palette>
+                     <active>
+                      <colorrole role="WindowText">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>0</green>
+                         <blue>0</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Button">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Base">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Window">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                     </active>
+                     <inactive>
+                      <colorrole role="WindowText">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>0</green>
+                         <blue>0</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Button">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Base">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Window">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                     </inactive>
+                     <disabled>
+                      <colorrole role="Button">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Base">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Window">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                     </disabled>
+                    </palette>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>11</pointsize>
+                     <italic>true</italic>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Campo:</string>
+                   </property>
+                  </widget>
+                  <widget class="QLabel" name="label_4">
+                   <property name="geometry">
+                    <rect>
+                     <x>0</x>
+                     <y>40</y>
+                     <width>101</width>
+                     <height>21</height>
+                    </rect>
+                   </property>
+                   <property name="palette">
+                    <palette>
+                     <active>
+                      <colorrole role="WindowText">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>0</green>
+                         <blue>0</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Button">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Base">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Window">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                     </active>
+                     <inactive>
+                      <colorrole role="WindowText">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>0</green>
+                         <blue>0</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Button">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Base">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Window">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                     </inactive>
+                     <disabled>
+                      <colorrole role="Button">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Base">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Window">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                     </disabled>
+                    </palette>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>11</pointsize>
+                     <italic>true</italic>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Tipo de Dato:</string>
+                   </property>
+                  </widget>
+                  <widget class="QLabel" name="label_5">
+                   <property name="geometry">
+                    <rect>
+                     <x>30</x>
+                     <y>70</y>
+                     <width>71</width>
+                     <height>21</height>
+                    </rect>
+                   </property>
+                   <property name="palette">
+                    <palette>
+                     <active>
+                      <colorrole role="WindowText">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>0</green>
+                         <blue>0</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Button">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Base">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Window">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                     </active>
+                     <inactive>
+                      <colorrole role="WindowText">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>0</green>
+                         <blue>0</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Button">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Base">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Window">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                     </inactive>
+                     <disabled>
+                      <colorrole role="Button">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Base">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Window">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                     </disabled>
+                    </palette>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>11</pointsize>
+                     <italic>true</italic>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Longitud:</string>
+                   </property>
+                  </widget>
+                  <widget class="QLabel" name="label_6">
+                   <property name="geometry">
+                    <rect>
+                     <x>360</x>
+                     <y>10</y>
+                     <width>101</width>
+                     <height>21</height>
+                    </rect>
+                   </property>
+                   <property name="palette">
+                    <palette>
+                     <active>
+                      <colorrole role="WindowText">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>0</green>
+                         <blue>0</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Button">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Base">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Window">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                     </active>
+                     <inactive>
+                      <colorrole role="WindowText">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>0</green>
+                         <blue>0</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Button">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Base">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Window">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                     </inactive>
+                     <disabled>
+                      <colorrole role="Button">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Base">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                      <colorrole role="Window">
+                       <brush brushstyle="SolidPattern">
+                        <color alpha="255">
+                         <red>0</red>
+                         <green>162</green>
+                         <blue>232</blue>
+                        </color>
+                       </brush>
+                      </colorrole>
+                     </disabled>
+                    </palette>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>11</pointsize>
+                     <italic>true</italic>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Tipo de Llave:</string>
+                   </property>
+                  </widget>
+                  <widget class="QLineEdit" name="lineEditCampos">
+                   <property name="geometry">
+                    <rect>
+                     <x>100</x>
+                     <y>10</y>
+                     <width>181</width>
+                     <height>24</height>
+                    </rect>
+                   </property>
+                  </widget>
+                  <widget class="QSpinBox" name="spinBoxLongitud">
+                   <property name="geometry">
+                    <rect>
+                     <x>101</x>
+                     <y>70</y>
+                     <width>181</width>
+                     <height>25</height>
+                    </rect>
+                   </property>
+                  </widget>
+                  <widget class="QComboBox" name="comboBoxTipoDato">
+                   <property name="geometry">
+                    <rect>
+                     <x>100</x>
+                     <y>40</y>
+                     <width>181</width>
+                     <height>24</height>
+                    </rect>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string>String</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Int</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Char</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Float</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </widget>
+                </widget>
+                <widget class="QFrame" name="frame_6">
+                 <property name="geometry">
+                  <rect>
+                   <x>734</x>
+                   <y>9</y>
+                   <width>171</width>
+                   <height>551</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QFrame{
 background: #00A2E8;
 }</string>
-                   </property>
-                   <property name="frameShape">
-                    <enum>QFrame::Shape::NoFrame</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Shadow::Raised</enum>
-                   </property>
-                   <layout class="QVBoxLayout" name="verticalLayout_7">
-                    <item>
-                     <widget class="QPushButton" name="pushButtonCrearCampo">
-                      <property name="font">
-                       <font>
-                        <family>Verdana</family>
-                        <pointsize>10</pointsize>
-                       </font>
-                      </property>
-                      <property name="cursor">
-                       <cursorShape>PointingHandCursor</cursorShape>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">QPushButton{
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::Shape::NoFrame</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Shadow::Raised</enum>
+                 </property>
+                 <widget class="QPushButton" name="pushButtonCrearCampo">
+                  <property name="geometry">
+                   <rect>
+                    <x>9</x>
+                    <y>83</y>
+                    <width>151</width>
+                    <height>36</height>
+                   </rect>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Verdana</family>
+                    <pointsize>10</pointsize>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
 background: transparent;
 color: #fff;
 border: none;
@@ -590,40 +1269,46 @@ text-align: left;
 QPushButton:Hover{
 background: #0070A1;
 }</string>
-                      </property>
-                      <property name="text">
-                       <string>Crear Campo</string>
-                      </property>
-                      <property name="icon">
-                       <iconset theme="QIcon::ThemeIcon::FolderNew"/>
-                      </property>
-                      <property name="checkable">
-                       <bool>true</bool>
-                      </property>
-                      <property name="checked">
-                       <bool>true</bool>
-                      </property>
-                      <property name="autoExclusive">
-                       <bool>true</bool>
-                      </property>
-                      <property name="flat">
-                       <bool>false</bool>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="pushButtonModificarCampo">
-                      <property name="font">
-                       <font>
-                        <family>Verdana</family>
-                        <pointsize>10</pointsize>
-                       </font>
-                      </property>
-                      <property name="cursor">
-                       <cursorShape>PointingHandCursor</cursorShape>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">QPushButton{
+                  </property>
+                  <property name="text">
+                   <string>Crear Campo</string>
+                  </property>
+                  <property name="icon">
+                   <iconset theme="QIcon::ThemeIcon::FolderNew"/>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                  <property name="autoExclusive">
+                   <bool>true</bool>
+                  </property>
+                  <property name="flat">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                 <widget class="QPushButton" name="pushButtonModificarCampo">
+                  <property name="geometry">
+                   <rect>
+                    <x>9</x>
+                    <y>199</y>
+                    <width>148</width>
+                    <height>36</height>
+                   </rect>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Verdana</family>
+                    <pointsize>10</pointsize>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
 background: transparent;
 color: #fff;
 border: none;
@@ -633,40 +1318,46 @@ text-align: left;
 QPushButton:Hover{
 background: #0070A1;
 }</string>
-                      </property>
-                      <property name="text">
-                       <string>Modificar Campo</string>
-                      </property>
-                      <property name="icon">
-                       <iconset theme="QIcon::ThemeIcon::DocumentProperties"/>
-                      </property>
-                      <property name="checkable">
-                       <bool>true</bool>
-                      </property>
-                      <property name="checked">
-                       <bool>false</bool>
-                      </property>
-                      <property name="autoExclusive">
-                       <bool>true</bool>
-                      </property>
-                      <property name="flat">
-                       <bool>false</bool>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="pushButtonBorrarCampo">
-                      <property name="font">
-                       <font>
-                        <family>Verdana</family>
-                        <pointsize>10</pointsize>
-                       </font>
-                      </property>
-                      <property name="cursor">
-                       <cursorShape>PointingHandCursor</cursorShape>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">QPushButton{
+                  </property>
+                  <property name="text">
+                   <string>Modificar Campo</string>
+                  </property>
+                  <property name="icon">
+                   <iconset theme="QIcon::ThemeIcon::DocumentProperties"/>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="checked">
+                   <bool>false</bool>
+                  </property>
+                  <property name="autoExclusive">
+                   <bool>true</bool>
+                  </property>
+                  <property name="flat">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                 <widget class="QPushButton" name="pushButtonBorrarCampo">
+                  <property name="geometry">
+                   <rect>
+                    <x>9</x>
+                    <y>315</y>
+                    <width>141</width>
+                    <height>36</height>
+                   </rect>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Verdana</family>
+                    <pointsize>10</pointsize>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
 background: transparent;
 color: #fff;
 border: none;
@@ -676,40 +1367,46 @@ text-align: left;
 QPushButton:Hover{
 background: #0070A1;
 }</string>
-                      </property>
-                      <property name="text">
-                       <string>Borrar Campo</string>
-                      </property>
-                      <property name="icon">
-                       <iconset theme="QIcon::ThemeIcon::EditDelete"/>
-                      </property>
-                      <property name="checkable">
-                       <bool>true</bool>
-                      </property>
-                      <property name="checked">
-                       <bool>false</bool>
-                      </property>
-                      <property name="autoExclusive">
-                       <bool>true</bool>
-                      </property>
-                      <property name="flat">
-                       <bool>false</bool>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="pushButtonConfirmar">
-                      <property name="font">
-                       <font>
-                        <family>Verdana</family>
-                        <pointsize>10</pointsize>
-                       </font>
-                      </property>
-                      <property name="cursor">
-                       <cursorShape>PointingHandCursor</cursorShape>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">QPushButton {
+                  </property>
+                  <property name="text">
+                   <string>Borrar Campo</string>
+                  </property>
+                  <property name="icon">
+                   <iconset theme="QIcon::ThemeIcon::EditDelete"/>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="checked">
+                   <bool>false</bool>
+                  </property>
+                  <property name="autoExclusive">
+                   <bool>true</bool>
+                  </property>
+                  <property name="flat">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                 <widget class="QPushButton" name="pushButtonConfirmar">
+                  <property name="geometry">
+                   <rect>
+                    <x>9</x>
+                    <y>431</y>
+                    <width>151</width>
+                    <height>36</height>
+                   </rect>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Verdana</family>
+                    <pointsize>10</pointsize>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton {
     background: transparent;
     color: #ffffff;
     border: none;
@@ -728,28 +1425,24 @@ QPushButton:disabled {
     color: rgba(255, 255, 255, 120);         /* texto blanco apagado */
     border: none;
 }</string>
-                      </property>
-                      <property name="text">
-                       <string>Confirmar</string>
-                      </property>
-                      <property name="icon">
-                       <iconset theme="QIcon::ThemeIcon::AppointmentNew"/>
-                      </property>
-                      <property name="checkable">
-                       <bool>true</bool>
-                      </property>
-                      <property name="autoExclusive">
-                       <bool>true</bool>
-                      </property>
-                      <property name="flat">
-                       <bool>false</bool>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                </layout>
+                  </property>
+                  <property name="text">
+                   <string>Confirmar</string>
+                  </property>
+                  <property name="icon">
+                   <iconset theme="QIcon::ThemeIcon::AppointmentNew"/>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="autoExclusive">
+                   <bool>true</bool>
+                  </property>
+                  <property name="flat">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                </widget>
                </widget>
               </widget>
              </item>

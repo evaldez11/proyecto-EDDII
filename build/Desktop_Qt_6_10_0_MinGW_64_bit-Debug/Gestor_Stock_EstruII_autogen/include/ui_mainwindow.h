@@ -13,14 +13,18 @@
 #include <QtGui/QAction>
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QVBoxLayout>
@@ -59,13 +63,19 @@ public:
     QVBoxLayout *verticalLayout_6;
     QLabel *label_3;
     QWidget *pg_Campos;
-    QHBoxLayout *horizontalLayout_3;
     QFrame *frame_3;
-    QVBoxLayout *verticalLayout_5;
     QTableWidget *tableWidget;
     QFrame *frame_7;
+    QRadioButton *radioButtonLlavePrimaria;
+    QRadioButton *radioButtonLlaveSecundaria;
+    QLabel *label_2;
+    QLabel *label_4;
+    QLabel *label_5;
+    QLabel *label_6;
+    QLineEdit *lineEditCampos;
+    QSpinBox *spinBoxLongitud;
+    QComboBox *comboBoxTipoDato;
     QFrame *frame_6;
-    QVBoxLayout *verticalLayout_7;
     QPushButton *pushButtonCrearCampo;
     QPushButton *pushButtonModificarCampo;
     QPushButton *pushButtonBorrarCampo;
@@ -274,16 +284,11 @@ public:
         stackedWidget->addWidget(pg_Registros);
         pg_Campos = new QWidget();
         pg_Campos->setObjectName("pg_Campos");
-        horizontalLayout_3 = new QHBoxLayout(pg_Campos);
-        horizontalLayout_3->setObjectName("horizontalLayout_3");
         frame_3 = new QFrame(pg_Campos);
         frame_3->setObjectName("frame_3");
+        frame_3->setGeometry(QRect(9, 9, 731, 551));
         frame_3->setFrameShape(QFrame::Shape::StyledPanel);
         frame_3->setFrameShadow(QFrame::Shadow::Raised);
-        verticalLayout_5 = new QVBoxLayout(frame_3);
-        verticalLayout_5->setSpacing(0);
-        verticalLayout_5->setObjectName("verticalLayout_5");
-        verticalLayout_5->setContentsMargins(0, 0, 0, 0);
         tableWidget = new QTableWidget(frame_3);
         if (tableWidget->columnCount() < 4)
             tableWidget->setColumnCount(4);
@@ -296,6 +301,7 @@ public:
         QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(3, __qtablewidgetitem3);
         tableWidget->setObjectName("tableWidget");
+        tableWidget->setGeometry(QRect(1, 1, 721, 421));
         tableWidget->setMaximumSize(QSize(886, 536));
         tableWidget->setStyleSheet(QString::fromUtf8("QTableWidget {\n"
 "    background-color: #ffffff;\n"
@@ -339,33 +345,132 @@ public:
 "    height: 0px;\n"
 "}"));
         tableWidget->setFrameShape(QFrame::Shape::WinPanel);
-
-        verticalLayout_5->addWidget(tableWidget);
-
         frame_7 = new QFrame(frame_3);
         frame_7->setObjectName("frame_7");
+        frame_7->setGeometry(QRect(1, 425, 711, 131));
         frame_7->setStyleSheet(QString::fromUtf8("QFrame{\n"
 "background: #00A2E8;\n"
 "}"));
         frame_7->setFrameShape(QFrame::Shape::NoFrame);
         frame_7->setFrameShadow(QFrame::Shadow::Raised);
-
-        verticalLayout_5->addWidget(frame_7);
-
-
-        horizontalLayout_3->addWidget(frame_3);
-
+        radioButtonLlavePrimaria = new QRadioButton(frame_7);
+        radioButtonLlavePrimaria->setObjectName("radioButtonLlavePrimaria");
+        radioButtonLlavePrimaria->setGeometry(QRect(470, 11, 131, 20));
+        QPalette palette;
+        QBrush brush(QColor(31, 155, 93, 255));
+        brush.setStyle(Qt::BrushStyle::SolidPattern);
+        palette.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Highlight, brush);
+        palette.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Highlight, brush);
+        palette.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Highlight, brush);
+        radioButtonLlavePrimaria->setPalette(palette);
+        radioButtonLlaveSecundaria = new QRadioButton(frame_7);
+        radioButtonLlaveSecundaria->setObjectName("radioButtonLlaveSecundaria");
+        radioButtonLlaveSecundaria->setGeometry(QRect(470, 30, 121, 21));
+        QPalette palette1;
+        palette1.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Highlight, brush);
+        palette1.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Highlight, brush);
+        palette1.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Highlight, brush);
+        radioButtonLlaveSecundaria->setPalette(palette1);
+        label_2 = new QLabel(frame_7);
+        label_2->setObjectName("label_2");
+        label_2->setGeometry(QRect(40, 10, 61, 21));
+        QPalette palette2;
+        QBrush brush1(QColor(0, 0, 0, 255));
+        brush1.setStyle(Qt::BrushStyle::SolidPattern);
+        palette2.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::WindowText, brush1);
+        QBrush brush2(QColor(0, 162, 232, 255));
+        brush2.setStyle(Qt::BrushStyle::SolidPattern);
+        palette2.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Button, brush2);
+        palette2.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Base, brush2);
+        palette2.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Window, brush2);
+        palette2.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::WindowText, brush1);
+        palette2.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Button, brush2);
+        palette2.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Base, brush2);
+        palette2.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Window, brush2);
+        palette2.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Button, brush2);
+        palette2.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Base, brush2);
+        palette2.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Window, brush2);
+        label_2->setPalette(palette2);
+        QFont font2;
+        font2.setPointSize(11);
+        font2.setBold(true);
+        font2.setItalic(true);
+        label_2->setFont(font2);
+        label_4 = new QLabel(frame_7);
+        label_4->setObjectName("label_4");
+        label_4->setGeometry(QRect(0, 40, 101, 21));
+        QPalette palette3;
+        palette3.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::WindowText, brush1);
+        palette3.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Button, brush2);
+        palette3.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Base, brush2);
+        palette3.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Window, brush2);
+        palette3.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::WindowText, brush1);
+        palette3.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Button, brush2);
+        palette3.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Base, brush2);
+        palette3.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Window, brush2);
+        palette3.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Button, brush2);
+        palette3.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Base, brush2);
+        palette3.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Window, brush2);
+        label_4->setPalette(palette3);
+        label_4->setFont(font2);
+        label_5 = new QLabel(frame_7);
+        label_5->setObjectName("label_5");
+        label_5->setGeometry(QRect(30, 70, 71, 21));
+        QPalette palette4;
+        palette4.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::WindowText, brush1);
+        palette4.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Button, brush2);
+        palette4.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Base, brush2);
+        palette4.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Window, brush2);
+        palette4.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::WindowText, brush1);
+        palette4.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Button, brush2);
+        palette4.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Base, brush2);
+        palette4.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Window, brush2);
+        palette4.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Button, brush2);
+        palette4.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Base, brush2);
+        palette4.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Window, brush2);
+        label_5->setPalette(palette4);
+        label_5->setFont(font2);
+        label_6 = new QLabel(frame_7);
+        label_6->setObjectName("label_6");
+        label_6->setGeometry(QRect(360, 10, 101, 21));
+        QPalette palette5;
+        palette5.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::WindowText, brush1);
+        palette5.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Button, brush2);
+        palette5.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Base, brush2);
+        palette5.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Window, brush2);
+        palette5.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::WindowText, brush1);
+        palette5.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Button, brush2);
+        palette5.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Base, brush2);
+        palette5.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Window, brush2);
+        palette5.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Button, brush2);
+        palette5.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Base, brush2);
+        palette5.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Window, brush2);
+        label_6->setPalette(palette5);
+        label_6->setFont(font2);
+        lineEditCampos = new QLineEdit(frame_7);
+        lineEditCampos->setObjectName("lineEditCampos");
+        lineEditCampos->setGeometry(QRect(100, 10, 181, 24));
+        spinBoxLongitud = new QSpinBox(frame_7);
+        spinBoxLongitud->setObjectName("spinBoxLongitud");
+        spinBoxLongitud->setGeometry(QRect(101, 70, 181, 25));
+        comboBoxTipoDato = new QComboBox(frame_7);
+        comboBoxTipoDato->addItem(QString());
+        comboBoxTipoDato->addItem(QString());
+        comboBoxTipoDato->addItem(QString());
+        comboBoxTipoDato->addItem(QString());
+        comboBoxTipoDato->setObjectName("comboBoxTipoDato");
+        comboBoxTipoDato->setGeometry(QRect(100, 40, 181, 24));
         frame_6 = new QFrame(pg_Campos);
         frame_6->setObjectName("frame_6");
+        frame_6->setGeometry(QRect(734, 9, 171, 551));
         frame_6->setStyleSheet(QString::fromUtf8("QFrame{\n"
 "background: #00A2E8;\n"
 "}"));
         frame_6->setFrameShape(QFrame::Shape::NoFrame);
         frame_6->setFrameShadow(QFrame::Shadow::Raised);
-        verticalLayout_7 = new QVBoxLayout(frame_6);
-        verticalLayout_7->setObjectName("verticalLayout_7");
         pushButtonCrearCampo = new QPushButton(frame_6);
         pushButtonCrearCampo->setObjectName("pushButtonCrearCampo");
+        pushButtonCrearCampo->setGeometry(QRect(9, 83, 151, 36));
         pushButtonCrearCampo->setFont(font1);
         pushButtonCrearCampo->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
         pushButtonCrearCampo->setStyleSheet(QString::fromUtf8("QPushButton{\n"
@@ -384,11 +489,9 @@ public:
         pushButtonCrearCampo->setChecked(true);
         pushButtonCrearCampo->setAutoExclusive(true);
         pushButtonCrearCampo->setFlat(false);
-
-        verticalLayout_7->addWidget(pushButtonCrearCampo);
-
         pushButtonModificarCampo = new QPushButton(frame_6);
         pushButtonModificarCampo->setObjectName("pushButtonModificarCampo");
+        pushButtonModificarCampo->setGeometry(QRect(9, 199, 148, 36));
         pushButtonModificarCampo->setFont(font1);
         pushButtonModificarCampo->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
         pushButtonModificarCampo->setStyleSheet(QString::fromUtf8("QPushButton{\n"
@@ -406,11 +509,9 @@ public:
         pushButtonModificarCampo->setChecked(false);
         pushButtonModificarCampo->setAutoExclusive(true);
         pushButtonModificarCampo->setFlat(false);
-
-        verticalLayout_7->addWidget(pushButtonModificarCampo);
-
         pushButtonBorrarCampo = new QPushButton(frame_6);
         pushButtonBorrarCampo->setObjectName("pushButtonBorrarCampo");
+        pushButtonBorrarCampo->setGeometry(QRect(9, 315, 141, 36));
         pushButtonBorrarCampo->setFont(font1);
         pushButtonBorrarCampo->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
         pushButtonBorrarCampo->setStyleSheet(QString::fromUtf8("QPushButton{\n"
@@ -429,11 +530,9 @@ public:
         pushButtonBorrarCampo->setChecked(false);
         pushButtonBorrarCampo->setAutoExclusive(true);
         pushButtonBorrarCampo->setFlat(false);
-
-        verticalLayout_7->addWidget(pushButtonBorrarCampo);
-
         pushButtonConfirmar = new QPushButton(frame_6);
         pushButtonConfirmar->setObjectName("pushButtonConfirmar");
+        pushButtonConfirmar->setGeometry(QRect(9, 431, 151, 36));
         pushButtonConfirmar->setFont(font1);
         pushButtonConfirmar->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
         pushButtonConfirmar->setStyleSheet(QString::fromUtf8("QPushButton {\n"
@@ -460,12 +559,6 @@ public:
         pushButtonConfirmar->setCheckable(true);
         pushButtonConfirmar->setAutoExclusive(true);
         pushButtonConfirmar->setFlat(false);
-
-        verticalLayout_7->addWidget(pushButtonConfirmar);
-
-
-        horizontalLayout_3->addWidget(frame_6);
-
         stackedWidget->addWidget(pg_Campos);
 
         verticalLayout_3->addWidget(stackedWidget);
@@ -484,10 +577,10 @@ public:
         menuBar->setObjectName("menuBar");
         menuBar->setGeometry(QRect(0, 0, 1090, 16));
         menuBar->setMaximumSize(QSize(16777215, 16777215));
-        QFont font2;
-        font2.setFamilies({QString::fromUtf8("Verdana")});
-        font2.setPointSize(7);
-        menuBar->setFont(font2);
+        QFont font3;
+        font3.setFamilies({QString::fromUtf8("Verdana")});
+        font3.setPointSize(7);
+        menuBar->setFont(font3);
         menuArchivo = new QMenu(menuBar);
         menuArchivo->setObjectName("menuArchivo");
         menuArchivo->setGeometry(QRect(345, 102, 164, 146));
@@ -530,6 +623,17 @@ public:
         ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Longitud Estimada", nullptr));
         QTableWidgetItem *___qtablewidgetitem3 = tableWidget->horizontalHeaderItem(3);
         ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "Tipo de Llave", nullptr));
+        radioButtonLlavePrimaria->setText(QCoreApplication::translate("MainWindow", "Llave Primaria", nullptr));
+        radioButtonLlaveSecundaria->setText(QCoreApplication::translate("MainWindow", "Llave Secundaria", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "Campo:", nullptr));
+        label_4->setText(QCoreApplication::translate("MainWindow", "Tipo de Dato:", nullptr));
+        label_5->setText(QCoreApplication::translate("MainWindow", "Longitud:", nullptr));
+        label_6->setText(QCoreApplication::translate("MainWindow", "Tipo de Llave:", nullptr));
+        comboBoxTipoDato->setItemText(0, QCoreApplication::translate("MainWindow", "String", nullptr));
+        comboBoxTipoDato->setItemText(1, QCoreApplication::translate("MainWindow", "Int", nullptr));
+        comboBoxTipoDato->setItemText(2, QCoreApplication::translate("MainWindow", "Char", nullptr));
+        comboBoxTipoDato->setItemText(3, QCoreApplication::translate("MainWindow", "Float", nullptr));
+
         pushButtonCrearCampo->setText(QCoreApplication::translate("MainWindow", "Crear Campo", nullptr));
         pushButtonModificarCampo->setText(QCoreApplication::translate("MainWindow", "Modificar Campo", nullptr));
         pushButtonBorrarCampo->setText(QCoreApplication::translate("MainWindow", "Borrar Campo", nullptr));
