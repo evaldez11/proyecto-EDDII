@@ -385,11 +385,11 @@
 	"dependencies" : 
 	[
 		{
-			"id" : "Gestor_Stock_EstruII_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
-		},
-		{
 			"backtrace" : 0,
 			"id" : "Gestor_Stock_EstruII_autogen::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "Gestor_Stock_EstruII_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "Gestor_Stock_EstruII::@6890427a1f51a3e7e1df",
