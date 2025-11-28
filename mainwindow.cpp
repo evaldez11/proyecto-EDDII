@@ -1,16 +1,18 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-
+#include "campos.h"
 #include <QPropertyAnimation>
 #include <QEasingCurve>
 #include <QAbstractAnimation>
 #include <QFileDialog>
 #include <QMessageBox>
 #include <string>
+#include <QVector>
 using namespace std;
 QString archivo;
 bool archivoGuardado = false;
 QString metaData;
+QVector<Campos> vectorCampos;
 bool campos = false;
 bool modificar = false;
 bool eliminar = false;
@@ -172,6 +174,7 @@ void MainWindow::on_actionAbrir_Archivo_triggered()
             file.setFileName(archivo);
             if (file.open(QIODevice::ReadWrite | QIODevice::Text)) {
                 //file.close();
+                leerArchivo();
                 QMessageBox::information(this, "Archivo creado","Se creó correctamente el archivo:\n" + archivo);
             } else {
                 QMessageBox::warning(this, "Error", "No se pudo abrir el archivo .txt");
@@ -189,6 +192,7 @@ void MainWindow::on_actionAbrir_Archivo_triggered()
         if (file.open(QIODevice::ReadWrite | QIODevice::Text)) {
             //file.close();
             QMessageBox::information(this, "Archivo creado","Se abrio correctamente el archivo:\n" + archivo);
+            leerArchivo();
         } else {
             QMessageBox::warning(this, "Error", "No se pudo abrir el archivo .txt");
         }
@@ -198,11 +202,23 @@ void MainWindow::leerArchivo(){
     QTextStream in(&file);
     metaData = in.readLine();
 
-    QStringList filas = metaData.split('|', Qt::SkipEmptyParts);
-    ui->tableWidget->setRowCount(filas.size());
+    QStringList listaCampos = metaData.split('|', Qt::SkipEmptyParts);
+    for(int i = 0; i<listaCampos.size();i++){
+        Campos nuevoCampo;
+        QStringList columnas = listaCampos[i].split(QChar(0x0192)); // 'ƒ'
+        if (columnas.size() == 4) {
+        nuevoCampo.setnombreCampo(columnas[0]);
+        nuevoCampo.settipoDato(columnas[1]);
+        nuevoCampo.setlongitud(columnas[2].toInt());
+        nuevoCampo.settipoLlave(columnas[3]);
+        vectorCampos.append(nuevoCampo);
+        }
+    }
+    ui->tableWidget->setRowCount(listaCampos.size());
 
-    for (int r = 0; r < filas.size(); ++r) {
-        QStringList cols = filas[r].split(QChar(0x0192)); // 'ƒ'
+
+    for (int r = 0; r < listaCampos.size(); ++r) {
+        QStringList cols = listaCampos[r].split(QChar(0x0192)); // 'ƒ'
 
         if (ui->tableWidget->columnCount() < cols.size())
             ui->tableWidget->setColumnCount(cols.size());
@@ -212,6 +228,9 @@ void MainWindow::leerArchivo(){
         }
     }
     metaData = "";
+    for(Campos c : vectorCampos){
+        qDebug() << c.toString();
+    }
 }
 
 void MainWindow::on_actionGuardar_Archivo_triggered()
@@ -228,19 +247,28 @@ void MainWindow::on_actionGuardar_Archivo_triggered()
     }
 
     if(hayLlavePrimaria){
+        vectorCampos.clear();
         for(int r = 0; r < filas;r++){
             QTableWidgetItem *campoNombre = ui->tableWidget->item(r, 0);
             QTableWidgetItem *TipoDato = ui->tableWidget->item(r, 1);
             QTableWidgetItem *Longitud = ui->tableWidget->item(r, 2);
             QTableWidgetItem *TipoLlave = ui->tableWidget->item(r, 3);
-            metaData += campoNombre->text() + "ƒ" + TipoDato->text() + "ƒ" + Longitud->text() + "ƒ" + TipoLlave->text() + "|" ;
+            Campos nuevoCampo(campoNombre->text(),TipoDato->text(), Longitud->text().toInt(),TipoLlave->text());
+            vectorCampos.append(nuevoCampo);
+        }
+        metaData = "";
+        for(Campos c : vectorCampos){
+            metaData += c.toString() + "|";
         }
         file.resize(0);
         file.seek(0);
         QTextStream out(&file);
         out << metaData;
-        metaData  = "";
+        //metaData  = "";
         QMessageBox::information(this, "Guardado", "Los cambios se guardaron correctamente.");
+        for(Campos c : vectorCampos){
+            qDebug() << c.toString();
+        }
 
         //file.close();
 
@@ -292,7 +320,7 @@ bool  MainWindow::verificarCampos(int fila){
         break;
     }
 
-    if(!ui->radioButtonLlavePrimaria->isChecked() && !ui->radioButtonLlaveSecundaria->isChecked()){
+    if(!ui->radioButtonLlavePrimaria->isChecked() && !ui->radioButtonLlaveSecundaria->isChecked() && !ui->radioButtonNinuna->isChecked()){
         QMessageBox::information(this,"Creacion de Campo Fallida","No has seleccionado el tipo de llave");
         return false;
     }
@@ -324,6 +352,8 @@ void MainWindow::on_pushButtonConfirmar_clicked()
                 ui->tableWidget->setItem(ui->tableWidget->rowCount()-1, 3, new QTableWidgetItem("Primaria"));
             }else if (ui->radioButtonLlaveSecundaria->isChecked()){
                 ui->tableWidget->setItem(ui->tableWidget->rowCount()-1, 3, new QTableWidgetItem("Secundaria"));
+            }else if (ui->radioButtonNinuna->isChecked()){
+                ui->tableWidget->setItem(ui->tableWidget->rowCount()-1, 3, new QTableWidgetItem("No es Llave"));
             }
             QMessageBox::information(this,"Creacion de Campo Existosa","El campo se creo correctamente");
             vaciarPanelCampos();
@@ -339,6 +369,8 @@ void MainWindow::on_pushButtonConfirmar_clicked()
                 ui->tableWidget->setItem(ui->tableWidget->currentRow(), 3, new QTableWidgetItem("Primaria"));
             }else if (ui->radioButtonLlaveSecundaria->isChecked()){
                 ui->tableWidget->setItem(ui->tableWidget->currentRow(), 3, new QTableWidgetItem("Secundaria"));
+            }else if (ui->radioButtonNinuna->isChecked()){
+                ui->tableWidget->setItem(ui->tableWidget->rowCount()-1, 3, new QTableWidgetItem("No es Llave"));
             }
             QMessageBox::information(this,"Modificacion de Campo Existosa","El campo se modifico correctamente");
             vaciarPanelCampos();
