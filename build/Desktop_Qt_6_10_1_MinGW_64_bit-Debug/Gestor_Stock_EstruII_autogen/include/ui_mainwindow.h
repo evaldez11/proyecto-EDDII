@@ -68,16 +68,16 @@ public:
     QTableWidget *tableWidget;
     QFrame *frame_7;
     QGridLayout *gridLayout;
-    QLabel *label_5;
-    QRadioButton *radioButtonLlavePrimaria;
-    QLabel *label_2;
     QLabel *label_6;
-    QComboBox *comboBoxTipoDato;
-    QSpinBox *spinBoxLongitud;
-    QLineEdit *lineEditCampos;
-    QLabel *label_4;
-    QRadioButton *radioButtonLlaveSecundaria;
     QRadioButton *radioButtonNinuna;
+    QLabel *label_4;
+    QLineEdit *lineEditCampos;
+    QSpinBox *spinBoxLongitud;
+    QRadioButton *radioButtonLlavePrimaria;
+    QRadioButton *radioButtonLlaveSecundaria;
+    QLabel *label_5;
+    QComboBox *comboBoxTipoDato;
+    QLabel *label_2;
     QFrame *frame_6;
     QPushButton *pushButtonCrearCampo;
     QPushButton *pushButtonModificarCampo;
@@ -304,7 +304,7 @@ public:
         QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(3, __qtablewidgetitem3);
         tableWidget->setObjectName("tableWidget");
-        tableWidget->setGeometry(QRect(1, 1, 721, 391));
+        tableWidget->setGeometry(QRect(1, 1, 721, 351));
         tableWidget->setMaximumSize(QSize(886, 536));
         tableWidget->setStyleSheet(QString::fromUtf8("QTableWidget {\n"
 "    background-color: #ffffff;\n"
@@ -350,7 +350,7 @@ public:
         tableWidget->setFrameShape(QFrame::Shape::WinPanel);
         frame_7 = new QFrame(frame_3);
         frame_7->setObjectName("frame_7");
-        frame_7->setGeometry(QRect(1, 405, 711, 151));
+        frame_7->setGeometry(QRect(0, 360, 721, 141));
         frame_7->setStyleSheet(QString::fromUtf8("QFrame{\n"
 "background: #00A2E8;\n"
 "}"));
@@ -359,8 +359,8 @@ public:
         gridLayout = new QGridLayout(frame_7);
         gridLayout->setObjectName("gridLayout");
         gridLayout->setContentsMargins(20, 20, 20, 14);
-        label_5 = new QLabel(frame_7);
-        label_5->setObjectName("label_5");
+        label_6 = new QLabel(frame_7);
+        label_6->setObjectName("label_6");
         QPalette palette;
         QBrush brush(QColor(255, 255, 255, 255));
         brush.setStyle(Qt::BrushStyle::SolidPattern);
@@ -395,49 +395,151 @@ public:
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::PlaceholderText, brush2);
 #endif
-        label_5->setPalette(palette);
+        label_6->setPalette(palette);
         QFont font2;
         font2.setFamilies({QString::fromUtf8("Verdana")});
         font2.setPointSize(9);
         font2.setBold(true);
         font2.setItalic(true);
-        label_5->setFont(font2);
-        label_5->setStyleSheet(QString::fromUtf8("/* Etiquetas */\n"
+        label_6->setFont(font2);
+        label_6->setStyleSheet(QString::fromUtf8("/* Etiquetas */\n"
 "QLabel {\n"
 "    color: #ffffff;\n"
 "    font-weight: bold;\n"
 "    font-size: 9pt;\n"
 "}"));
 
-        gridLayout->addWidget(label_5, 6, 0, 1, 1);
+        gridLayout->addWidget(label_6, 0, 3, 1, 1);
 
-        radioButtonLlavePrimaria = new QRadioButton(frame_7);
-        radioButtonLlavePrimaria->setObjectName("radioButtonLlavePrimaria");
+        radioButtonNinuna = new QRadioButton(frame_7);
+        radioButtonNinuna->setObjectName("radioButtonNinuna");
+        radioButtonNinuna->setStyleSheet(QString::fromUtf8("QRadioButton {\n"
+"    color: #ffffff;\n"
+"    font-weight: bold;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator {\n"
+"    width: 12px;\n"
+"    height: 12px;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:checked {\n"
+"    background-color: #ffffff;\n"
+"    border: 2px solid #003f5c;\n"
+"    border-radius: 6px;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:unchecked {\n"
+"    background-color: #cfd9df;\n"
+"    border: 2px solid #003f5c;\n"
+"    border-radius: 6px;\n"
+"}"));
+
+        gridLayout->addWidget(radioButtonNinuna, 4, 4, 1, 1);
+
+        label_4 = new QLabel(frame_7);
+        label_4->setObjectName("label_4");
         QPalette palette1;
         palette1.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::WindowText, brush);
+        palette1.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Button, brush1);
         palette1.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Text, brush);
         palette1.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::ButtonText, brush);
-        QBrush brush3(QColor(31, 155, 93, 255));
-        brush3.setStyle(Qt::BrushStyle::SolidPattern);
-        palette1.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Highlight, brush3);
+        palette1.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Base, brush1);
+        palette1.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Window, brush1);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette1.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::PlaceholderText, brush2);
 #endif
         palette1.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::WindowText, brush);
+        palette1.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Button, brush1);
         palette1.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Text, brush);
         palette1.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::ButtonText, brush);
-        palette1.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Highlight, brush3);
+        palette1.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Base, brush1);
+        palette1.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Window, brush1);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette1.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::PlaceholderText, brush2);
 #endif
         palette1.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::WindowText, brush);
+        palette1.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Button, brush1);
         palette1.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Text, brush);
         palette1.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::ButtonText, brush);
-        palette1.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Highlight, brush3);
+        palette1.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Base, brush1);
+        palette1.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Window, brush1);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette1.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::PlaceholderText, brush2);
 #endif
-        radioButtonLlavePrimaria->setPalette(palette1);
+        label_4->setPalette(palette1);
+        label_4->setFont(font2);
+        label_4->setStyleSheet(QString::fromUtf8("/* Etiquetas */\n"
+"QLabel {\n"
+"    color: #ffffff;\n"
+"    font-weight: bold;\n"
+"    font-size: 9pt;\n"
+"}"));
+
+        gridLayout->addWidget(label_4, 3, 0, 1, 1);
+
+        lineEditCampos = new QLineEdit(frame_7);
+        lineEditCampos->setObjectName("lineEditCampos");
+        lineEditCampos->setFont(font);
+        lineEditCampos->setStyleSheet(QString::fromUtf8("/* QLineEdit */\n"
+"QLineEdit {\n"
+"    background: #ffffff;\n"
+"    border: 2px solid #0070A1;\n"
+"    border-radius: 4px;\n"
+"    padding: 4px 6px;\n"
+"    color: #000000;           /* TEXTO NEGRO */\n"
+"}\n"
+"\n"
+"QLineEdit:focus {\n"
+"    border: 2px solid #ffffff;\n"
+"    background: #ffffff;\n"
+"}"));
+
+        gridLayout->addWidget(lineEditCampos, 0, 1, 1, 1);
+
+        spinBoxLongitud = new QSpinBox(frame_7);
+        spinBoxLongitud->setObjectName("spinBoxLongitud");
+        spinBoxLongitud->setStyleSheet(QString::fromUtf8("QSpinBox {\n"
+"    background: #ffffff;\n"
+"    border: 2px solid #0070A1;\n"
+"    border-radius: 4px;\n"
+"    padding: 4px 6px;\n"
+"    color: #000000;           /* TEXTO NEGRO */\n"
+"}\n"
+"\n"
+"QSpinBox:focus {\n"
+"    border: 2px solid #ffffff;\n"
+"}"));
+
+        gridLayout->addWidget(spinBoxLongitud, 4, 1, 1, 1);
+
+        radioButtonLlavePrimaria = new QRadioButton(frame_7);
+        radioButtonLlavePrimaria->setObjectName("radioButtonLlavePrimaria");
+        QPalette palette2;
+        palette2.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::WindowText, brush);
+        palette2.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Text, brush);
+        palette2.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::ButtonText, brush);
+        QBrush brush3(QColor(31, 155, 93, 255));
+        brush3.setStyle(Qt::BrushStyle::SolidPattern);
+        palette2.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Highlight, brush3);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette2.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::PlaceholderText, brush2);
+#endif
+        palette2.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::WindowText, brush);
+        palette2.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Text, brush);
+        palette2.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::ButtonText, brush);
+        palette2.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Highlight, brush3);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette2.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::PlaceholderText, brush2);
+#endif
+        palette2.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::WindowText, brush);
+        palette2.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Text, brush);
+        palette2.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::ButtonText, brush);
+        palette2.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Highlight, brush3);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette2.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::PlaceholderText, brush2);
+#endif
+        radioButtonLlavePrimaria->setPalette(palette2);
         radioButtonLlavePrimaria->setStyleSheet(QString::fromUtf8("QRadioButton {\n"
 "    color: #ffffff;\n"
 "    font-weight: bold;\n"
@@ -460,154 +562,59 @@ public:
 "    border-radius: 6px;\n"
 "}"));
 
-        gridLayout->addWidget(radioButtonLlavePrimaria, 0, 3, 1, 1);
+        gridLayout->addWidget(radioButtonLlavePrimaria, 0, 4, 1, 1);
 
-        label_2 = new QLabel(frame_7);
-        label_2->setObjectName("label_2");
-        QPalette palette2;
-        palette2.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::WindowText, brush);
-        palette2.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Button, brush1);
-        palette2.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Text, brush);
-        palette2.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::ButtonText, brush);
-        palette2.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Base, brush1);
-        palette2.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Window, brush1);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette2.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::PlaceholderText, brush2);
-#endif
-        palette2.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::WindowText, brush);
-        palette2.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Button, brush1);
-        palette2.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Text, brush);
-        palette2.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::ButtonText, brush);
-        palette2.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Base, brush1);
-        palette2.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Window, brush1);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette2.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::PlaceholderText, brush2);
-#endif
-        palette2.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::WindowText, brush);
-        palette2.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Button, brush1);
-        palette2.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Text, brush);
-        palette2.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::ButtonText, brush);
-        palette2.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Base, brush1);
-        palette2.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Window, brush1);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette2.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::PlaceholderText, brush2);
-#endif
-        label_2->setPalette(palette2);
-        label_2->setFont(font2);
-        label_2->setStyleSheet(QString::fromUtf8("/* Etiquetas */\n"
-"QLabel {\n"
-"    color: #ffffff;\n"
-"    font-weight: bold;\n"
-"    font-size: 9pt;\n"
-"}"));
-
-        gridLayout->addWidget(label_2, 0, 0, 5, 1);
-
-        label_6 = new QLabel(frame_7);
-        label_6->setObjectName("label_6");
+        radioButtonLlaveSecundaria = new QRadioButton(frame_7);
+        radioButtonLlaveSecundaria->setObjectName("radioButtonLlaveSecundaria");
         QPalette palette3;
         palette3.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::WindowText, brush);
-        palette3.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Button, brush1);
         palette3.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Text, brush);
         palette3.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::ButtonText, brush);
-        palette3.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Base, brush1);
-        palette3.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Window, brush1);
+        palette3.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Highlight, brush3);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette3.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::PlaceholderText, brush2);
 #endif
         palette3.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::WindowText, brush);
-        palette3.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Button, brush1);
         palette3.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Text, brush);
         palette3.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::ButtonText, brush);
-        palette3.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Base, brush1);
-        palette3.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Window, brush1);
+        palette3.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Highlight, brush3);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette3.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::PlaceholderText, brush2);
 #endif
         palette3.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::WindowText, brush);
-        palette3.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Button, brush1);
         palette3.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Text, brush);
         palette3.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::ButtonText, brush);
-        palette3.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Base, brush1);
-        palette3.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Window, brush1);
+        palette3.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Highlight, brush3);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette3.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::PlaceholderText, brush2);
 #endif
-        label_6->setPalette(palette3);
-        label_6->setFont(font2);
-        label_6->setStyleSheet(QString::fromUtf8("/* Etiquetas */\n"
-"QLabel {\n"
+        radioButtonLlaveSecundaria->setPalette(palette3);
+        radioButtonLlaveSecundaria->setStyleSheet(QString::fromUtf8("QRadioButton {\n"
 "    color: #ffffff;\n"
 "    font-weight: bold;\n"
-"    font-size: 9pt;\n"
-"}"));
-
-        gridLayout->addWidget(label_6, 0, 2, 1, 1);
-
-        comboBoxTipoDato = new QComboBox(frame_7);
-        comboBoxTipoDato->addItem(QString());
-        comboBoxTipoDato->addItem(QString());
-        comboBoxTipoDato->addItem(QString());
-        comboBoxTipoDato->addItem(QString());
-        comboBoxTipoDato->setObjectName("comboBoxTipoDato");
-        comboBoxTipoDato->setFont(font);
-        comboBoxTipoDato->setStyleSheet(QString::fromUtf8("QComboBox {\n"
-"    background: #ffffff;\n"
-"    border: 2px solid #0070A1;\n"
-"    border-radius: 4px;\n"
-"    padding: 4px;\n"
-"    color: #000000;           /* TEXTO NEGRO */\n"
 "}\n"
 "\n"
-"QComboBox::drop-down {\n"
-"    border: none;\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow {\n"
+"QRadioButton::indicator {\n"
 "    width: 12px;\n"
 "    height: 12px;\n"
 "}\n"
-""));
-
-        gridLayout->addWidget(comboBoxTipoDato, 5, 1, 1, 1);
-
-        spinBoxLongitud = new QSpinBox(frame_7);
-        spinBoxLongitud->setObjectName("spinBoxLongitud");
-        spinBoxLongitud->setStyleSheet(QString::fromUtf8("QSpinBox {\n"
-"    background: #ffffff;\n"
-"    border: 2px solid #0070A1;\n"
-"    border-radius: 4px;\n"
-"    padding: 4px 6px;\n"
-"    color: #000000;           /* TEXTO NEGRO */\n"
+"\n"
+"QRadioButton::indicator:checked {\n"
+"    background-color: #ffffff;\n"
+"    border: 2px solid #003f5c;\n"
+"    border-radius: 6px;\n"
 "}\n"
 "\n"
-"QSpinBox:focus {\n"
-"    border: 2px solid #ffffff;\n"
+"QRadioButton::indicator:unchecked {\n"
+"    background-color: #cfd9df;\n"
+"    border: 2px solid #003f5c;\n"
+"    border-radius: 6px;\n"
 "}"));
 
-        gridLayout->addWidget(spinBoxLongitud, 6, 1, 1, 1);
+        gridLayout->addWidget(radioButtonLlaveSecundaria, 3, 4, 1, 1);
 
-        lineEditCampos = new QLineEdit(frame_7);
-        lineEditCampos->setObjectName("lineEditCampos");
-        lineEditCampos->setFont(font);
-        lineEditCampos->setStyleSheet(QString::fromUtf8("/* QLineEdit */\n"
-"QLineEdit {\n"
-"    background: #ffffff;\n"
-"    border: 2px solid #0070A1;\n"
-"    border-radius: 4px;\n"
-"    padding: 4px 6px;\n"
-"    color: #000000;           /* TEXTO NEGRO */\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid #ffffff;\n"
-"    background: #ffffff;\n"
-"}"));
-
-        gridLayout->addWidget(lineEditCampos, 0, 1, 5, 1);
-
-        label_4 = new QLabel(frame_7);
-        label_4->setObjectName("label_4");
+        label_5 = new QLabel(frame_7);
+        label_5->setObjectName("label_5");
         QPalette palette4;
         palette4.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::WindowText, brush);
         palette4.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Button, brush1);
@@ -636,70 +643,84 @@ public:
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette4.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::PlaceholderText, brush2);
 #endif
-        label_4->setPalette(palette4);
-        label_4->setFont(font2);
-        label_4->setStyleSheet(QString::fromUtf8("/* Etiquetas */\n"
+        label_5->setPalette(palette4);
+        label_5->setFont(font2);
+        label_5->setStyleSheet(QString::fromUtf8("/* Etiquetas */\n"
 "QLabel {\n"
 "    color: #ffffff;\n"
 "    font-weight: bold;\n"
 "    font-size: 9pt;\n"
 "}"));
 
-        gridLayout->addWidget(label_4, 5, 0, 1, 1);
+        gridLayout->addWidget(label_5, 4, 0, 1, 1);
 
-        radioButtonLlaveSecundaria = new QRadioButton(frame_7);
-        radioButtonLlaveSecundaria->setObjectName("radioButtonLlaveSecundaria");
+        comboBoxTipoDato = new QComboBox(frame_7);
+        comboBoxTipoDato->addItem(QString());
+        comboBoxTipoDato->addItem(QString());
+        comboBoxTipoDato->addItem(QString());
+        comboBoxTipoDato->addItem(QString());
+        comboBoxTipoDato->setObjectName("comboBoxTipoDato");
+        comboBoxTipoDato->setFont(font);
+        comboBoxTipoDato->setStyleSheet(QString::fromUtf8("QComboBox {\n"
+"    background: #ffffff;\n"
+"    border: 2px solid #0070A1;\n"
+"    border-radius: 4px;\n"
+"    padding: 4px;\n"
+"    color: #000000;           /* TEXTO NEGRO */\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow {\n"
+"    width: 12px;\n"
+"    height: 12px;\n"
+"}\n"
+""));
+
+        gridLayout->addWidget(comboBoxTipoDato, 3, 1, 1, 1);
+
+        label_2 = new QLabel(frame_7);
+        label_2->setObjectName("label_2");
         QPalette palette5;
         palette5.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::WindowText, brush);
+        palette5.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Button, brush1);
         palette5.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Text, brush);
         palette5.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::ButtonText, brush);
-        palette5.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Highlight, brush3);
+        palette5.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Base, brush1);
+        palette5.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::Window, brush1);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette5.setBrush(QPalette::ColorGroup::Active, QPalette::ColorRole::PlaceholderText, brush2);
 #endif
         palette5.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::WindowText, brush);
+        palette5.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Button, brush1);
         palette5.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Text, brush);
         palette5.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::ButtonText, brush);
-        palette5.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Highlight, brush3);
+        palette5.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Base, brush1);
+        palette5.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Window, brush1);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette5.setBrush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::PlaceholderText, brush2);
 #endif
         palette5.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::WindowText, brush);
+        palette5.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Button, brush1);
         palette5.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Text, brush);
         palette5.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::ButtonText, brush);
-        palette5.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Highlight, brush3);
+        palette5.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Base, brush1);
+        palette5.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Window, brush1);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette5.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::PlaceholderText, brush2);
 #endif
-        radioButtonLlaveSecundaria->setPalette(palette5);
-        radioButtonLlaveSecundaria->setStyleSheet(QString::fromUtf8("QRadioButton {\n"
+        label_2->setPalette(palette5);
+        label_2->setFont(font2);
+        label_2->setStyleSheet(QString::fromUtf8("/* Etiquetas */\n"
+"QLabel {\n"
 "    color: #ffffff;\n"
 "    font-weight: bold;\n"
-"}\n"
-"\n"
-"QRadioButton::indicator {\n"
-"    width: 12px;\n"
-"    height: 12px;\n"
-"}\n"
-"\n"
-"QRadioButton::indicator:checked {\n"
-"    background-color: #ffffff;\n"
-"    border: 2px solid #003f5c;\n"
-"    border-radius: 6px;\n"
-"}\n"
-"\n"
-"QRadioButton::indicator:unchecked {\n"
-"    background-color: #cfd9df;\n"
-"    border: 2px solid #003f5c;\n"
-"    border-radius: 6px;\n"
+"    font-size: 9pt;\n"
 "}"));
 
-        gridLayout->addWidget(radioButtonLlaveSecundaria, 3, 3, 1, 1);
-
-        radioButtonNinuna = new QRadioButton(frame_7);
-        radioButtonNinuna->setObjectName("radioButtonNinuna");
-
-        gridLayout->addWidget(radioButtonNinuna, 4, 3, 1, 1);
+        gridLayout->addWidget(label_2, 0, 0, 1, 1);
 
         frame_6 = new QFrame(pg_Campos);
         frame_6->setObjectName("frame_6");
@@ -864,18 +885,18 @@ public:
         ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Longitud Estimada", nullptr));
         QTableWidgetItem *___qtablewidgetitem3 = tableWidget->horizontalHeaderItem(3);
         ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "Tipo de Llave", nullptr));
-        label_5->setText(QCoreApplication::translate("MainWindow", "Longitud:", nullptr));
-        radioButtonLlavePrimaria->setText(QCoreApplication::translate("MainWindow", "Llave Primaria", nullptr));
-        label_2->setText(QCoreApplication::translate("MainWindow", "Campo:", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "Tipo de Llave:", nullptr));
+        radioButtonNinuna->setText(QCoreApplication::translate("MainWindow", "Ninguna", nullptr));
+        label_4->setText(QCoreApplication::translate("MainWindow", "Tipo de Dato:", nullptr));
+        radioButtonLlavePrimaria->setText(QCoreApplication::translate("MainWindow", "Llave Primaria", nullptr));
+        radioButtonLlaveSecundaria->setText(QCoreApplication::translate("MainWindow", "Llave Secundaria", nullptr));
+        label_5->setText(QCoreApplication::translate("MainWindow", "Longitud:", nullptr));
         comboBoxTipoDato->setItemText(0, QCoreApplication::translate("MainWindow", "String", nullptr));
         comboBoxTipoDato->setItemText(1, QCoreApplication::translate("MainWindow", "Int", nullptr));
         comboBoxTipoDato->setItemText(2, QCoreApplication::translate("MainWindow", "Char", nullptr));
         comboBoxTipoDato->setItemText(3, QCoreApplication::translate("MainWindow", "Float", nullptr));
 
-        label_4->setText(QCoreApplication::translate("MainWindow", "Tipo de Dato:", nullptr));
-        radioButtonLlaveSecundaria->setText(QCoreApplication::translate("MainWindow", "Llave Secundaria", nullptr));
-        radioButtonNinuna->setText(QCoreApplication::translate("MainWindow", "Ninguna", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "Campo:", nullptr));
         pushButtonCrearCampo->setText(QCoreApplication::translate("MainWindow", "Crear Campo", nullptr));
         pushButtonModificarCampo->setText(QCoreApplication::translate("MainWindow", "Modificar Campo", nullptr));
         pushButtonBorrarCampo->setText(QCoreApplication::translate("MainWindow", "Borrar Campo", nullptr));

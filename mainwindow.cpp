@@ -8,7 +8,9 @@
 #include <QMessageBox>
 #include <string>
 #include <QVector>
+
 using namespace std;
+
 QString archivo;
 bool archivoGuardado = false;
 QString metaData;
@@ -16,6 +18,7 @@ QVector<Campos> vectorCampos;
 bool campos = false;
 bool modificar = false;
 bool eliminar = false;
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -41,8 +44,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->frame_7->setVisible(false);
 
     connect(ui->tableWidget, &QTableWidget::cellClicked,this, &MainWindow::onTablaCellClicked);
-
-
 
 }
 
@@ -292,6 +293,7 @@ void MainWindow::on_pushButtonCrearCampo_clicked()
     int row = ui->tableWidget->rowCount();
     ui->tableWidget->insertRow(row);
 }
+
 bool  MainWindow::verificarCampos(int fila){
     if(ui->lineEditCampos->text().isEmpty()){
         QMessageBox::information(this,"Creacion de Campo Fallida","El apartado de Campo esta vacio");
@@ -385,10 +387,6 @@ void MainWindow::on_pushButtonConfirmar_clicked()
         QMessageBox::information(this,"Eliminacion de Campo Existosa","El campo se elimino correctamente");
          ui->pushButtonConfirmar->setEnabled(false);
     }
-
-
-
-
 }
 
 
