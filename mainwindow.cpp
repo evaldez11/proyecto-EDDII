@@ -71,6 +71,11 @@ void MainWindow::on_pb_Indices_clicked()
     ui->stackedWidget->setCurrentWidget(ui->pg_Indices);
 }
 
+//Iinicio
+void MainWindow::on_pb_home_clicked(){
+    ui->stackedWidget->setCurrentWidget(ui->pg_Home);
+}
+
 // Animacion de Desplace del Menu Izquierdo
 void MainWindow::on_pb_Desplace_clicked()
 {

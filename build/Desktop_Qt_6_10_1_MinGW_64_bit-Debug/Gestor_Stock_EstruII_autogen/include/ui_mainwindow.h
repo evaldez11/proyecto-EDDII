@@ -54,6 +54,7 @@ public:
     QPushButton *pb_Campos;
     QPushButton *pb_Registros;
     QPushButton *pb_Indices;
+    QPushButton *pb_home;
     QFrame *frame_4;
     QVBoxLayout *verticalLayout_3;
     QStackedWidget *stackedWidget;
@@ -83,6 +84,7 @@ public:
     QPushButton *pushButtonModificarCampo;
     QPushButton *pushButtonBorrarCampo;
     QPushButton *pushButtonConfirmar;
+    QWidget *pg_Home;
     QMenuBar *menuBar;
     QMenu *menuArchivo;
 
@@ -240,6 +242,26 @@ public:
         pb_Indices->setIconSize(QSize(30, 30));
         pb_Indices->setCheckable(true);
         pb_Indices->setAutoExclusive(true);
+        pb_home = new QPushButton(SubmenuIzquierdo);
+        pb_home->setObjectName("pb_home");
+        pb_home->setGeometry(QRect(0, 0, 180, 50));
+        pb_home->setFont(font1);
+        pb_home->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
+        pb_home->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"background: transparent;\n"
+"color: #fff;\n"
+"border: none;\n"
+"padding: 10px;\n"
+"text-align: left;\n"
+"}\n"
+"QPushButton:Hover{\n"
+"background: #0070A1;\n"
+"}"));
+        QIcon icon8(QIcon::fromTheme(QIcon::ThemeIcon::GoHome));
+        pb_home->setIcon(icon8);
+        pb_home->setIconSize(QSize(30, 30));
+        pb_home->setCheckable(true);
+        pb_home->setAutoExclusive(true);
 
         verticalLayout_2->addWidget(SubmenuIzquierdo);
 
@@ -745,8 +767,8 @@ public:
 "QPushButton:Hover{\n"
 "background: #0070A1;\n"
 "}"));
-        QIcon icon8(QIcon::fromTheme(QIcon::ThemeIcon::FolderNew));
-        pushButtonCrearCampo->setIcon(icon8);
+        QIcon icon9(QIcon::fromTheme(QIcon::ThemeIcon::FolderNew));
+        pushButtonCrearCampo->setIcon(icon9);
         pushButtonCrearCampo->setCheckable(true);
         pushButtonCrearCampo->setChecked(true);
         pushButtonCrearCampo->setAutoExclusive(true);
@@ -786,8 +808,8 @@ public:
 "QPushButton:Hover{\n"
 "background: #0070A1;\n"
 "}"));
-        QIcon icon9(QIcon::fromTheme(QIcon::ThemeIcon::EditDelete));
-        pushButtonBorrarCampo->setIcon(icon9);
+        QIcon icon10(QIcon::fromTheme(QIcon::ThemeIcon::EditDelete));
+        pushButtonBorrarCampo->setIcon(icon10);
         pushButtonBorrarCampo->setCheckable(true);
         pushButtonBorrarCampo->setChecked(false);
         pushButtonBorrarCampo->setAutoExclusive(true);
@@ -816,12 +838,15 @@ public:
 "    color: rgba(255, 255, 255, 120);         /* texto blanco apagado */\n"
 "    border: none;\n"
 "}"));
-        QIcon icon10(QIcon::fromTheme(QIcon::ThemeIcon::AppointmentNew));
-        pushButtonConfirmar->setIcon(icon10);
+        QIcon icon11(QIcon::fromTheme(QIcon::ThemeIcon::AppointmentNew));
+        pushButtonConfirmar->setIcon(icon11);
         pushButtonConfirmar->setCheckable(true);
         pushButtonConfirmar->setAutoExclusive(true);
         pushButtonConfirmar->setFlat(false);
         stackedWidget->addWidget(pg_Campos);
+        pg_Home = new QWidget();
+        pg_Home->setObjectName("pg_Home");
+        stackedWidget->addWidget(pg_Home);
 
         verticalLayout_3->addWidget(stackedWidget);
 
@@ -858,7 +883,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -875,6 +900,7 @@ public:
         pb_Campos->setText(QCoreApplication::translate("MainWindow", "Campos", nullptr));
         pb_Registros->setText(QCoreApplication::translate("MainWindow", "Registros", nullptr));
         pb_Indices->setText(QCoreApplication::translate("MainWindow", "Indices", nullptr));
+        pb_home->setText(QCoreApplication::translate("MainWindow", "Inicio", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Indices segundo", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Registros", nullptr));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);

@@ -337,6 +337,55 @@ background: #0070A1;
                  <bool>true</bool>
                 </property>
                </widget>
+               <widget class="QPushButton" name="pb_home">
+                <property name="geometry">
+                 <rect>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>180</width>
+                  <height>50</height>
+                 </rect>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Verdana</family>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+background: transparent;
+color: #fff;
+border: none;
+padding: 10px;
+text-align: left;
+}
+QPushButton:Hover{
+background: #0070A1;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Inicio</string>
+                </property>
+                <property name="icon">
+                 <iconset theme="QIcon::ThemeIcon::GoHome"/>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>30</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+                <property name="autoExclusive">
+                 <bool>true</bool>
+                </property>
+               </widget>
               </widget>
              </item>
             </layout>
@@ -374,7 +423,7 @@ background: #FFFFFF;
              <item>
               <widget class="QStackedWidget" name="stackedWidget">
                <property name="currentIndex">
-                <number>2</number>
+                <number>3</number>
                </property>
                <widget class="QWidget" name="pg_Indices">
                 <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -2149,6 +2198,7 @@ QPushButton:disabled {
                  </widget>
                 </widget>
                </widget>
+               <widget class="QWidget" name="pg_Home"/>
               </widget>
              </item>
             </layout>

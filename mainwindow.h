@@ -26,6 +26,7 @@ private slots:
     void on_pb_Campos_clicked();
     void on_pb_Registros_clicked();
     void on_pb_Indices_clicked();
+    void on_pb_home_clicked();
 
     // Boton de Desplace
     void on_pb_Desplace_clicked();
