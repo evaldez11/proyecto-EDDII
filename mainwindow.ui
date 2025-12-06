@@ -455,33 +455,340 @@ background: #FFFFFF;
                 </layout>
                </widget>
                <widget class="QWidget" name="pg_Registros">
-                <layout class="QVBoxLayout" name="verticalLayout_6">
-                 <property name="spacing">
-                  <number>0</number>
+                <widget class="QFrame" name="frame_Registros_Main">
+                 <property name="geometry">
+                  <rect>
+                   <x>9</x>
+                   <y>9</y>
+                   <width>731</width>
+                   <height>551</height>
+                  </rect>
                  </property>
-                 <property name="leftMargin">
-                  <number>0</number>
+                 <property name="frameShape">
+                  <enum>QFrame::Shape::StyledPanel</enum>
                  </property>
-                 <property name="topMargin">
-                  <number>0</number>
+                 <property name="frameShadow">
+                  <enum>QFrame::Shadow::Raised</enum>
                  </property>
-                 <property name="rightMargin">
-                  <number>0</number>
+                 <widget class="QTableWidget" name="tableWidgetRegistros">
+                  <property name="geometry">
+                   <rect>
+                    <x>1</x>
+                    <y>1</y>
+                    <width>721</width>
+                    <height>351</height>
+                   </rect>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>886</width>
+                    <height>536</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QTableWidget {
+    background-color: #ffffff;
+    border: none;
+    gridline-color: #d0d0d0;
+    font-size: 14px;
+    color: #2f2f2f;
+    selection-background-color: #009fe3;   /* azul corporativo */
+    selection-color: white;
+}
+
+QHeaderView::section {
+    background-color: #009fe3;      /* azul */
+    color: white;
+    padding: 6px;
+    border: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+QTableCornerButton::section {
+    background-color: #009fe3;
+}
+
+QTableWidget QTableView {
+    outline: 0;
+}
+
+QScrollBar:vertical {
+    width: 10px;
+    background: #e0e0e0;
+}
+
+QScrollBar::handle:vertical {
+    background: #009fe3;
+    border-radius: 5px;
+}
+
+QScrollBar::add-line,
+QScrollBar::sub-line {
+    height: 0px;
+}</string>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::Shape::WinPanel</enum>
+                  </property>
+                  <property name="editTriggers">
+                   <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                  </property>
+                  <property name="selectionMode">
+                   <enum>QAbstractItemView::SelectionMode::SingleSelection</enum>
+                  </property>
+                  <property name="selectionBehavior">
+                   <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+                  </property>
+                  <property name="alternatingRowColors">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                 <widget class="QFrame" name="frame_Registros">
+                  <property name="geometry">
+                   <rect>
+                    <x>0</x>
+                    <y>360</y>
+                    <width>721</width>
+                    <height>141</height>
+                   </rect>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QFrame{
+background: #00A2E8;
+}</string>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::Shape::NoFrame</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Shadow::Raised</enum>
+                  </property>
+                 </widget>
+                </widget>
+                <widget class="QFrame" name="frame_Registros_Buttons">
+                 <property name="geometry">
+                  <rect>
+                   <x>734</x>
+                   <y>9</y>
+                   <width>171</width>
+                   <height>551</height>
+                  </rect>
                  </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
+                 <property name="styleSheet">
+                  <string notr="true">QFrame{
+background: #00A2E8;
+}</string>
                  </property>
-                 <item>
-                  <widget class="QLabel" name="label_3">
-                   <property name="text">
-                    <string>Registros</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignmentFlag::AlignCenter</set>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
+                 <property name="frameShape">
+                  <enum>QFrame::Shape::NoFrame</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Shadow::Raised</enum>
+                 </property>
+                 <widget class="QPushButton" name="pushButtonCrearRegistro">
+                  <property name="geometry">
+                   <rect>
+                    <x>9</x>
+                    <y>83</y>
+                    <width>151</width>
+                    <height>36</height>
+                   </rect>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Verdana</family>
+                    <pointsize>10</pointsize>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
+background: transparent;
+color: #fff;
+border: none;
+padding: 10px;
+text-align: left;
+}
+QPushButton:Hover{
+background: #0070A1;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Crear Registro</string>
+                  </property>
+                  <property name="icon">
+                   <iconset theme="QIcon::ThemeIcon::FolderNew"/>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                  <property name="autoExclusive">
+                   <bool>true</bool>
+                  </property>
+                  <property name="flat">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                 <widget class="QPushButton" name="pushButtonModificarRegistro">
+                  <property name="geometry">
+                   <rect>
+                    <x>9</x>
+                    <y>199</y>
+                    <width>148</width>
+                    <height>36</height>
+                   </rect>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Verdana</family>
+                    <pointsize>10</pointsize>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
+background: transparent;
+color: #fff;
+border: none;
+padding: 10px;
+text-align: left;
+}
+QPushButton:Hover{
+background: #0070A1;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Modificar Registro</string>
+                  </property>
+                  <property name="icon">
+                   <iconset theme="QIcon::ThemeIcon::DocumentProperties"/>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="checked">
+                   <bool>false</bool>
+                  </property>
+                  <property name="autoExclusive">
+                   <bool>true</bool>
+                  </property>
+                  <property name="flat">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                 <widget class="QPushButton" name="pushButtonBorrarRegistro">
+                  <property name="geometry">
+                   <rect>
+                    <x>9</x>
+                    <y>315</y>
+                    <width>141</width>
+                    <height>36</height>
+                   </rect>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Verdana</family>
+                    <pointsize>10</pointsize>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
+background: transparent;
+color: #fff;
+border: none;
+padding: 10px;
+text-align: left;
+}
+QPushButton:Hover{
+background: #0070A1;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Borrar</string>
+                  </property>
+                  <property name="icon">
+                   <iconset theme="QIcon::ThemeIcon::EditDelete"/>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="checked">
+                   <bool>false</bool>
+                  </property>
+                  <property name="autoExclusive">
+                   <bool>true</bool>
+                  </property>
+                  <property name="flat">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                 <widget class="QPushButton" name="pushButtonConfirmarRegistro">
+                  <property name="geometry">
+                   <rect>
+                    <x>9</x>
+                    <y>431</y>
+                    <width>151</width>
+                    <height>36</height>
+                   </rect>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Verdana</family>
+                    <pointsize>10</pointsize>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton {
+    background: transparent;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Hover */
+QPushButton:hover:enabled {
+    background: #0070A1;
+}
+
+/* Estado deshabilitado — elegante */
+QPushButton:disabled {
+    background:  #00A2E8;   /* un brillo leve */
+    color: rgba(255, 255, 255, 120);         /* texto blanco apagado */
+    border: none;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Confirmar</string>
+                  </property>
+                  <property name="icon">
+                   <iconset theme="QIcon::ThemeIcon::AppointmentNew"/>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="autoExclusive">
+                   <bool>true</bool>
+                  </property>
+                  <property name="flat">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                </widget>
                </widget>
                <widget class="QWidget" name="pg_Campos">
                 <widget class="QFrame" name="frame_3">
