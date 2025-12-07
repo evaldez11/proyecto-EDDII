@@ -8,12 +8,7 @@
 #include <QMessageBox>
 #include <string>
 #include <QVector>
-#include <QMap>
-#include <QFormLayout>
-#include <QLineEdit>
-#include <QSpinBox>
-#include <QDoubleSpinBox>
-
+#include "registros.h"
 using namespace std;
 
 QString archivo;
@@ -23,13 +18,8 @@ QVector<Campos> vectorCampos;
 bool campos = false;
 bool modificar = false;
 bool eliminar = false;
-
-// Registros global variables
-QVector<QMap<QString, QString>> vectorRegistros;
-bool crearRegistro = false;
-bool modificarRegistro = false;
-bool eliminarRegistro = false;
-
+QVector<QString> vectorInfo;
+QVector<Registros> vectorNuevosRegistros;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -39,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
     QApplication::setFont(fuente);
 
     ui->setupUi(this);
+    ui->stackedWidget->setCurrentWidget(ui->pg_Home);
     ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     //Deshabilitar boton de confirmar Campos
     ui->pushButtonConfirmar->setEnabled(false);
@@ -53,21 +44,23 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->spinBoxLongitud->setMinimum(0);
     ui->frame_7->setVisible(false);
+    ui->frame_10->setVisible(false);
 
-    connect(ui->tableWidget, &QTableWidget::cellClicked,this, &MainWindow::onTablaCellClicked);
 
-    // Configure tableWidgetRegistros
+    ui->tableWidgetRegistros->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableWidgetRegistros->setAlternatingRowColors(true);
     ui->tableWidgetRegistros->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->tableWidgetRegistros->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->tableWidgetRegistros->horizontalHeader()->setStretchLastSection(true);
+    ui->tableWidgetRegistros->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     ui->tableWidgetRegistros->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    ui->tableWidgetRegistros->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
-    // Initially hide input panel
-    ui->frame_Registros->setVisible(false);
 
-    // Disable confirm button initially
-    ui->pushButtonConfirmarRegistro->setEnabled(false);
+    connect(ui->tableWidget, &QTableWidget::cellClicked,this, &MainWindow::onTablaCellClicked);
+    connect(ui->comboBoxCampo,&QComboBox::currentIndexChanged,this,&::MainWindow::on_comboBoxTipoDato_currentIndexChanged);
+
+
+
 
 }
 
@@ -79,22 +72,27 @@ MainWindow::~MainWindow()
 // Campos
 void MainWindow::on_pb_Campos_clicked()
 {
-    ui->stackedWidget->setCurrentWidget(ui->pg_Campos);
-    //leerArchivo();
+    if(archivo.isEmpty()){
+        QMessageBox::information(this,"Error"," No hay ningun archivo abierto");
+    }else{
+        ui->stackedWidget->setCurrentWidget(ui->pg_Campos);
+        //leerArchivo();
+    }
+
 }
 
 // Registros
 void MainWindow::on_pb_Registros_clicked()
 {
-    // Validate that campos are defined before allowing navigation
-    if (vectorCampos.isEmpty()) {
-        QMessageBox::warning(this, "Error", "Primero debes definir campos en la página de Campos");
-        return;
+    if(archivo.isEmpty()){
+        QMessageBox::information(this,"Error"," No hay ningun archivo abierto");
+    }else if(vectorCampos.isEmpty()){
+         QMessageBox::information(this,"Error"," No hay campos registrados en el archivo");
+    }else{
+        llenarPaginaRegistros();
+        ui->stackedWidget->setCurrentWidget(ui->pg_Registros);
     }
 
-    // Switch to Registros page and load the records
-    ui->stackedWidget->setCurrentWidget(ui->pg_Registros);
-    cargarRegistros();
 }
 
 // Índices
@@ -269,33 +267,8 @@ void MainWindow::leerArchivo(){
     for(Campos c : vectorCampos){
         qDebug() << c.toString();
     }
-
-    // Read registro lines
-    vectorRegistros.clear();
-    while (!in.atEnd()) {
-        QString linea = in.readLine();
-        if (linea.isEmpty()) continue;
-
-        QStringList valores = linea.split('|', Qt::SkipEmptyParts);
-
-        for (const QString &registroStr : valores) {
-            QStringList cols = registroStr.split(QChar(0x0192)); // 'ƒ'
-
-            if (cols.size() != vectorCampos.size()) continue;
-
-            QMap<QString, QString> registro;
-            for (int i = 0; i < vectorCampos.size(); i++) {
-                QString campoNombre = vectorCampos[i].getnombreCampo();
-                registro[campoNombre] = cols[i];
-            }
-
-            vectorRegistros.append(registro);
-        }
-    }
 }
-
-void MainWindow::on_actionGuardar_Archivo_triggered()
-{
+void MainWindow::guardarArchivo(){
     int filas = ui->tableWidget->rowCount();
     bool hayLlavePrimaria = false;
     for (int r = 0; r < filas; ++r) {
@@ -321,24 +294,10 @@ void MainWindow::on_actionGuardar_Archivo_triggered()
         for(Campos c : vectorCampos){
             metaData += c.toString() + "|";
         }
-
-        // Build registros lines
-        QString registrosData = "";
-        for (const QMap<QString, QString> &registro : vectorRegistros) {
-            for (const Campos &campo : vectorCampos) {
-                QString valor = registro[campo.getnombreCampo()];
-                registrosData += valor + "ƒ";
-            }
-            // Remove trailing 'ƒ', add '|'
-            registrosData.chop(1);
-            registrosData += "|\n";
-        }
-
         file.resize(0);
         file.seek(0);
         QTextStream out(&file);
-        out << metaData << "\n";
-        out << registrosData;
+        out << metaData;
         //metaData  = "";
         QMessageBox::information(this, "Guardado", "Los cambios se guardaron correctamente.");
         for(Campos c : vectorCampos){
@@ -348,10 +307,14 @@ void MainWindow::on_actionGuardar_Archivo_triggered()
         //file.close();
 
     }else{
-         QMessageBox::information(this,"No Hay Llave Primaria","No hay ningun campo marcado como llave primaria, no puedes guardar asi el archivo");
+        QMessageBox::information(this,"No Hay Llave Primaria","No hay ningun campo marcado como llave primaria, no puedes guardar asi el archivo");
     }
 
     archivoGuardado = true;
+}
+void MainWindow::on_actionGuardar_Archivo_triggered()
+{
+    guardarArchivo();
 }
 
 
@@ -532,404 +495,106 @@ void MainWindow::on_pushButtonBorrarCampo_clicked()
     ui->pushButtonConfirmar->setEnabled(true);
 }
 
-// Registros implementation stubs
-void MainWindow::cargarRegistros() {
-    // Clear table
-    ui->tableWidgetRegistros->setRowCount(0);
 
-    // Set column count from vectorCampos
-    ui->tableWidgetRegistros->setColumnCount(vectorCampos.size());
+void MainWindow::on_actionCerrar_Archivo_triggered()
+{
+    if(archivo.isEmpty()){
+        QMessageBox::information(this,"Error","No hay ningun archivo abierto");
+    }else{
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::question(this, "Cerrar archivo","Estas cerrando el archivo\n¿Deseas guardar el archivo?", QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
 
-    // Set column headers from campo names
-    QStringList headers;
-    for (const Campos &campo : vectorCampos) {
-        headers << campo.getnombreCampo();
-    }
-    ui->tableWidgetRegistros->setHorizontalHeaderLabels(headers);
-
-    // Iterate through vectorRegistros
-    for (int row = 0; row < vectorRegistros.size(); ++row) {
-        const QMap<QString, QString> &registro = vectorRegistros[row];
-
-        // Insert new row
-        ui->tableWidgetRegistros->insertRow(row);
-
-        // For each campo in vectorCampos (iterate in order)
-        for (int col = 0; col < vectorCampos.size(); ++col) {
-            QString campoNombre = vectorCampos[col].getnombreCampo();
-
-            // Get value from registro map using campo name as key
-            QString valor = registro[campoNombre];
-
-            // Create QTableWidgetItem with the value
-            QTableWidgetItem *item = new QTableWidgetItem(valor);
-
-            // Set item in table at [row, column]
-            ui->tableWidgetRegistros->setItem(row, col, item);
-        }
-    }
-}
-
-void MainWindow::generarInputsRegistros() {
-    // Clear existing widgets from layout
-    QLayoutItem *item;
-    while ((item = ui->frame_Registros->layout()->takeAt(0))) {
-        if (item->widget()) delete item->widget();
-        delete item;
-    }
-
-    QFormLayout *formLayout = new QFormLayout();
-
-    // Create input widget for each campo
-    for (const Campos &campo : vectorCampos) {
-        QString nombre = campo.getnombreCampo();
-        QString tipo = campo.gettipoDato();
-        int longitud = campo.getlongitud();
-
-        QWidget *inputWidget = nullptr;
-
-        if (tipo == "String") {
-            QLineEdit *input = new QLineEdit();
-            input->setObjectName("input_" + nombre);
-            input->setMaxLength(longitud);
-            inputWidget = input;
-
-        } else if (tipo == "Int") {
-            QSpinBox *input = new QSpinBox();
-            input->setObjectName("input_" + nombre);
-            input->setMaximum(longitud);
-            input->setMinimum(0);
-            inputWidget = input;
-
-        } else if (tipo == "Char") {
-            QLineEdit *input = new QLineEdit();
-            input->setObjectName("input_" + nombre);
-            input->setMaxLength(1);
-            inputWidget = input;
-
-        } else if (tipo == "Float") {
-            QDoubleSpinBox *input = new QDoubleSpinBox();
-            input->setObjectName("input_" + nombre);
-            input->setMaximum(longitud);
-            input->setMinimum(0.0);
-            input->setDecimals(2);
-            inputWidget = input;
-        }
-
-        if (inputWidget) formLayout->addRow(nombre + ":", inputWidget);
-    }
-
-    QLayout *oldLayout = ui->frame_Registros->layout();
-
-    if (oldLayout) delete oldLayout;
-
-    ui->frame_Registros->setLayout(formLayout);
-}
-
-void MainWindow::vaciarInputsRegistros() {
-    for (const Campos &campo : vectorCampos) {
-        QString nombre = campo.getnombreCampo();
-        QString tipo = campo.gettipoDato();
-
-        QWidget *widget = ui->frame_Registros->findChild<QWidget*>("input_" + nombre);
-
-        if (tipo == "String" || tipo == "Char") {
-            QLineEdit *input = qobject_cast<QLineEdit*>(widget);
-            if (input) input->setText("");
-
-        } else if (tipo == "Int") {
-            QSpinBox *input = qobject_cast<QSpinBox*>(widget);
-            if (input) input->setValue(0);
-
-        } else if (tipo == "Float") {
-            QDoubleSpinBox *input = qobject_cast<QDoubleSpinBox*>(widget);
-            if (input) input->setValue(0.0);
-        }
-    }
-}
-
-void MainWindow::cargarInputsDesdeRegistro(int row) {
-    // Get registro from vectorRegistros[row]
-    const QMap<QString, QString> &registro = vectorRegistros[row];
-
-    // For each campo, find corresponding input widget and set value
-    for (const Campos &campo : vectorCampos) {
-        QString nombre = campo.getnombreCampo();
-        QString tipo = campo.gettipoDato();
-
-        QWidget *widget = ui->frame_Registros->findChild<QWidget*>("input_" + nombre);
-        QString valor = registro[nombre];
-
-        if (tipo == "String" || tipo == "Char") {
-            QLineEdit *input = qobject_cast<QLineEdit*>(widget);
-            if (input) input->setText(valor);
-
-        } else if (tipo == "Int") {
-            QSpinBox *input = qobject_cast<QSpinBox*>(widget);
-            if (input) input->setValue(valor.toInt());
-
-        } else if (tipo == "Float") {
-            QDoubleSpinBox *input = qobject_cast<QDoubleSpinBox*>(widget);
-            if (input) input->setValue(valor.toDouble());
-        }
-    }
-}
-
-bool MainWindow::validarInputsRegistros() {
-    for (const Campos &campo : vectorCampos) {
-        QString nombre = campo.getnombreCampo();
-        QString tipo = campo.gettipoDato();
-        int longitud = campo.getlongitud();
-
-        QWidget *widget = ui->frame_Registros->findChild<QWidget*>("input_" + nombre);
-
-        if (tipo == "String") {
-            QLineEdit *input = qobject_cast<QLineEdit*>(widget);
-            if (!input) continue;
-
-            QString value = input->text();
-            if (value.isEmpty()) {
-                QMessageBox::warning(this, "Error", "El campo " + nombre + " no puede estar vacío");
-                return false;
-            }
-            if (value.length() > longitud) {
-                QMessageBox::warning(this, "Error", "El campo " + nombre + " excede la longitud máxima");
-                return false;
-            }
-
-        } else if (tipo == "Int") {
-            QSpinBox *input = qobject_cast<QSpinBox*>(widget);
-            if (!input) continue;
-
-            int value = input->value();
-            if (value > longitud) {
-                QMessageBox::warning(this, "Error", "El campo " + nombre + " excede el máximo permitido");
-                return false;
-            }
-
-        } else if (tipo == "Char") {
-            QLineEdit *input = qobject_cast<QLineEdit*>(widget);
-            if (!input) continue;
-
-            if (input->text().isEmpty()) {
-                QMessageBox::warning(this, "Error", "El campo " + nombre + " requiere un carácter");
-                return false;
-            }
-
-        } else if (tipo == "Float") {
-            QDoubleSpinBox *input = qobject_cast<QDoubleSpinBox*>(widget);
-            if (!input) continue;
-
-            double value = input->value();
-            if (value > longitud) {
-                QMessageBox::warning(this, "Error", "El campo " + nombre + " excede el máximo permitido");
-                return false;
-            }
+        if (reply == QMessageBox::Cancel){
+            return;
+        }else if (reply == QMessageBox::No){
+            file.close();
+            archivo.clear();
+            ui->tableWidget->clearContents();
+            ui->tableWidget->setRowCount(0);
+            ui->stackedWidget->setCurrentWidget(ui->pg_Home);
+            vectorCampos.clear();
+        }else{
+            guardarArchivo();
+            file.close();
+            archivo.clear();
+            ui->tableWidget->clearContents();
+            ui->tableWidget->setRowCount(0);
+            ui->stackedWidget->setCurrentWidget(ui->pg_Home);
+            vectorCampos.clear();
         }
     }
 
-    return true;
 }
-
-void MainWindow::on_pushButtonCrearRegistro_clicked() {
-    // Call generarInputsRegistros() to create fresh input widgets
-    generarInputsRegistros();
-
-    // Call vaciarInputsRegistros() to clear all inputs
-    vaciarInputsRegistros();
-
-    // Show success message
-    QMessageBox::information(this, "Crear Registro", "Completa los campos y presiona Confirmar");
-
-    // Set mode flags
-    crearRegistro = true;
-    modificarRegistro = false;
-    eliminarRegistro = false;
-
-    // Show input panel
-    ui->frame_Registros->setVisible(true);
-
-    // Enable confirm button
-    ui->pushButtonConfirmarRegistro->setEnabled(true);
-}
-
-void MainWindow::on_pushButtonModificarRegistro_clicked() {
-    // Get selected row
-    int row = ui->tableWidgetRegistros->currentRow();
-
-    // Check if a row is selected
-    if (row < 0) {
-        QMessageBox::warning(this, "Error", "Debes seleccionar un registro para modificar");
-        return;
-    }
-
-    // Call generarInputsRegistros() to create input widgets
-    generarInputsRegistros();
-
-    // Call cargarInputsDesdeRegistro to populate inputs with current values
-    cargarInputsDesdeRegistro(row);
-
-    // Show info message
-    QMessageBox::information(this, "Modificar Registro", "Modifica los campos y presiona Confirmar");
-
-    // Set mode flags
-    modificarRegistro = true;
-    crearRegistro = false;
-    eliminarRegistro = false;
-
-    // Show input panel
-    ui->frame_Registros->setVisible(true);
-
-    // Enable confirm button
-    ui->pushButtonConfirmarRegistro->setEnabled(true);
-}
-
-void MainWindow::on_pushButtonBorrarRegistro_clicked() {
-    // Get selected row
-    int row = ui->tableWidgetRegistros->currentRow();
-
-    // Check if a row is selected
-    if (row < 0) {
-        QMessageBox::warning(this, "Error", "Debes seleccionar un registro para eliminar");
-        return;
-    }
-
-    // Show confirmation dialog
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, "Confirmar Eliminación",
-                                   "¿Estás seguro de eliminar este registro?",
-                                   QMessageBox::Yes | QMessageBox::No);
-
-    if (reply == QMessageBox::Yes) {
-        // Set mode flags
-        eliminarRegistro = true;
-        crearRegistro = false;
-        modificarRegistro = false;
-
-        // Enable confirm button
-        ui->pushButtonConfirmarRegistro->setEnabled(true);
-
-        // Show message
-        QMessageBox::information(this, "Eliminar Registro", "Presiona Confirmar para eliminar definitivamente");
+void MainWindow::llenarPaginaRegistros(){
+    ui->tableWidgetRegistros->setColumnCount(0);
+    ui->comboBoxCampo->clear();
+    for(Campos c: vectorCampos){
+        ui->comboBoxCampo->addItem(c.getnombreCampo());
+        int col = ui->tableWidgetRegistros->columnCount();
+        ui->tableWidgetRegistros->insertColumn(col);
+        ui->tableWidgetRegistros->setHorizontalHeaderItem(col, new QTableWidgetItem(c.getnombreCampo()));
     }
 }
+void MainWindow::on_comboBoxCampo_currentIndexChanged(int index){
 
-void MainWindow::on_pushButtonConfirmarRegistro_clicked() {
-    // Branch based on mode flags
-    if (crearRegistro) {
-        // 1. Call validarInputsRegistros() - return if false
-        if (!validarInputsRegistros()) return;
+    if (index >= 0 && index < vectorInfo.size()) {
+        ui->lineEditInfo->setText(vectorInfo.at(index));
+    } else {
+        ui->lineEditInfo->clear(); // limpiar si no hay valor
+    }
 
-        // 2. Build new registro QMap from input widgets
-        QMap<QString, QString> nuevoRegistro;
 
-        for (const Campos &campo : vectorCampos) {
-            QString nombre = campo.getnombreCampo();
-            QString tipo = campo.gettipoDato();
+}
 
-            QWidget *widget = ui->frame_Registros->findChild<QWidget*>("input_" + nombre);
 
-            QString valor;
-            if (tipo == "String" || tipo == "Char") {
-                QLineEdit *input = qobject_cast<QLineEdit*>(widget);
-                if (input) valor = input->text();
+void MainWindow::on_pushButtonAgregar_clicked()
+{
+    int pos = ui->comboBoxCampo->currentIndex();
 
-            } else if (tipo == "Int") {
-                QSpinBox *input = qobject_cast<QSpinBox*>(widget);
-                if (input) valor = QString::number(input->value());
+    // Si no hay selección, agregamos al final
+    if (pos < 0 || pos > vectorInfo.size()) {
+        pos = vectorInfo.size();
+    }
 
-            } else if (tipo == "Float") {
-                QDoubleSpinBox *input = qobject_cast<QDoubleSpinBox*>(widget);
-                if (input) valor = QString::number(input->value());
-            }
+        vectorInfo[pos] = ui->lineEditInfo->text();
 
-            nuevoRegistro[nombre] = valor;
+    QMessageBox::information(this,"Informacion","El campo "+vectorCampos[pos].getnombreCampo()+" se lleno correctamente");
+}
+
+
+void MainWindow::on_pushButtonConfirmarRegistros_clicked()
+{
+    int row = ui->tableWidgetRegistros->rowCount();
+    ui->tableWidgetRegistros->insertRow(row);
+    for(int i = 0; i < vectorInfo.size();i++){
+        ui->tableWidgetRegistros->setItem(row, i, new QTableWidgetItem(vectorInfo[i]));
+    }
+    ui->frame_10->setVisible(false);
+    Registros nuevoRegistro;
+    nuevoRegistro.setSectorCampos(vectorCampos);
+    QString reg = "";
+    for(int i = 0; i <vectorInfo.size();i++){
+        if(i == vectorInfo.size() - 1 ){
+            reg += vectorInfo[i];
+        }else{
+            reg += vectorInfo[i] + "ƒ";
         }
-
-        // 3. Append to vectorRegistros
-        vectorRegistros.append(nuevoRegistro);
-
-        // 4. Call cargarRegistros() to refresh table
-        cargarRegistros();
-
-        // 5. Show success
-        QMessageBox::information(this, "Éxito", "Registro creado correctamente");
-
-        // 6. Hide input panel
-        ui->frame_Registros->setVisible(false);
-
-        // 7. Reset mode flags
-        crearRegistro = false;
-        modificarRegistro = false;
-        eliminarRegistro = false;
-
-    } else if (modificarRegistro) {
-        // 1. Get current row index
-        int row = ui->tableWidgetRegistros->currentRow();
-
-        // 2. Call validarInputsRegistros() - return if false
-        if (!validarInputsRegistros()) return;
-
-        // 3. Build updated registro QMap from input widgets
-        QMap<QString, QString> registroActualizado;
-
-        for (const Campos &campo : vectorCampos) {
-            QString nombre = campo.getnombreCampo();
-            QString tipo = campo.gettipoDato();
-
-            QWidget *widget = ui->frame_Registros->findChild<QWidget*>("input_" + nombre);
-
-            QString valor;
-            if (tipo == "String" || tipo == "Char") {
-                QLineEdit *input = qobject_cast<QLineEdit*>(widget);
-                if (input) valor = input->text();
-
-            } else if (tipo == "Int") {
-                QSpinBox *input = qobject_cast<QSpinBox*>(widget);
-                if (input) valor = QString::number(input->value());
-
-            } else if (tipo == "Float") {
-                QDoubleSpinBox *input = qobject_cast<QDoubleSpinBox*>(widget);
-                if (input) valor = QString::number(input->value());
-            }
-
-            registroActualizado[nombre] = valor;
-        }
-
-        // 4. Replace vectorRegistros[row] with updated map
-        vectorRegistros[row] = registroActualizado;
-
-        // 5. Call cargarRegistros() to refresh table
-        cargarRegistros();
-
-        // 6. Show success
-        QMessageBox::information(this, "Éxito", "Registro modificado correctamente");
-
-        // 7. Hide input panel
-        ui->frame_Registros->setVisible(false);
-
-        // 8. Reset mode flags
-        crearRegistro = false;
-        modificarRegistro = false;
-        eliminarRegistro = false;
-
-    } else if (eliminarRegistro) {
-        // 1. Get current row index
-        int row = ui->tableWidgetRegistros->currentRow();
-
-        // 2. Remove from vector
-        if (row >= 0 && row < vectorRegistros.size())
-            vectorRegistros.removeAt(row);
-
-        // 3. Call cargarRegistros() to refresh table
-        cargarRegistros();
-
-        // 4. Show success
-        QMessageBox::information(this, "Éxito", "Registro eliminado correctamente");
-
-        // 5. Reset mode flags
-        crearRegistro = false;
-        modificarRegistro = false;
-        eliminarRegistro = false;
     }
+    nuevoRegistro.setRegistro(reg);
+     qDebug() << nuevoRegistro.getRegistro();
+    vectorNuevosRegistros.append(nuevoRegistro);
+
 }
+
+
+void MainWindow::on_pushButtonCrearRegistro_clicked()
+{
+    ui->lineEditInfo->setText("");
+    vectorInfo.clear();
+    for(int i = 0; i<vectorCampos.size();i++){
+        vectorInfo.append("");
+    }
+    QMessageBox::information(this,"Informacion","1. Llena el apartado de informacion, segun el campo seleccionado\n2. Presiona el boton de agregar para llenar ese campo\n3. Al terminar de llenar todos los campos, presiona el boton de confirmar");
+    ui->frame_10->setVisible(true);
+}
+

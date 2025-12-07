@@ -21,13 +21,8 @@ public:
     void vaciarPanelCampos();
     void onTablaCellClicked(int row, int columna);
     void leerArchivo();
-
-    // Registros methods
-    void cargarRegistros();
-    void generarInputsRegistros();
-    void vaciarInputsRegistros();
-    void cargarInputsDesdeRegistro(int row);
-    bool validarInputsRegistros();
+    void guardarArchivo();
+    void llenarPaginaRegistros();
 private slots:
     // Botones de Uso
     void on_pb_Campos_clicked();
@@ -55,11 +50,17 @@ private slots:
 
     void on_pushButtonBorrarCampo_clicked();
 
-    // Registros slots
+    void on_actionCerrar_Archivo_triggered();
+    void on_comboBoxCampo_currentIndexChanged(int index);
+
+
+
+    void on_pushButtonAgregar_clicked();
+
+    void on_pushButtonConfirmarRegistros_clicked();
+
     void on_pushButtonCrearRegistro_clicked();
-    void on_pushButtonModificarRegistro_clicked();
-    void on_pushButtonBorrarRegistro_clicked();
-    void on_pushButtonConfirmarRegistro_clicked();
+
 private:
     Ui::MainWindow *ui;
     QFile file;
