@@ -80,7 +80,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_pb_Campos_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->pg_Campos);
-    leerArchivo();
+    //leerArchivo();
 }
 
 // Registros

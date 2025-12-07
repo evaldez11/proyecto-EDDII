@@ -1,5 +1,5 @@
-C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/mainwindow.h \
-  C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/moc_predefs.h \
+C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/mainwindow.h \
+  C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/moc_predefs.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/QFile \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q20functional.h \

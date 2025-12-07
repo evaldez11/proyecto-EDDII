@@ -62,8 +62,14 @@ public:
     QVBoxLayout *verticalLayout_4;
     QLabel *label;
     QWidget *pg_Registros;
-    QVBoxLayout *verticalLayout_6;
-    QLabel *label_3;
+    QFrame *frame_Registros_Main;
+    QTableWidget *tableWidgetRegistros;
+    QFrame *frame_Registros;
+    QFrame *frame_Registros_Buttons;
+    QPushButton *pushButtonCrearRegistro;
+    QPushButton *pushButtonModificarRegistro;
+    QPushButton *pushButtonBorrarRegistro;
+    QPushButton *pushButtonConfirmarRegistro;
     QWidget *pg_Campos;
     QFrame *frame_3;
     QTableWidget *tableWidget;
@@ -296,16 +302,168 @@ public:
         stackedWidget->addWidget(pg_Indices);
         pg_Registros = new QWidget();
         pg_Registros->setObjectName("pg_Registros");
-        verticalLayout_6 = new QVBoxLayout(pg_Registros);
-        verticalLayout_6->setSpacing(0);
-        verticalLayout_6->setObjectName("verticalLayout_6");
-        verticalLayout_6->setContentsMargins(0, 0, 0, 0);
-        label_3 = new QLabel(pg_Registros);
-        label_3->setObjectName("label_3");
-        label_3->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        verticalLayout_6->addWidget(label_3);
-
+        frame_Registros_Main = new QFrame(pg_Registros);
+        frame_Registros_Main->setObjectName("frame_Registros_Main");
+        frame_Registros_Main->setGeometry(QRect(9, 9, 731, 551));
+        frame_Registros_Main->setFrameShape(QFrame::Shape::StyledPanel);
+        frame_Registros_Main->setFrameShadow(QFrame::Shadow::Raised);
+        tableWidgetRegistros = new QTableWidget(frame_Registros_Main);
+        tableWidgetRegistros->setObjectName("tableWidgetRegistros");
+        tableWidgetRegistros->setGeometry(QRect(1, 1, 721, 351));
+        tableWidgetRegistros->setMaximumSize(QSize(886, 536));
+        tableWidgetRegistros->setStyleSheet(QString::fromUtf8("QTableWidget {\n"
+"    background-color: #ffffff;\n"
+"    border: none;\n"
+"    gridline-color: #d0d0d0;\n"
+"    font-size: 14px;\n"
+"    color: #2f2f2f;\n"
+"    selection-background-color: #009fe3;   /* azul corporativo */\n"
+"    selection-color: white;\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: #009fe3;      /* azul */\n"
+"    color: white;\n"
+"    padding: 6px;\n"
+"    border: none;\n"
+"    font-weight: bold;\n"
+"    font-size: 14px;\n"
+"}\n"
+"\n"
+"QTableCornerButton::section {\n"
+"    background-color: #009fe3;\n"
+"}\n"
+"\n"
+"QTableWidget QTableView {\n"
+"    outline: 0;\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    width: 10px;\n"
+"    background: #e0e0e0;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical {\n"
+"    background: #009fe3;\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QScrollBar::add-line,\n"
+"QScrollBar::sub-line {\n"
+"    height: 0px;\n"
+"}"));
+        tableWidgetRegistros->setFrameShape(QFrame::Shape::WinPanel);
+        tableWidgetRegistros->setEditTriggers(QAbstractItemView::EditTrigger::NoEditTriggers);
+        tableWidgetRegistros->setSelectionMode(QAbstractItemView::SelectionMode::SingleSelection);
+        tableWidgetRegistros->setSelectionBehavior(QAbstractItemView::SelectionBehavior::SelectRows);
+        tableWidgetRegistros->setAlternatingRowColors(true);
+        frame_Registros = new QFrame(frame_Registros_Main);
+        frame_Registros->setObjectName("frame_Registros");
+        frame_Registros->setGeometry(QRect(0, 360, 721, 141));
+        frame_Registros->setStyleSheet(QString::fromUtf8("QFrame{\n"
+"background: #00A2E8;\n"
+"}"));
+        frame_Registros->setFrameShape(QFrame::Shape::NoFrame);
+        frame_Registros->setFrameShadow(QFrame::Shadow::Raised);
+        frame_Registros_Buttons = new QFrame(pg_Registros);
+        frame_Registros_Buttons->setObjectName("frame_Registros_Buttons");
+        frame_Registros_Buttons->setGeometry(QRect(734, 9, 171, 551));
+        frame_Registros_Buttons->setStyleSheet(QString::fromUtf8("QFrame{\n"
+"background: #00A2E8;\n"
+"}"));
+        frame_Registros_Buttons->setFrameShape(QFrame::Shape::NoFrame);
+        frame_Registros_Buttons->setFrameShadow(QFrame::Shadow::Raised);
+        pushButtonCrearRegistro = new QPushButton(frame_Registros_Buttons);
+        pushButtonCrearRegistro->setObjectName("pushButtonCrearRegistro");
+        pushButtonCrearRegistro->setGeometry(QRect(9, 83, 151, 36));
+        pushButtonCrearRegistro->setFont(font1);
+        pushButtonCrearRegistro->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
+        pushButtonCrearRegistro->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"background: transparent;\n"
+"color: #fff;\n"
+"border: none;\n"
+"padding: 10px;\n"
+"text-align: left;\n"
+"}\n"
+"QPushButton:Hover{\n"
+"background: #0070A1;\n"
+"}"));
+        QIcon icon9(QIcon::fromTheme(QIcon::ThemeIcon::FolderNew));
+        pushButtonCrearRegistro->setIcon(icon9);
+        pushButtonCrearRegistro->setCheckable(true);
+        pushButtonCrearRegistro->setChecked(true);
+        pushButtonCrearRegistro->setAutoExclusive(true);
+        pushButtonCrearRegistro->setFlat(false);
+        pushButtonModificarRegistro = new QPushButton(frame_Registros_Buttons);
+        pushButtonModificarRegistro->setObjectName("pushButtonModificarRegistro");
+        pushButtonModificarRegistro->setGeometry(QRect(9, 199, 148, 36));
+        pushButtonModificarRegistro->setFont(font1);
+        pushButtonModificarRegistro->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
+        pushButtonModificarRegistro->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"background: transparent;\n"
+"color: #fff;\n"
+"border: none;\n"
+"padding: 10px;\n"
+"text-align: left;\n"
+"}\n"
+"QPushButton:Hover{\n"
+"background: #0070A1;\n"
+"}"));
+        pushButtonModificarRegistro->setIcon(icon5);
+        pushButtonModificarRegistro->setCheckable(true);
+        pushButtonModificarRegistro->setChecked(false);
+        pushButtonModificarRegistro->setAutoExclusive(true);
+        pushButtonModificarRegistro->setFlat(false);
+        pushButtonBorrarRegistro = new QPushButton(frame_Registros_Buttons);
+        pushButtonBorrarRegistro->setObjectName("pushButtonBorrarRegistro");
+        pushButtonBorrarRegistro->setGeometry(QRect(9, 315, 141, 36));
+        pushButtonBorrarRegistro->setFont(font1);
+        pushButtonBorrarRegistro->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
+        pushButtonBorrarRegistro->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"background: transparent;\n"
+"color: #fff;\n"
+"border: none;\n"
+"padding: 10px;\n"
+"text-align: left;\n"
+"}\n"
+"QPushButton:Hover{\n"
+"background: #0070A1;\n"
+"}"));
+        QIcon icon10(QIcon::fromTheme(QIcon::ThemeIcon::EditDelete));
+        pushButtonBorrarRegistro->setIcon(icon10);
+        pushButtonBorrarRegistro->setCheckable(true);
+        pushButtonBorrarRegistro->setChecked(false);
+        pushButtonBorrarRegistro->setAutoExclusive(true);
+        pushButtonBorrarRegistro->setFlat(false);
+        pushButtonConfirmarRegistro = new QPushButton(frame_Registros_Buttons);
+        pushButtonConfirmarRegistro->setObjectName("pushButtonConfirmarRegistro");
+        pushButtonConfirmarRegistro->setGeometry(QRect(9, 431, 151, 36));
+        pushButtonConfirmarRegistro->setFont(font1);
+        pushButtonConfirmarRegistro->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
+        pushButtonConfirmarRegistro->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background: transparent;\n"
+"    color: #ffffff;\n"
+"    border: none;\n"
+"    padding: 10px;\n"
+"    text-align: left;\n"
+"}\n"
+"\n"
+"/* Hover */\n"
+"QPushButton:hover:enabled {\n"
+"    background: #0070A1;\n"
+"}\n"
+"\n"
+"/* Estado deshabilitado \342\200\224 elegante */\n"
+"QPushButton:disabled {\n"
+"    background:  #00A2E8;   /* un brillo leve */\n"
+"    color: rgba(255, 255, 255, 120);         /* texto blanco apagado */\n"
+"    border: none;\n"
+"}"));
+        QIcon icon11(QIcon::fromTheme(QIcon::ThemeIcon::AppointmentNew));
+        pushButtonConfirmarRegistro->setIcon(icon11);
+        pushButtonConfirmarRegistro->setCheckable(true);
+        pushButtonConfirmarRegistro->setAutoExclusive(true);
+        pushButtonConfirmarRegistro->setFlat(false);
         stackedWidget->addWidget(pg_Registros);
         pg_Campos = new QWidget();
         pg_Campos->setObjectName("pg_Campos");
@@ -767,7 +925,6 @@ public:
 "QPushButton:Hover{\n"
 "background: #0070A1;\n"
 "}"));
-        QIcon icon9(QIcon::fromTheme(QIcon::ThemeIcon::FolderNew));
         pushButtonCrearCampo->setIcon(icon9);
         pushButtonCrearCampo->setCheckable(true);
         pushButtonCrearCampo->setChecked(true);
@@ -808,7 +965,6 @@ public:
 "QPushButton:Hover{\n"
 "background: #0070A1;\n"
 "}"));
-        QIcon icon10(QIcon::fromTheme(QIcon::ThemeIcon::EditDelete));
         pushButtonBorrarCampo->setIcon(icon10);
         pushButtonBorrarCampo->setCheckable(true);
         pushButtonBorrarCampo->setChecked(false);
@@ -838,7 +994,6 @@ public:
 "    color: rgba(255, 255, 255, 120);         /* texto blanco apagado */\n"
 "    border: none;\n"
 "}"));
-        QIcon icon11(QIcon::fromTheme(QIcon::ThemeIcon::AppointmentNew));
         pushButtonConfirmar->setIcon(icon11);
         pushButtonConfirmar->setCheckable(true);
         pushButtonConfirmar->setAutoExclusive(true);
@@ -902,7 +1057,10 @@ public:
         pb_Indices->setText(QCoreApplication::translate("MainWindow", "Indices", nullptr));
         pb_home->setText(QCoreApplication::translate("MainWindow", "Inicio", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Indices segundo", nullptr));
-        label_3->setText(QCoreApplication::translate("MainWindow", "Registros", nullptr));
+        pushButtonCrearRegistro->setText(QCoreApplication::translate("MainWindow", "Crear Registro", nullptr));
+        pushButtonModificarRegistro->setText(QCoreApplication::translate("MainWindow", "Modificar Registro", nullptr));
+        pushButtonBorrarRegistro->setText(QCoreApplication::translate("MainWindow", "Borrar", nullptr));
+        pushButtonConfirmarRegistro->setText(QCoreApplication::translate("MainWindow", "Confirmar", nullptr));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("MainWindow", "Campo", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
