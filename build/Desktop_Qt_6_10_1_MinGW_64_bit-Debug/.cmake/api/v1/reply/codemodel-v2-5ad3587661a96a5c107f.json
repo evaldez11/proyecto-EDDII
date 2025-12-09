@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-bc5355edf85fd3e2c962.json",
+					"jsonFile" : "directory-.-Debug-222658404ce6b7508212.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Gestor_Stock_EstruII::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Gestor_Stock_EstruII-Debug-cec91a8cf22268c7d80e.json",
+					"jsonFile" : "target-Gestor_Stock_EstruII-Debug-f388e5831fcc88f31822.json",
 					"name" : "Gestor_Stock_EstruII",
 					"projectIndex" : 0
 				},

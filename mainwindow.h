@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QFile>
+#include "availlist.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -22,7 +23,9 @@ public:
     void onTablaCellClicked(int row, int columna);
     void leerArchivo();
     void guardarArchivo();
-    void llenarPaginaRegistros();
+    void llenarPaginaRegistros(QStringList);
+    void agregarRegistros();
+    void borrarRegistros();
 private slots:
     // Botones de Uso
     void on_pb_Campos_clicked();
@@ -64,6 +67,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QFile file;
+    availList avail;
 
 };
 #endif // MAINWINDOW_H

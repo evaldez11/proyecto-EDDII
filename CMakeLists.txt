@@ -25,6 +25,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
         campos.h campos.cpp
         registros.h registros.cpp
+        nodoAvailList.h nodoAvailList.cpp
+        availlist.h availlist.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Gestor_Stock_EstruII APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

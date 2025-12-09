@@ -316,6 +316,12 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/availlist.h",
+			"MU",
+			"EWIEGA46WW/moc_availlist.cpp",
+			null
+		],
+		[
 			"C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/campos.h",
 			"MU",
 			"EWIEGA46WW/moc_campos.cpp",
@@ -325,6 +331,12 @@
 			"C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
+			null
+		],
+		[
+			"C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/nodoAvailList.h",
+			"MU",
+			"EWIEGA46WW/moc_nodoAvailList.cpp",
 			null
 		],
 		[
@@ -406,6 +418,11 @@
 	"SOURCES" : 
 	[
 		[
+			"C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/availlist.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/campos.cpp",
 			"MU",
 			null
@@ -417,6 +434,11 @@
 		],
 		[
 			"C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/mainwindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/nodoAvailList.cpp",
 			"MU",
 			null
 		],

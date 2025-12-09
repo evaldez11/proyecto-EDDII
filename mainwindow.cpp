@@ -15,6 +15,7 @@ QString archivo;
 bool archivoGuardado = false;
 QString metaData;
 QVector<Campos> vectorCampos;
+QVector<Registros> vectorRegitros;
 bool campos = false;
 bool modificar = false;
 bool eliminar = false;
@@ -89,7 +90,7 @@ void MainWindow::on_pb_Registros_clicked()
     }else if(vectorCampos.isEmpty()){
          QMessageBox::information(this,"Error"," No hay campos registrados en el archivo");
     }else{
-        llenarPaginaRegistros();
+
         ui->stackedWidget->setCurrentWidget(ui->pg_Registros);
     }
 
@@ -175,7 +176,7 @@ void MainWindow::on_actionNuevo_Archivo_triggered()
         }
 
         file.setFileName(archivo);
-        if (file.open(QIODevice::ReadWrite | QIODevice::Text)) {
+        if (file.open(QIODevice::ReadWrite)) {
             //file.close();
             QMessageBox::information(this, "Archivo creado","Se creó correctamente el archivo:\n" + archivo);
         } else {
@@ -208,7 +209,7 @@ void MainWindow::on_actionAbrir_Archivo_triggered()
                 return; // si el usuario cancela
             }
             file.setFileName(archivo);
-            if (file.open(QIODevice::ReadWrite | QIODevice::Text)) {
+            if (file.open(QIODevice::ReadWrite)) {
                 //file.close();
                 leerArchivo();
                 QMessageBox::information(this, "Archivo creado","Se creó correctamente el archivo:\n" + archivo);
@@ -225,7 +226,7 @@ void MainWindow::on_actionAbrir_Archivo_triggered()
             return; // si el usuario cancela
         }
         file.setFileName(archivo);
-        if (file.open(QIODevice::ReadWrite | QIODevice::Text)) {
+        if (file.open(QIODevice::ReadWrite)) {
             //file.close();
             QMessageBox::information(this, "Archivo creado","Se abrio correctamente el archivo:\n" + archivo);
             leerArchivo();
@@ -237,7 +238,12 @@ void MainWindow::on_actionAbrir_Archivo_triggered()
 void MainWindow::leerArchivo(){
     QTextStream in(&file);
     metaData = in.readLine();
+    QString headLine = in.readLine();
+    int headRNN = headLine.toInt();
 
+    qDebug() << "Head del avail list:" << headRNN;
+    avail.rebuildAvailList(headRNN);
+    vectorCampos.clear();
     QStringList listaCampos = metaData.split('|', Qt::SkipEmptyParts);
     for(int i = 0; i<listaCampos.size();i++){
         Campos nuevoCampo;
@@ -267,6 +273,18 @@ void MainWindow::leerArchivo(){
     for(Campos c : vectorCampos){
         qDebug() << c.toString();
     }
+
+    vectorRegitros.clear();
+    QStringList listaRegistros;
+
+    // Leer cada línea de registros
+    while (!in.atEnd()) {
+        QString linea = in.readLine().trimmed();
+        if (!linea.isEmpty()){
+            listaRegistros.append(linea);
+        }
+    }
+    llenarPaginaRegistros(listaRegistros);
 }
 void MainWindow::guardarArchivo(){
     int filas = ui->tableWidget->rowCount();
@@ -298,13 +316,25 @@ void MainWindow::guardarArchivo(){
         file.seek(0);
         QTextStream out(&file);
         out << metaData;
-        //metaData  = "";
+        out.flush();
+        metaData  = "";
+    qint64 posDespuesDeMetadata = file.pos();
+
+        if(avail.getHead()==nullptr){
+            file.seek(posDespuesDeMetadata);
+
+            // Escribir directamente para evitar problemas del QTextStream
+            qDebug() << "Escribiendo -1...";
+            file.write("\n-1\n");
+            file.flush();
+        }
+    qint64 posDespuesDeHeadRNN = file.pos();
+        agregarRegistros();
+        //file.close();
         QMessageBox::information(this, "Guardado", "Los cambios se guardaron correctamente.");
         for(Campos c : vectorCampos){
             qDebug() << c.toString();
         }
-
-        //file.close();
 
     }else{
         QMessageBox::information(this,"No Hay Llave Primaria","No hay ningun campo marcado como llave primaria, no puedes guardar asi el archivo");
@@ -525,7 +555,7 @@ void MainWindow::on_actionCerrar_Archivo_triggered()
     }
 
 }
-void MainWindow::llenarPaginaRegistros(){
+void MainWindow::llenarPaginaRegistros(QStringList cad){
     ui->tableWidgetRegistros->setColumnCount(0);
     ui->comboBoxCampo->clear();
     for(Campos c: vectorCampos){
@@ -534,6 +564,18 @@ void MainWindow::llenarPaginaRegistros(){
         ui->tableWidgetRegistros->insertColumn(col);
         ui->tableWidgetRegistros->setHorizontalHeaderItem(col, new QTableWidgetItem(c.getnombreCampo()));
     }
+
+    ui->tableWidgetRegistros->setRowCount(cad.size());
+
+    // Llenar la tabla
+    for (int i = 0; i < cad.size(); i++) {
+        QStringList camposReg = cad[i].split(QChar(0x0192));
+        for (int j = 0; j < camposReg.size(); j++) {
+            // Crear QTableWidgetItem y ponerlo en la celda
+            ui->tableWidgetRegistros->setItem(i, j, new QTableWidgetItem(camposReg[j].trimmed()));
+        }
+    }
+    ui->tableWidgetRegistros->resizeColumnsToContents();
 }
 void MainWindow::on_comboBoxCampo_currentIndexChanged(int index){
 
@@ -555,34 +597,56 @@ void MainWindow::on_pushButtonAgregar_clicked()
     if (pos < 0 || pos > vectorInfo.size()) {
         pos = vectorInfo.size();
     }
-
+    if(ui->lineEditInfo->text().size() > vectorCampos[pos].getlongitud()){
+         QMessageBox::information(this,"Error","La informacion que desea agregar excede la longitud establecida para el campo de:\n"+vectorCampos[pos].getnombreCampo()+" (Longitud: "+ QString::number(vectorCampos[pos].getlongitud()) +")");
+    }else{
         vectorInfo[pos] = ui->lineEditInfo->text();
+        QMessageBox::information(this,"Informacion","El campo "+vectorCampos[pos].getnombreCampo()+" se lleno correctamente");
+    }
 
-    QMessageBox::information(this,"Informacion","El campo "+vectorCampos[pos].getnombreCampo()+" se lleno correctamente");
 }
 
 
 void MainWindow::on_pushButtonConfirmarRegistros_clicked()
 {
-    int row = ui->tableWidgetRegistros->rowCount();
-    ui->tableWidgetRegistros->insertRow(row);
-    for(int i = 0; i < vectorInfo.size();i++){
-        ui->tableWidgetRegistros->setItem(row, i, new QTableWidgetItem(vectorInfo[i]));
-    }
-    ui->frame_10->setVisible(false);
-    Registros nuevoRegistro;
-    nuevoRegistro.setSectorCampos(vectorCampos);
-    QString reg = "";
-    for(int i = 0; i <vectorInfo.size();i++){
-        if(i == vectorInfo.size() - 1 ){
-            reg += vectorInfo[i];
-        }else{
-            reg += vectorInfo[i] + "ƒ";
+    bool registroLleno = true;
+    for(QString r : vectorInfo){
+        if(r == ""){
+            registroLleno = false;
         }
     }
-    nuevoRegistro.setRegistro(reg);
-     qDebug() << nuevoRegistro.getRegistro();
-    vectorNuevosRegistros.append(nuevoRegistro);
+    if(registroLleno){
+        int row = ui->tableWidgetRegistros->rowCount();
+        ui->tableWidgetRegistros->insertRow(row);
+        for(int i = 0; i < vectorInfo.size();i++){
+            ui->tableWidgetRegistros->setItem(row, i, new QTableWidgetItem(vectorInfo[i]));
+        }
+        ui->frame_10->setVisible(false);
+        Registros nuevoRegistro;
+        nuevoRegistro.setSectorCampos(vectorCampos);
+        QString reg = "";
+        for(int i = 0; i <vectorInfo.size();i++){
+            int tamRestante = 0;
+            if(vectorInfo[i].size() < vectorCampos[i].getlongitud()){
+                tamRestante = vectorCampos[i].getlongitud() - vectorInfo[i].size();
+            }
+            QString cadenaEspacios;
+            for(int j = 0; j < tamRestante; j++){
+                cadenaEspacios +=" ";
+            }
+            if(i == vectorInfo.size() - 1 ){
+                reg += vectorInfo[i] + cadenaEspacios;
+            }else{
+                reg += vectorInfo[i]+cadenaEspacios + "ƒ";
+            }
+        }
+        nuevoRegistro.setRegistro(reg);
+        qDebug() << nuevoRegistro.getRegistro();
+        vectorNuevosRegistros.append(nuevoRegistro);
+    }else{
+         QMessageBox::information(this,"Error","No llenaste todos los campos");
+    }
+
 
 }
 
@@ -598,3 +662,21 @@ void MainWindow::on_pushButtonCrearRegistro_clicked()
     ui->frame_10->setVisible(true);
 }
 
+void MainWindow::agregarRegistros(){
+    if(vectorNuevosRegistros.isEmpty()){
+        return;
+    }
+    if(avail.getHead() == nullptr){
+        //qDebug() << "La avail list está vacía";
+        file.seek(file.size());
+        QTextStream out(&file);
+        for(Registros s : vectorNuevosRegistros){
+            out << s.getRegistro() << "\n";
+        }
+    }else{
+
+    }
+}
+void MainWindow::borrarRegistros(){
+
+}
