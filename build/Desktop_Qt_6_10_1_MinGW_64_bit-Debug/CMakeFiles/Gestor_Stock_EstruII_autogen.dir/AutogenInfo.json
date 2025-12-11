@@ -316,15 +316,33 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/BTreeNode.h",
+			"MU",
+			"EWIEGA46WW/moc_BTreeNode.cpp",
+			null
+		],
+		[
 			"C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/availlist.h",
 			"MU",
 			"EWIEGA46WW/moc_availlist.cpp",
 			null
 		],
 		[
+			"C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/btree.h",
+			"MU",
+			"EWIEGA46WW/moc_btree.cpp",
+			null
+		],
+		[
 			"C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/campos.h",
 			"MU",
 			"EWIEGA46WW/moc_campos.cpp",
+			null
+		],
+		[
+			"C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/key.h",
+			"MU",
+			"EWIEGA46WW/moc_key.cpp",
 			null
 		],
 		[
@@ -418,12 +436,27 @@
 	"SOURCES" : 
 	[
 		[
+			"C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/BTreeNode.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/availlist.cpp",
 			"MU",
 			null
 		],
 		[
+			"C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/btree.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/campos.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/key.cpp",
 			"MU",
 			null
 		],

@@ -1,5 +1,6 @@
 #ifndef AVAILLIST_H
 #define AVAILLIST_H
+#include <QFile>
 #include "nodoAvailList.h"
 #include <fstream>
 
@@ -8,13 +9,13 @@ using namespace std;
 class availList{
 private:
     static nodoAvailList* head;
-    static fstream* file;
+    static QFile* file;
     static int RNN;
 public:
     availList();
     availList(int rnn);
 
-    static void setFile(fstream* fileHandle);
+    static void setFile(QFile* fileHandle);
 
     static void rebuildAvailList(int headRNN);
 
@@ -24,6 +25,8 @@ public:
 
     static int getHeadRNN();
 
+    static void setHeadRNN(nodoAvailList* head);
+
     static nodoAvailList* getHead();
 
     static void clear();
@@ -31,6 +34,7 @@ public:
     static int getRNN();
 
     static void persistAvailList();
+    void setRNN(int rnn);
 };
 
 #endif // AVAILLIST_H

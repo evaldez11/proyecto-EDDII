@@ -412,5 +412,8 @@ C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/build/Desktop_Qt_6_10_1_
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
+  C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/BTreeNode.h \
   C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/availlist.h \
+  C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/btree.h \
+  C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/key.h \
   C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/nodoAvailList.h

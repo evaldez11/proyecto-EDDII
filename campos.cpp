@@ -14,22 +14,22 @@ Campos::Campos(QString nombreCampo, QString tipoDato,int longitud, QString tipoL
     this->longitud = longitud;
     this->tipoLlave = tipoLlave;
 }
-QString Campos::getnombreCampo()
+QString Campos::getnombreCampo() const
 {
     return nombreCampo;
 }
 
-QString Campos::gettipoDato()
+QString Campos::gettipoDato() const
 {
     return tipoDato;
 }
 
-int Campos::getlongitud()
+int Campos::getlongitud() const
 {
     return longitud;
 }
 
-QString Campos::gettipoLlave()
+QString Campos::gettipoLlave() const
 {
     return tipoLlave;
 }
@@ -54,7 +54,7 @@ void Campos::settipoLlave(QString llave)
     tipoLlave = llave;
 }
 
-QString Campos::toString(){
+QString Campos::toString() {
     return nombreCampo + "ƒ" + tipoDato + "ƒ" + QString::number(longitud) + "ƒ" + tipoLlave;
 }
 

@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QFile>
 #include "availlist.h"
+#include "btree.h"
+#include "key.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -25,7 +27,9 @@ public:
     void guardarArchivo();
     void llenarPaginaRegistros(QStringList);
     void agregarRegistros();
-    void borrarRegistros();
+    void borrarRegistros(int rnnAEliminar);
+    void limpiarFila(int);
+    void llenarArbol();
 private slots:
     // Botones de Uso
     void on_pb_Campos_clicked();
@@ -64,10 +68,18 @@ private slots:
 
     void on_pushButtonCrearRegistro_clicked();
 
+    void on_pushButtonBorrarRegistro_clicked();
+
+    void on_pushButtonModificarRegistro_clicked();
+
+    void on_pushButtonBuscarRegistro_clicked();
+
 private:
     Ui::MainWindow *ui;
     QFile file;
+    QFile bin;
     availList avail;
+    BTree arbolLlaveP;
 
 };
 #endif // MAINWINDOW_H

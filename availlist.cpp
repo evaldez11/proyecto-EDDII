@@ -1,14 +1,14 @@
 #include "availlist.h"
 #include <QDebug>
 nodoAvailList* availList::head = nullptr;
-fstream* availList::file = nullptr;
+QFile* availList::file = nullptr;
 int availList::RNN = 0;
 availList::availList() {}
 availList::availList(int rnn) {
     RNN = rnn;
 }
 
-void availList::setFile(fstream* fileHandle) {
+void availList::setFile(QFile* fileHandle) {
     file = fileHandle;
 }
 
@@ -35,7 +35,7 @@ void availList::rebuildAvailList(int headRNN) {
 
             // Read next pointer from file at this record's position
             int offset = currentRNN * RNN;
-            file->seekg(offset, ios::beg);
+            file->seek(offset);
 
             char buffer[sizeof(int)];
             file->read(buffer, sizeof(int));
@@ -68,7 +68,7 @@ void availList::addAvailSlot(int recordNumber) {
 
         // Update previous last node's next pointer in file
         int offset = current->getRecordNumber() * RNN;
-        file->seekp(offset, ios::beg);
+        file->seek(offset);
 
         char buffer[sizeof(int)];
         memcpy(buffer, &recordNumber, sizeof(int));
@@ -77,7 +77,7 @@ void availList::addAvailSlot(int recordNumber) {
 
     // Write new node to file with next = -1 (marks end of list)
     int offset = recordNumber * RNN;
-    file->seekp(offset, ios::beg);
+    file->seek(offset);
 
     char buffer[sizeof(int)];
     int nextRNN = -1;
@@ -103,7 +103,9 @@ int availList::getHeadRNN() {
     if (head == nullptr) return -1;
     return head->getRecordNumber();
 }
-
+void availList::setHeadRNN(nodoAvailList* Head){
+    head = Head;
+}
 nodoAvailList* availList::getHead() {
     return head;
 }
@@ -125,7 +127,7 @@ int availList::getRNN() {
 
 void availList::persistAvailList() {
     // Write head RNN to metadata (first 4 bytes of file)
-    file->seekp(0, ios::beg);
+    file->seek(0);
     int headRNN = getHeadRNN();
     file->write((char*)&headRNN, sizeof(int));
 
@@ -133,7 +135,7 @@ void availList::persistAvailList() {
     nodoAvailList* current = head;
     while (current != nullptr) {
         int offset = current->getRecordNumber() * RNN;
-        file->seekp(offset, ios::beg);
+        file->seek(offset);
 
         char buffer[sizeof(int)];
         // Write next node's RNN or -1 if this is the last node
@@ -147,4 +149,7 @@ void availList::persistAvailList() {
     }
 
     file->flush();
+}
+void availList::setRNN(int rnn){
+    RNN = rnn;
 }

@@ -105,6 +105,30 @@ build CMakeFiles/Gestor_Stock_EstruII.dir/availlist.cpp.obj: CXX_COMPILER__Gesto
   OBJECT_DIR = CMakeFiles\Gestor_Stock_EstruII.dir
   OBJECT_FILE_DIR = CMakeFiles\Gestor_Stock_EstruII.dir
 
+build CMakeFiles/Gestor_Stock_EstruII.dir/BTreeNode.cpp.obj: CXX_COMPILER__Gestor_Stock_EstruII_unscanned_Debug C$:/Users/Gualo/Documents/proyecto$ EDDII/proyecto-EDDII/BTreeNode.cpp || cmake_object_order_depends_target_Gestor_Stock_EstruII
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\Gestor_Stock_EstruII.dir\BTreeNode.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -I"C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/include" -isystem C:/Qt/6.10.1/mingw_64/include/QtCore -isystem C:/Qt/6.10.1/mingw_64/include -isystem C:/Qt/6.10.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.10.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.10.1/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\Gestor_Stock_EstruII.dir
+  OBJECT_FILE_DIR = CMakeFiles\Gestor_Stock_EstruII.dir
+
+build CMakeFiles/Gestor_Stock_EstruII.dir/key.cpp.obj: CXX_COMPILER__Gestor_Stock_EstruII_unscanned_Debug C$:/Users/Gualo/Documents/proyecto$ EDDII/proyecto-EDDII/key.cpp || cmake_object_order_depends_target_Gestor_Stock_EstruII
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\Gestor_Stock_EstruII.dir\key.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -I"C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/include" -isystem C:/Qt/6.10.1/mingw_64/include/QtCore -isystem C:/Qt/6.10.1/mingw_64/include -isystem C:/Qt/6.10.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.10.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.10.1/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\Gestor_Stock_EstruII.dir
+  OBJECT_FILE_DIR = CMakeFiles\Gestor_Stock_EstruII.dir
+
+build CMakeFiles/Gestor_Stock_EstruII.dir/btree.cpp.obj: CXX_COMPILER__Gestor_Stock_EstruII_unscanned_Debug C$:/Users/Gualo/Documents/proyecto$ EDDII/proyecto-EDDII/btree.cpp || cmake_object_order_depends_target_Gestor_Stock_EstruII
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\Gestor_Stock_EstruII.dir\btree.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -I"C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/include" -isystem C:/Qt/6.10.1/mingw_64/include/QtCore -isystem C:/Qt/6.10.1/mingw_64/include -isystem C:/Qt/6.10.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.10.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.10.1/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\Gestor_Stock_EstruII.dir
+  OBJECT_FILE_DIR = CMakeFiles\Gestor_Stock_EstruII.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Gestor_Stock_EstruII
@@ -113,7 +137,7 @@ build CMakeFiles/Gestor_Stock_EstruII.dir/availlist.cpp.obj: CXX_COMPILER__Gesto
 #############################################
 # Link the executable Gestor_Stock_EstruII.exe
 
-build Gestor_Stock_EstruII.exe: CXX_EXECUTABLE_LINKER__Gestor_Stock_EstruII_Debug CMakeFiles/Gestor_Stock_EstruII.dir/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp.obj CMakeFiles/Gestor_Stock_EstruII.dir/main.cpp.obj CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj CMakeFiles/Gestor_Stock_EstruII.dir/campos.cpp.obj CMakeFiles/Gestor_Stock_EstruII.dir/registros.cpp.obj CMakeFiles/Gestor_Stock_EstruII.dir/nodoAvailList.cpp.obj CMakeFiles/Gestor_Stock_EstruII.dir/availlist.cpp.obj | C$:/Qt/6.10.1/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.10.1/mingw_64/lib/libQt6Gui.a C$:/Qt/6.10.1/mingw_64/lib/libQt6Core.a C$:/Qt/6.10.1/mingw_64/lib/libQt6EntryPoint.a || Gestor_Stock_EstruII_autogen Gestor_Stock_EstruII_autogen_timestamp_deps
+build Gestor_Stock_EstruII.exe: CXX_EXECUTABLE_LINKER__Gestor_Stock_EstruII_Debug CMakeFiles/Gestor_Stock_EstruII.dir/Gestor_Stock_EstruII_autogen/mocs_compilation.cpp.obj CMakeFiles/Gestor_Stock_EstruII.dir/main.cpp.obj CMakeFiles/Gestor_Stock_EstruII.dir/mainwindow.cpp.obj CMakeFiles/Gestor_Stock_EstruII.dir/campos.cpp.obj CMakeFiles/Gestor_Stock_EstruII.dir/registros.cpp.obj CMakeFiles/Gestor_Stock_EstruII.dir/nodoAvailList.cpp.obj CMakeFiles/Gestor_Stock_EstruII.dir/availlist.cpp.obj CMakeFiles/Gestor_Stock_EstruII.dir/BTreeNode.cpp.obj CMakeFiles/Gestor_Stock_EstruII.dir/key.cpp.obj CMakeFiles/Gestor_Stock_EstruII.dir/btree.cpp.obj | C$:/Qt/6.10.1/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.10.1/mingw_64/lib/libQt6Gui.a C$:/Qt/6.10.1/mingw_64/lib/libQt6Core.a C$:/Qt/6.10.1/mingw_64/lib/libQt6EntryPoint.a || Gestor_Stock_EstruII_autogen Gestor_Stock_EstruII_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows
   LINK_LIBRARIES = C:/Qt/6.10.1/mingw_64/lib/libQt6Widgets.a  C:/Qt/6.10.1/mingw_64/lib/libQt6Gui.a  C:/Qt/6.10.1/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  C:/Qt/6.10.1/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32

@@ -589,9 +589,13 @@ Gestor_Stock_EstruII_autogen/timestamp: \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
+	C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/BTreeNode.cpp \
+	C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/BTreeNode.h \
 	C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/CMakeLists.txt \
 	C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/availlist.cpp \
 	C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/availlist.h \
+	C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/btree.cpp \
+	C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/btree.h \
 	C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake \
 	C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/.qtc/package-manager/maintenance_tool_provider.cmake \
 	C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake \
@@ -600,6 +604,8 @@ Gestor_Stock_EstruII_autogen/timestamp: \
 	C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/Gestor_Stock_EstruII_autogen/moc_predefs.h \
 	C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/campos.cpp \
 	C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/campos.h \
+	C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/key.cpp \
+	C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/key.h \
 	C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/main.cpp \
 	C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/mainwindow.cpp \
 	C:/Users/Gualo/Documents/proyecto\ EDDII/proyecto-EDDII/mainwindow.h \
