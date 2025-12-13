@@ -15,7 +15,7 @@ public:
     void insertNonFull(Key k);        // Insertar en un nodo no lleno
     void splitChild(int i, BTreeNode* y); // Dividir hijo
     void traverse();                  // Imprimir claves
-    int search(int k);
+    int search(long long k);
 
 };
 

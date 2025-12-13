@@ -3,15 +3,15 @@
 #include <string>
 using namespace std;
 class Key {
-    int llave;
+    long long llave;
     string Resto;
     int posicion;
 public:
     Key();
-    Key(int llave,string Resto,int posicion);
+    Key(long long llave,string Resto,int posicion);
     bool esTipoNumerico();
     int string_a_numero();
-    int getllave();
+    long long getllave();
     string getResto();
     int getPosicion();
     void setllave(int llave);

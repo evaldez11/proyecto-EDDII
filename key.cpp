@@ -1,12 +1,17 @@
 #include "key.h"
-Key::Key(){}
-Key::Key(int llave,string Resto, int posicion){
+Key::Key() {
+    llave = 0;
+    Resto = "";
+    posicion = 0;
+}
+
+Key::Key(long long llave,string Resto, int posicion){
     this->llave = llave;
     this->Resto = Resto;
     this->posicion = posicion;
 }
 
-int Key::getllave(){
+long long Key::getllave(){
     return llave;
 }
 string Key::getResto(){

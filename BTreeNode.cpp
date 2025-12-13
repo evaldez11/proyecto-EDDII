@@ -11,16 +11,19 @@ BTreeNode::BTreeNode(int _t, bool _leaf) {
 void BTreeNode::traverse() {
     int i;
     for (i = 0; i < keys.size(); i++) {
-        if (!leaf)
+        if (!leaf && i < children.size() && children[i])
             children[i]->traverse();
-        qDebug() << " " << keys[i].getllave();
+
+        qDebug() << keys[i].getllave();
     }
-    if (!leaf)
+
+    if (!leaf && i < children.size() && children[i])
         children[i]->traverse();
 }
 
+
 // Buscar clave en el nodo
-int BTreeNode::search(int k) {
+int BTreeNode::search(long long k) {
     for (int i = 0; i < keys.size(); ++i) {
         if (keys[i].getllave() == k)
             return i; // encontrada

@@ -16,10 +16,16 @@ public:
             root->traverse();
     }
 
-    BTreeNode* search(BTreeNode* nodo,int k);
+    BTreeNode* search(BTreeNode* nodo,long long k);
 
     void insert(Key k);
     BTreeNode* getRoot();
+
+    void guardarNodo(ofstream& archivo, BTreeNode* nodo) ;
+    BTreeNode* leerNodo(ifstream& archivo);
+    void guardarArbol(const string& nombreArchivo);
+
+    void leerArbol(const string& nombreArchivo);
 };
 
 #endif // BTREE_H
