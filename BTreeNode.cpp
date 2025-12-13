@@ -44,12 +44,12 @@ void BTreeNode::insertNonFull(Key k) {
             i--;
         i++;
 
-        if (children[i + 1]->keys.size() == 2 * t - 1) {
-            splitChild(i + 1, children[i + 1]);
-            if (keys[i + 1].getllave() < k.getllave())
+        if (children[i]->keys.size() == 2 * t - 1) {
+            splitChild(i, children[i]);
+            if (keys[i].getllave() < k.getllave())
                 i++;
         }
-        children[i + 1]->insertNonFull(k);
+        children[i]->insertNonFull(k);
     }
 }
 
@@ -64,9 +64,11 @@ void BTreeNode::splitChild(int i, BTreeNode* y) {
             z->children.push_back(y->children[j + t]);
     }
 
+    Key median = y->keys[t - 1];
+
     y->keys.resize(t - 1);
     y->children.resize(y->leaf ? 0 : t);
 
     children.insert(children.begin() + i + 1, z);
-    keys.insert(keys.begin() + i, y->keys[t - 1]);
+    keys.insert(keys.begin() + i, median);
 }
