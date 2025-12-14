@@ -17,6 +17,7 @@ using namespace std;
 
 QString archivo;
 QString rutaBin;
+QStringList listaRegistros;
 bool archivoGuardado = false;
 QString metaData;
 QVector<Campos> vectorCampos;
@@ -31,11 +32,13 @@ bool buscarReg = false;
 bool eliminarReg = false;
 QVector<QString> vectorInfo;
 QVector<Registros> vectorNuevosRegistros;
+QVector<Registros> vectorRegistros;
 QVector<int> vectorRRNEliminados;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow),
-    arbolLlaveP(6)
+    arbolLlaveP(6),
+    arbolSec(6)
 {
     //Font usado para mantener formato
     QFont fuente("Segoe UI", 10);
@@ -139,7 +142,10 @@ void MainWindow::on_pb_Registros_clicked()
     }else if(vectorCampos.isEmpty()){
          QMessageBox::information(this,"Error"," No hay campos registrados en el archivo");
     }else{
-        //llenarPaginaRegistros();
+        if(ui->tableWidgetRegistros->rowCount()== 0){
+            llenarPaginaRegistros(listaRegistros);
+        }
+
         ui->stackedWidget->setCurrentWidget(ui->pg_Registros);
 
     }
@@ -149,9 +155,14 @@ void MainWindow::on_pb_Registros_clicked()
 // Índices
 void MainWindow::on_pb_Indices_clicked()
 {
-    //ui->stackedWidget->setCurrentWidget(ui->pg_Indices);
+    ui->comboBoxLlavesSecundarias->clear();
+    for(Campos c : vectorCampos){
+        if(c.gettipoLlave() == "Secundaria"){
+            ui->comboBoxLlavesSecundarias->addItem(c.getnombreCampo());
+        }
 
-
+    }
+ui->stackedWidget->setCurrentWidget(ui->pg_Indices);
 
 }
 
@@ -349,8 +360,7 @@ void MainWindow::leerArchivo(){
         qDebug() << c.toString();
     }
     vectorRegitros.clear();
-    QStringList listaRegistros;
-
+    listaRegistros.clear();
     // Leer cada línea de registros
     while (!in.atEnd()) {
         QString linea = in.readLine().trimmed();
@@ -893,18 +903,15 @@ void MainWindow::agregarRegistros(){
         }
     }
     for(Registros r  : vectorNuevosRegistros){
-        long long llave = 0;
+        QString llave = "";
         QString resto = "";
         int posicion = 0;
         QStringList reg = r.getRegistro().split(QChar(0x0192)); // 'ƒ'
-        bool ok;
-        llave = reg.at(posLlavePrimaria).trimmed().toLongLong(&ok);
-        if (!ok) {
-            qDebug() << "ERROR convirtiendo llave:" << reg.at(posLlavePrimaria);
-        }
+        llave = reg.at(posLlavePrimaria).trimmed();
+        long long llaveNum = stringToNumber(llave);
         resto = r.getRegistro();
         posicion = r.getRNN();
-        Key nuevaLlave(llave, resto.toStdString(), posicion);
+        Key nuevaLlave(llaveNum, resto.toStdString(), posicion);
         qDebug()<< "Error";
         arbolLlaveP.insert(nuevaLlave);
     }
@@ -985,13 +992,12 @@ void MainWindow::on_pushButtonBuscarRegistro_clicked()
     }
 
 
-    bool ok2;
-    long long clave = texto.trimmed().toLongLong(&ok2);
 
-    if (!ok2) {
-        QMessageBox::warning(this, "Error", "La clave ingresada no es válida");
-        return;
-    }
+    QString llaveBuscar = texto;
+
+    long long clave = stringToNumber(llaveBuscar);
+
+
     BTreeNode* nodoEncontrado = arbolLlaveP.search(arbolLlaveP.getRoot(), clave);
 
     if (!nodoEncontrado) {
@@ -1002,7 +1008,7 @@ void MainWindow::on_pushButtonBuscarRegistro_clicked()
     int idx = nodoEncontrado->search(clave); // ahora busca exacto
     if (idx != -1) {
         int pos = nodoEncontrado->keys.at(idx).getPosicion();
-        QString mensaje = "Se encontró el registro en la posición: " + QString::number(pos);
+        QString mensaje = "Se encontró el registro en la posición: " + QString::number(pos) +"\n\nRegistro:\n" + imprimirRegistro(nodoEncontrado->keys.at(idx));
         QMessageBox::information(this, "Resultado", mensaje);
     } else {
         QMessageBox::information(this, "Resultado", "No se encontró el registro");
@@ -1011,4 +1017,95 @@ void MainWindow::on_pushButtonBuscarRegistro_clicked()
 
 }
 
+QString MainWindow::imprimirRegistro(Key k){
+    QString cadena = "";
+    QString reg = QString::fromStdString(k.getResto());
+    QStringList lista = reg.split(QChar(0x0192));
+    for(int i = 0; i < vectorCampos.size(); i++){
+        cadena += vectorCampos[i].getnombreCampo()+": ";
+        cadena += lista[i]+"\n";
+    }
+    return cadena;
+}
+
+
+void MainWindow::on_pushButtonIndexar_clicked(){
+    for(int i = 0; i<ui->tableWidgetRegistros->rowCount();i++){
+        Registros r;
+        r.setSectorCampos(vectorCampos);
+        r.setRNN(i+1);
+        QString reg = "";
+        for(int j = 0; j<vectorCampos.size();j++){
+            QTableWidgetItem* item = ui->tableWidgetRegistros->item(i, j);
+            QString valor = item ? item->text() : "";
+            reg += valor;
+            if(j != vectorCampos.size() - 1){
+                reg += "ƒ";
+            }
+            r.setRegistro(reg);
+        }
+        vectorRegistros.append(r);
+    }
+
+    int posLlaveInd;
+    int posActual = -1;
+    for(Campos c : vectorCampos){
+        posActual += 1;
+        if(c.getnombreCampo() == ui->comboBoxLlavesSecundarias->currentText()){
+            posLlaveInd = posActual;
+        }
+    }
+
+    BTree arbolInd(6);
+
+    for(Registros r  : vectorRegistros){
+
+        QString llave = "";
+        QString resto = "";
+        int posicion = 0;
+        QStringList reg = r.getRegistro().split(QChar(0x0192)); // 'ƒ'
+        llave = reg.at(posLlaveInd).trimmed();
+        long long llaveNum = stringToNumber(llave);
+        resto = r.getRegistro();
+        posicion = r.getRNN();
+        Key nuevaLlave(llaveNum, resto.toStdString(), posicion);
+        qDebug()<< "Error";
+        arbolInd.insert(nuevaLlave);
+    }
+    arbolSec = arbolInd;
+    arbolSec.traverse();
+}
+
+long long MainWindow::stringToNumber(const QString &str) {
+    long long result = 0;
+    long long prime = 31; // número primo para dispersión
+    for (int i = 0; i < str.size(); ++i) {
+        result = result * prime + static_cast<long long>(str[i].unicode());
+    }
+    return result;
+}
+
+void MainWindow::on_pushButtonBuscarInd_clicked()
+{
+    QString llaveBuscar = ui->lineEditInfo_2->text();
+
+    long long clave = stringToNumber(llaveBuscar);
+
+
+    BTreeNode* nodoEncontrado = arbolSec.search(arbolSec.getRoot(), clave);
+
+    if (!nodoEncontrado) {
+        QMessageBox::information(this, "Resultado", "No se encontró el registro");
+        return;
+    }
+
+    int idx = nodoEncontrado->search(clave); // ahora busca exacto
+    if (idx != -1) {
+        int pos = nodoEncontrado->keys.at(idx).getPosicion();
+        QString mensaje = "Se encontró el registro en la posición: " + QString::number(pos) +"\n\nRegistro:\n" + imprimirRegistro(nodoEncontrado->keys.at(idx));
+        ui->labelBuscarInd->setText(mensaje);
+    } else {
+        QMessageBox::information(this, "Resultado", "No se encontró el registro");
+    }
+}
 

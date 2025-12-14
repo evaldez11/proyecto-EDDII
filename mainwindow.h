@@ -30,6 +30,8 @@ public:
     void borrarRegistros(int rnnAEliminar);
     void limpiarFila(int);
     void llenarArbol();
+    QString imprimirRegistro(Key k);
+    long long stringToNumber(const QString &str);
 private slots:
     // Botones de Uso
     void on_pb_Campos_clicked();
@@ -74,12 +76,17 @@ private slots:
 
     void on_pushButtonBuscarRegistro_clicked();
 
+    void on_pushButtonIndexar_clicked();
+
+    void on_pushButtonBuscarInd_clicked();
+
 private:
     Ui::MainWindow *ui;
     QFile file;
     QFile bin;
     availList avail;
     BTree arbolLlaveP;
+    BTree arbolSec;
 
 };
 #endif // MAINWINDOW_H

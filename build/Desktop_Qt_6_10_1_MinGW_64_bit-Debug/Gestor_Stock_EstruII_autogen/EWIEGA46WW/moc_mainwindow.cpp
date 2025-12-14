@@ -61,7 +61,9 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "on_pushButtonCrearRegistro_clicked",
         "on_pushButtonBorrarRegistro_clicked",
         "on_pushButtonModificarRegistro_clicked",
-        "on_pushButtonBuscarRegistro_clicked"
+        "on_pushButtonBuscarRegistro_clicked",
+        "on_pushButtonIndexar_clicked",
+        "on_pushButtonBuscarInd_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -111,6 +113,10 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         QtMocHelpers::SlotData<void()>(22, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_pushButtonBuscarRegistro_clicked'
         QtMocHelpers::SlotData<void()>(23, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_pushButtonIndexar_clicked'
+        QtMocHelpers::SlotData<void()>(24, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_pushButtonBuscarInd_clicked'
+        QtMocHelpers::SlotData<void()>(25, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -155,6 +161,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 18: _t->on_pushButtonBorrarRegistro_clicked(); break;
         case 19: _t->on_pushButtonModificarRegistro_clicked(); break;
         case 20: _t->on_pushButtonBuscarRegistro_clicked(); break;
+        case 21: _t->on_pushButtonIndexar_clicked(); break;
+        case 22: _t->on_pushButtonBuscarInd_clicked(); break;
         default: ;
         }
     }
@@ -179,14 +187,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 21)
+        if (_id < 23)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 21;
+        _id -= 23;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 21)
+        if (_id < 23)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 21;
+        _id -= 23;
     }
     return _id;
 }

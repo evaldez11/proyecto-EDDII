@@ -424,15 +424,15 @@ C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/mainwindow.h
  mdp:C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/nodoAvailList.h
 C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/nodoAvailList.cpp
 C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/campos.cpp
-C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/main.cpp
 C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/btree.h
 C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/registros.h
+C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/main.cpp
 C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/mainwindow.cpp
  uic:./ui_mainwindow.h
-C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/availlist.h
 C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/BTreeNode.cpp
-C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/registros.cpp
+C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/availlist.h
 C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/btree.cpp
+C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/registros.cpp
 C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/availlist.cpp
 C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/BTreeNode.h
 C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/key.h
