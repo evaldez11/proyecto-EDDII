@@ -7,7 +7,6 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QInputDialog>
-#include <string>
 #include <QVector>
 #include "registros.h"
 #include "btree.h"
@@ -944,7 +943,6 @@ void MainWindow::borrarRegistros(int rnnAEliminar){
     //avail.addAvailSlot(rnnAEliminar);
 
     file.flush();
-
 
 }
 

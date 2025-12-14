@@ -11,7 +11,7 @@ void nodoAvailList::serializeToBytes(char* buffer) const{}
 
 void nodoAvailList::deserializeFromBytes(const char* buffer){}
 
-// Getters
+
 int nodoAvailList::getRecordNumber() const{
     return recordNumber;
 }
@@ -19,7 +19,6 @@ nodoAvailList* nodoAvailList::getNext() const{
     return next;
 }
 
-// Setters
 void nodoAvailList::setRecordNumber(int recordNumber){
     this->recordNumber = recordNumber;
 }

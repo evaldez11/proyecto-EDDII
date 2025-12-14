@@ -7,7 +7,6 @@ BTreeNode::BTreeNode(int _t, bool _leaf) {
     leaf = _leaf;
 }
 
-// Recorrer el nodo y sus hijos
 void BTreeNode::traverse() {
     int i;
     for (i = 0; i < keys.size(); i++) {
@@ -22,16 +21,14 @@ void BTreeNode::traverse() {
 }
 
 
-// Buscar clave en el nodo
 int BTreeNode::search(long long k) {
     for (int i = 0; i < keys.size(); ++i) {
         if (keys[i].getllave() == k)
-            return i; // encontrada
+            return i;
     }
-    return -1; // no encontrada
+    return -1;
 }
 
-// Insertar clave en nodo no lleno
 void BTreeNode::insertNonFull(Key k) {
     int i = keys.size() - 1;
 
@@ -56,7 +53,6 @@ void BTreeNode::insertNonFull(Key k) {
     }
 }
 
-// Dividir hijo y mover la mediana al nodo padre
 void BTreeNode::splitChild(int i, BTreeNode* y) {
     BTreeNode* z = new BTreeNode(y->t, y->leaf);
     for (int j = 0; j < t - 1; j++)
@@ -75,3 +71,114 @@ void BTreeNode::splitChild(int i, BTreeNode* y) {
     children.insert(children.begin() + i + 1, z);
     keys.insert(keys.begin() + i, median);
 }
+
+void BTreeNode::remove(Key k) {
+    int idx = search(k.getllave());
+
+
+    if (idx < keys.size() && keys[idx].getllave() == k.getllave()) {
+        if (leaf) {
+            keys.erase(keys.begin() + idx);
+        } else {
+            if (children[idx]->keys.size() >= t) {
+                Key pred = getPredecessor(idx);
+                keys[idx] = pred;
+                children[idx]->remove(pred);
+            } else if (children[idx + 1]->keys.size() >= t) {
+                Key succ = getSuccessor(idx);
+                keys[idx] = succ;
+                children[idx + 1]->remove(succ);
+            } else {
+                merge(idx);
+                children[idx]->remove(k);
+            }
+        }
+    } else {
+        if (leaf) return; // no existe en el árbol
+
+        bool atLastChild = (idx == keys.size());
+        if (children[idx]->keys.size() < t)
+            fill(idx);
+        if (atLastChild && idx > keys.size())
+            children[idx - 1]->remove(k);
+        else
+            children[idx]->remove(k);
+    }
+}
+
+Key BTreeNode::getPredecessor(int idx) {
+    BTreeNode* cur = children[idx];
+    while (!cur->leaf)
+        cur = cur->children.back();
+    return cur->keys.back();
+}
+
+
+Key BTreeNode::getSuccessor(int idx) {
+    BTreeNode* cur = children[idx + 1];
+    while (!cur->leaf)
+        cur = cur->children.front();
+    return cur->keys.front();
+}
+
+void BTreeNode::merge(int idx) {
+    BTreeNode* child = children[idx];
+    BTreeNode* sibling = children[idx + 1];
+
+    child->keys.push_back(keys[idx]);
+
+    for (const Key& k : sibling->keys)
+        child->keys.push_back(k);
+
+    if (!child->leaf)
+        for (BTreeNode* c : sibling->children)
+            child->children.push_back(c);
+
+    keys.erase(keys.begin() + idx);
+    children.erase(children.begin() + idx + 1);
+    delete sibling;
+}
+
+void BTreeNode::fill(int idx) {
+    if (idx != 0 && children[idx - 1]->keys.size() >= t)
+        borrowFromPrev(idx);
+    else if (idx != keys.size() && children[idx + 1]->keys.size() >= t)
+        borrowFromNext(idx);
+    else {
+        if (idx != keys.size())
+            merge(idx);
+        else
+            merge(idx - 1);
+    }
+}
+
+void BTreeNode::borrowFromPrev(int idx) {
+    BTreeNode* child = children[idx];
+    BTreeNode* sibling = children[idx - 1];
+
+    child->keys.insert(child->keys.begin(), keys[idx - 1]);
+
+    if (!child->leaf)
+        child->children.insert(child->children.begin(), sibling->children.back());
+
+    keys[idx - 1] = sibling->keys.back();
+    sibling->keys.pop_back();
+    if (!sibling->leaf)
+        sibling->children.pop_back();
+}
+
+void BTreeNode::borrowFromNext(int idx) {
+    BTreeNode* child = children[idx];
+    BTreeNode* sibling = children[idx + 1];
+
+    child->keys.push_back(keys[idx]);
+
+    if (!child->leaf)
+        child->children.push_back(sibling->children.front());
+
+    keys[idx] = sibling->keys.front();
+    sibling->keys.erase(sibling->keys.begin());
+    if (!sibling->leaf)
+        sibling->children.erase(sibling->children.begin());
+}
+

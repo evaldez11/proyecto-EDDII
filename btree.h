@@ -19,6 +19,7 @@ public:
     BTreeNode* search(BTreeNode* nodo,long long k);
 
     void insert(Key k);
+    void remove(Key k);
     BTreeNode* getRoot();
 
     void guardarNodo(ofstream& archivo, BTreeNode* nodo) ;

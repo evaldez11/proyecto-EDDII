@@ -29,6 +29,21 @@ void BTree::insert(Key k) {
         }
     }
 }
+void BTree::remove(Key k) {
+    if (!root) return;
+
+    root->remove(k);
+
+    if (root->keys.size() == 0) {
+        BTreeNode* oldRoot = root;
+        if (root->leaf) {
+            root = nullptr;
+        } else {
+            root = root->children[0];
+        }
+        delete oldRoot;
+    }
+}
 BTreeNode* BTree::search(BTreeNode* nodo, long long valorBuscado){
     if (!nodo) return nullptr;
 
@@ -55,14 +70,11 @@ BTreeNode* BTree::getRoot(){
 void BTree::guardarNodo(ofstream& archivo, BTreeNode* nodo) {
     if (!nodo) return;
 
-    // grado minimo
     archivo.write(reinterpret_cast<const char*>(&nodo->t), sizeof(int));
 
-    // leaf como uint8_t
     uint8_t leaf = nodo->leaf ? 1 : 0;
     archivo.write(reinterpret_cast<const char*>(&leaf), sizeof(uint8_t));
 
-    // claves
     int keyCount = nodo->keys.size();
     archivo.write(reinterpret_cast<const char*>(&keyCount), sizeof(int));
 
@@ -78,7 +90,6 @@ void BTree::guardarNodo(ofstream& archivo, BTreeNode* nodo) {
         archivo.write(reinterpret_cast<const char*>(&pos), sizeof(int));
     }
 
-    // hijos
     int childCount = nodo->children.size();
     archivo.write(reinterpret_cast<const char*>(&childCount), sizeof(int));
 

@@ -24,7 +24,6 @@ void availList::rebuildAvailList(int headRNN) {
         int currentRNN = headRNN;
         nodoAvailList* previous = nullptr;
 
-        // Traverse linked list from file, rebuilding in-memory structure
         while (currentRNN != -1) {
             nodoAvailList* current = new nodoAvailList(currentRNN, nullptr);
 
@@ -33,7 +32,7 @@ void availList::rebuildAvailList(int headRNN) {
             else
                 previous->setNext(current);
 
-            // Read next pointer from file at this record's position
+
             int offset = currentRNN * RNN;
             file->seek(offset);
 
@@ -54,11 +53,11 @@ void availList::rebuildAvailList(int headRNN) {
 void availList::addAvailSlot(int recordNumber) {
     nodoAvailList* newNode = new nodoAvailList(recordNumber, nullptr);
 
-    // If list is empty, new node becomes head
+
     if (head == nullptr) {
         head = newNode;
     } else {
-        // Find last node and append new node
+
         nodoAvailList* current = head;
         while (current->getNext() != nullptr) {
             current = current->getNext();
@@ -66,7 +65,7 @@ void availList::addAvailSlot(int recordNumber) {
 
         current->setNext(newNode);
 
-        // Update previous last node's next pointer in file
+
         int offset = current->getRecordNumber() * RNN;
         file->seek(offset);
 
@@ -75,7 +74,7 @@ void availList::addAvailSlot(int recordNumber) {
         file->write(buffer, sizeof(int));
     }
 
-    // Write new node to file with next = -1 (marks end of list)
+
     int offset = recordNumber * RNN;
     file->seek(offset);
 
@@ -88,9 +87,9 @@ void availList::addAvailSlot(int recordNumber) {
 }
 
 int availList::retrieveSpace() {
-    if (head == nullptr) return -1; // No available space
+    if (head == nullptr) return -1;
 
-    // Remove and return head node's record number
+
     int recordNumber = head->getRecordNumber();
     nodoAvailList* temp = head;
     head = head->getNext();
@@ -111,7 +110,7 @@ nodoAvailList* availList::getHead() {
 }
 
 void availList::clear() {
-    // Deallocate all nodes in the list
+
     nodoAvailList* current = head;
     while (current != nullptr) {
         nodoAvailList* temp = current;
@@ -126,19 +125,19 @@ int availList::getRNN() {
 }
 
 void availList::persistAvailList() {
-    // Write head RNN to metadata (first 4 bytes of file)
+
     file->seek(0);
     int headRNN = getHeadRNN();
     file->write((char*)&headRNN, sizeof(int));
 
-    // Write all nodes' next pointers to their file positions
+
     nodoAvailList* current = head;
     while (current != nullptr) {
         int offset = current->getRecordNumber() * RNN;
         file->seek(offset);
 
         char buffer[sizeof(int)];
-        // Write next node's RNN or -1 if this is the last node
+
         int nextRNN = (current->getNext() != nullptr) ?
                           current->getNext()->getRecordNumber() : -1;
         memcpy(buffer, &nextRNN, sizeof(int));

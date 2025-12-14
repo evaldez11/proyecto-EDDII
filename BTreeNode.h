@@ -17,6 +17,15 @@ public:
     void traverse();                  // Imprimir claves
     int search(long long k);
 
+    void remove(Key k);
+    Key getPredecessor(int idx);
+    Key getSuccessor(int idx);
+    void merge(int idx);
+    void fill(int idx);
+    void borrowFromPrev(int idx);
+    void borrowFromNext(int idx);
+
+
 };
 
 #endif // BTREENODE_H
