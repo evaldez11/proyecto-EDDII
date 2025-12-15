@@ -44,11 +44,15 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "on_pb_Registros_clicked",
         "on_pb_Indices_clicked",
         "on_pb_home_clicked",
+        "exportarTablaCSV",
+        "QTableWidget*",
+        "tabla",
         "on_pb_Desplace_clicked",
         "on_actionNuevo_Archivo_triggered",
         "on_actionAbrir_Archivo_triggered",
         "on_actionGuardar_Archivo_triggered",
         "on_pushButtonCrearCampo_clicked",
+        "ultimaFilaCompleta",
         "on_pushButtonConfirmar_clicked",
         "on_comboBoxTipoDato_currentIndexChanged",
         "index",
@@ -63,7 +67,8 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "on_pushButtonModificarRegistro_clicked",
         "on_pushButtonBuscarRegistro_clicked",
         "on_pushButtonIndexar_clicked",
-        "on_pushButtonBuscarInd_clicked"
+        "on_pushButtonBuscarInd_clicked",
+        "on_pushButtonExportar_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -75,48 +80,56 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_pb_home_clicked'
         QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'exportarTablaCSV'
+        QtMocHelpers::SlotData<void(QTableWidget *)>(6, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 7, 8 },
+        }}),
         // Slot 'on_pb_Desplace_clicked'
-        QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_actionNuevo_Archivo_triggered'
-        QtMocHelpers::SlotData<void()>(7, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_actionAbrir_Archivo_triggered'
-        QtMocHelpers::SlotData<void()>(8, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_actionGuardar_Archivo_triggered'
         QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_pushButtonCrearCampo_clicked'
+        // Slot 'on_actionNuevo_Archivo_triggered'
         QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_pushButtonConfirmar_clicked'
+        // Slot 'on_actionAbrir_Archivo_triggered'
         QtMocHelpers::SlotData<void()>(11, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_actionGuardar_Archivo_triggered'
+        QtMocHelpers::SlotData<void()>(12, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_pushButtonCrearCampo_clicked'
+        QtMocHelpers::SlotData<void()>(13, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'ultimaFilaCompleta'
+        QtMocHelpers::SlotData<bool()>(14, 2, QMC::AccessPrivate, QMetaType::Bool),
+        // Slot 'on_pushButtonConfirmar_clicked'
+        QtMocHelpers::SlotData<void()>(15, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_comboBoxTipoDato_currentIndexChanged'
-        QtMocHelpers::SlotData<void(int)>(12, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::Int, 13 },
+        QtMocHelpers::SlotData<void(int)>(16, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 17 },
         }}),
         // Slot 'on_pushButtonModificarCampo_clicked'
-        QtMocHelpers::SlotData<void()>(14, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(18, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_pushButtonBorrarCampo_clicked'
-        QtMocHelpers::SlotData<void()>(15, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(19, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_actionCerrar_Archivo_triggered'
-        QtMocHelpers::SlotData<void()>(16, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(20, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_comboBoxCampo_currentIndexChanged'
-        QtMocHelpers::SlotData<void(int)>(17, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::Int, 13 },
+        QtMocHelpers::SlotData<void(int)>(21, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 17 },
         }}),
         // Slot 'on_pushButtonAgregar_clicked'
-        QtMocHelpers::SlotData<void()>(18, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_pushButtonConfirmarRegistros_clicked'
-        QtMocHelpers::SlotData<void()>(19, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_pushButtonCrearRegistro_clicked'
-        QtMocHelpers::SlotData<void()>(20, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_pushButtonBorrarRegistro_clicked'
-        QtMocHelpers::SlotData<void()>(21, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_pushButtonModificarRegistro_clicked'
         QtMocHelpers::SlotData<void()>(22, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_pushButtonBuscarRegistro_clicked'
+        // Slot 'on_pushButtonConfirmarRegistros_clicked'
         QtMocHelpers::SlotData<void()>(23, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_pushButtonIndexar_clicked'
+        // Slot 'on_pushButtonCrearRegistro_clicked'
         QtMocHelpers::SlotData<void()>(24, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_pushButtonBuscarInd_clicked'
+        // Slot 'on_pushButtonBorrarRegistro_clicked'
         QtMocHelpers::SlotData<void()>(25, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_pushButtonModificarRegistro_clicked'
+        QtMocHelpers::SlotData<void()>(26, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_pushButtonBuscarRegistro_clicked'
+        QtMocHelpers::SlotData<void()>(27, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_pushButtonIndexar_clicked'
+        QtMocHelpers::SlotData<void()>(28, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_pushButtonBuscarInd_clicked'
+        QtMocHelpers::SlotData<void()>(29, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_pushButtonExportar_clicked'
+        QtMocHelpers::SlotData<void()>(30, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -144,26 +157,42 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->on_pb_Registros_clicked(); break;
         case 2: _t->on_pb_Indices_clicked(); break;
         case 3: _t->on_pb_home_clicked(); break;
-        case 4: _t->on_pb_Desplace_clicked(); break;
-        case 5: _t->on_actionNuevo_Archivo_triggered(); break;
-        case 6: _t->on_actionAbrir_Archivo_triggered(); break;
-        case 7: _t->on_actionGuardar_Archivo_triggered(); break;
-        case 8: _t->on_pushButtonCrearCampo_clicked(); break;
-        case 9: _t->on_pushButtonConfirmar_clicked(); break;
-        case 10: _t->on_comboBoxTipoDato_currentIndexChanged((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
-        case 11: _t->on_pushButtonModificarCampo_clicked(); break;
-        case 12: _t->on_pushButtonBorrarCampo_clicked(); break;
-        case 13: _t->on_actionCerrar_Archivo_triggered(); break;
-        case 14: _t->on_comboBoxCampo_currentIndexChanged((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
-        case 15: _t->on_pushButtonAgregar_clicked(); break;
-        case 16: _t->on_pushButtonConfirmarRegistros_clicked(); break;
-        case 17: _t->on_pushButtonCrearRegistro_clicked(); break;
-        case 18: _t->on_pushButtonBorrarRegistro_clicked(); break;
-        case 19: _t->on_pushButtonModificarRegistro_clicked(); break;
-        case 20: _t->on_pushButtonBuscarRegistro_clicked(); break;
-        case 21: _t->on_pushButtonIndexar_clicked(); break;
-        case 22: _t->on_pushButtonBuscarInd_clicked(); break;
+        case 4: _t->exportarTablaCSV((*reinterpret_cast<std::add_pointer_t<QTableWidget*>>(_a[1]))); break;
+        case 5: _t->on_pb_Desplace_clicked(); break;
+        case 6: _t->on_actionNuevo_Archivo_triggered(); break;
+        case 7: _t->on_actionAbrir_Archivo_triggered(); break;
+        case 8: _t->on_actionGuardar_Archivo_triggered(); break;
+        case 9: _t->on_pushButtonCrearCampo_clicked(); break;
+        case 10: { bool _r = _t->ultimaFilaCompleta();
+            if (_a[0]) *reinterpret_cast<bool*>(_a[0]) = std::move(_r); }  break;
+        case 11: _t->on_pushButtonConfirmar_clicked(); break;
+        case 12: _t->on_comboBoxTipoDato_currentIndexChanged((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 13: _t->on_pushButtonModificarCampo_clicked(); break;
+        case 14: _t->on_pushButtonBorrarCampo_clicked(); break;
+        case 15: _t->on_actionCerrar_Archivo_triggered(); break;
+        case 16: _t->on_comboBoxCampo_currentIndexChanged((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 17: _t->on_pushButtonAgregar_clicked(); break;
+        case 18: _t->on_pushButtonConfirmarRegistros_clicked(); break;
+        case 19: _t->on_pushButtonCrearRegistro_clicked(); break;
+        case 20: _t->on_pushButtonBorrarRegistro_clicked(); break;
+        case 21: _t->on_pushButtonModificarRegistro_clicked(); break;
+        case 22: _t->on_pushButtonBuscarRegistro_clicked(); break;
+        case 23: _t->on_pushButtonIndexar_clicked(); break;
+        case 24: _t->on_pushButtonBuscarInd_clicked(); break;
+        case 25: _t->on_pushButtonExportar_clicked(); break;
         default: ;
+        }
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+        case 4:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QTableWidget* >(); break;
+            }
+            break;
         }
     }
 }
@@ -187,14 +216,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 23)
+        if (_id < 26)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 23;
+        _id -= 26;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 23)
-            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 23;
+        if (_id < 26)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 26;
     }
     return _id;
 }

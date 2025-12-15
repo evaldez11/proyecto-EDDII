@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-e3bde207e5e44da3c7ea.json",
+					"jsonFile" : "directory-.-Debug-3620db1ec1165642121e.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Gestor_Stock_EstruII::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Gestor_Stock_EstruII-Debug-efd056e7a0e51a56e8ad.json",
+					"jsonFile" : "target-Gestor_Stock_EstruII-Debug-623abb12ef5853e5afb2.json",
 					"name" : "Gestor_Stock_EstruII",
 					"projectIndex" : 0
 				},
@@ -68,8 +68,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug",
-		"source" : "C:/Users/Gualo/Documents/proyecto EDDII/proyecto-EDDII"
+		"build" : "C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug",
+		"source" : "C:/Users/caste/OneDrive/Escritorio/ProyectoEstruII/proyecto-EDDII"
 	},
 	"version" : 
 	{

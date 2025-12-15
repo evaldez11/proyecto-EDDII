@@ -459,15 +459,53 @@ void MainWindow::on_actionGuardar_Archivo_triggered()
 
 void MainWindow::on_pushButtonCrearCampo_clicked()
 {
+    if (!ultimaFilaCompleta()) {
+        QMessageBox::warning(
+            this,
+            "Campo incompleto",
+            "Debe completar todos los datos del campo anterior antes de crear uno nuevo."
+            );
+        return;
+    }
+
     vaciarPanelCampos();
-    QMessageBox::information(this,"Crear Campo","Llena la nueva fila al final de la tabla, con los datos requeridos, y luego darle al boton de confirmar");
+
+    QMessageBox::information(
+        this,
+        "Crear Campo",
+        "Llene la nueva fila al final de la tabla y luego presione Confirmar."
+        );
+
     campos = true;
     modificar = false;
     eliminar = false;
+
     ui->frame_7->setVisible(true);
     ui->pushButtonConfirmar->setEnabled(true);
+
     int row = ui->tableWidget->rowCount();
     ui->tableWidget->insertRow(row);
+}
+
+bool MainWindow::ultimaFilaCompleta(){
+    int filas = ui->tableWidget->rowCount();
+    if (filas == 0)
+        return true; // no hay nada que validar
+
+    int ultimaFila = filas - 1;
+
+    // Columnas obligatorias (ajusta si cambian)
+    for (int col = 0; col < ui->tableWidget->columnCount(); col++) {
+
+        QTableWidgetItem *item = ui->tableWidget->item(ultimaFila, col);
+
+        // Si no existe o está vacío
+        if (!item || item->text().trimmed().isEmpty()) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 bool  MainWindow::verificarCampos(int fila){
@@ -1105,5 +1143,69 @@ void MainWindow::on_pushButtonBuscarInd_clicked()
     } else {
         QMessageBox::information(this, "Resultado", "No se encontró el registro");
     }
+}
+
+void MainWindow::exportarTablaCSV(QTableWidget *tabla)
+{
+    QString fileName = QFileDialog::getSaveFileName(
+        this, "Exportar a Excel (CSV)", "", "CSV (*.csv)"
+        );
+    if (fileName.isEmpty()) return;
+    if (!fileName.endsWith(".csv", Qt::CaseInsensitive)) fileName += ".csv";
+
+    QFile file(fileName);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QMessageBox::warning(this, "Error", "No se pudo crear el archivo.");
+        return;
+    }
+
+    QTextStream out(&file);
+    out.setEncoding(QStringConverter::Utf8);
+
+    const QString sep = ";";  // <- CLAVE para Excel en español
+
+    const int filas = tabla->rowCount();
+    const int cols  = tabla->columnCount();
+
+    // Encabezados
+    for (int c = 0; c < cols; ++c) {
+        auto *h = tabla->horizontalHeaderItem(c);
+        out << (h ? h->text() : "");
+        if (c < cols - 1) out << sep;
+    }
+    out << "\n";
+
+    // Datos
+    for (int r = 0; r < filas; ++r) {
+        for (int c = 0; c < cols; ++c) {
+            auto *it = tabla->item(r, c);
+            QString val = it ? it->text() : "";
+            // Evitar saltos de línea dentro de celdas
+            val.replace("\n", " ").replace("\r", " ");
+            out << val;
+            if (c < cols - 1) out << sep;
+        }
+        out << "\n";
+    }
+
+    file.close();
+
+    QMessageBox::information(this, "Listo", "CSV exportado correctamente.");
+}
+
+void MainWindow::on_pushButtonExportar_clicked()
+{
+    // Validación básica
+    if (ui->tableWidgetRegistros->rowCount() == 0) {
+        QMessageBox::warning(
+            this,
+            "Exportar",
+            "No hay registros para exportar."
+            );
+        return;
+    }
+
+    // Llamamos a la función de exportación
+    exportarTablaCSV(ui->tableWidgetRegistros);
 }
 

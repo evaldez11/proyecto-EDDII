@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 #include <QFile>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QTextStream>
+#include <QTableWidget>
 #include "availlist.h"
 #include "btree.h"
 #include "key.h"
@@ -39,6 +43,8 @@ private slots:
     void on_pb_Indices_clicked();
     void on_pb_home_clicked();
 
+    void exportarTablaCSV(QTableWidget *tabla);
+
     // Boton de Desplace
     void on_pb_Desplace_clicked();
 
@@ -50,6 +56,7 @@ private slots:
     void on_actionGuardar_Archivo_triggered();
 
     void on_pushButtonCrearCampo_clicked();
+    bool ultimaFilaCompleta();
 
     void on_pushButtonConfirmar_clicked();
 
@@ -79,6 +86,8 @@ private slots:
     void on_pushButtonIndexar_clicked();
 
     void on_pushButtonBuscarInd_clicked();
+
+    void on_pushButtonExportar_clicked();
 
 private:
     Ui::MainWindow *ui;

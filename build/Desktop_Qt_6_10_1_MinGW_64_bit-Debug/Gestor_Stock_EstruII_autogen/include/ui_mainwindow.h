@@ -77,6 +77,7 @@ public:
     QPushButton *pushButtonBorrarRegistro;
     QPushButton *pushButtonConfirmarRegistros;
     QPushButton *pushButtonBuscarRegistro;
+    QPushButton *pushButtonExportar;
     QFrame *frame_8;
     QFrame *frame_10;
     QGridLayout *gridLayout_2;
@@ -579,6 +580,33 @@ public:
         pushButtonBuscarRegistro->setChecked(false);
         pushButtonBuscarRegistro->setAutoExclusive(true);
         pushButtonBuscarRegistro->setFlat(false);
+        pushButtonExportar = new QPushButton(frame_9);
+        pushButtonExportar->setObjectName("pushButtonExportar");
+        pushButtonExportar->setGeometry(QRect(10, 30, 151, 36));
+        QFont font4;
+        font4.setFamilies({QString::fromUtf8("Verdana")});
+        font4.setPointSize(10);
+        font4.setBold(true);
+        pushButtonExportar->setFont(font4);
+        pushButtonExportar->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
+        pushButtonExportar->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"    background: #ffffff;\n"
+"    color: #0070A1;\n"
+"    border: 2px solid #0070A1;\n"
+"    border-radius: 14px;\n"
+"    padding: 10px;\n"
+"    text-align: left;\n"
+"    font-weight: 700;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background: #0070A1;\n"
+"    color: #ffffff;\n"
+"}"));
+        pushButtonExportar->setCheckable(true);
+        pushButtonExportar->setChecked(true);
+        pushButtonExportar->setAutoExclusive(true);
+        pushButtonExportar->setFlat(false);
         frame_8 = new QFrame(pg_Registros);
         frame_8->setObjectName("frame_8");
         frame_8->setGeometry(QRect(9, 9, 721, 551));
@@ -1319,11 +1347,11 @@ public:
         palette10.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Base, brush);
         palette10.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Window, brush);
         label_7->setPalette(palette10);
-        QFont font4;
-        font4.setPointSize(48);
-        font4.setBold(true);
-        font4.setItalic(true);
-        label_7->setFont(font4);
+        QFont font5;
+        font5.setPointSize(48);
+        font5.setBold(true);
+        font5.setItalic(true);
+        label_7->setFont(font5);
         label_9 = new QLabel(frame_11);
         label_9->setObjectName("label_9");
         label_9->setGeometry(QRect(50, 260, 791, 91));
@@ -1340,7 +1368,7 @@ public:
         palette11.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Base, brush);
         palette11.setBrush(QPalette::ColorGroup::Disabled, QPalette::ColorRole::Window, brush);
         label_9->setPalette(palette11);
-        label_9->setFont(font4);
+        label_9->setFont(font5);
         stackedWidget->addWidget(pg_Home);
 
         verticalLayout_3->addWidget(stackedWidget);
@@ -1359,10 +1387,10 @@ public:
         menuBar->setObjectName("menuBar");
         menuBar->setGeometry(QRect(0, 0, 1090, 16));
         menuBar->setMaximumSize(QSize(16777215, 16777215));
-        QFont font5;
-        font5.setFamilies({QString::fromUtf8("Verdana")});
-        font5.setPointSize(7);
-        menuBar->setFont(font5);
+        QFont font6;
+        font6.setFamilies({QString::fromUtf8("Verdana")});
+        font6.setPointSize(7);
+        menuBar->setFont(font6);
         menuArchivo = new QMenu(menuBar);
         menuArchivo->setObjectName("menuArchivo");
         menuArchivo->setGeometry(QRect(345, 102, 164, 146));
@@ -1409,6 +1437,7 @@ public:
         pushButtonBorrarRegistro->setText(QCoreApplication::translate("MainWindow", "Borrar Registro", nullptr));
         pushButtonConfirmarRegistros->setText(QCoreApplication::translate("MainWindow", "Confirmar", nullptr));
         pushButtonBuscarRegistro->setText(QCoreApplication::translate("MainWindow", "Buscar Registro", nullptr));
+        pushButtonExportar->setText(QCoreApplication::translate("MainWindow", "Exportar", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Campo:", nullptr));
         label_8->setText(QCoreApplication::translate("MainWindow", "Informacion", nullptr));
         pushButtonAgregar->setText(QCoreApplication::translate("MainWindow", "Agregar", nullptr));

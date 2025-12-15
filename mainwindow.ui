@@ -1243,6 +1243,57 @@ background: #0070A1;
                    <bool>false</bool>
                   </property>
                  </widget>
+                 <widget class="QPushButton" name="pushButtonExportar">
+                  <property name="geometry">
+                   <rect>
+                    <x>10</x>
+                    <y>30</y>
+                    <width>151</width>
+                    <height>36</height>
+                   </rect>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Verdana</family>
+                    <pointsize>10</pointsize>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
+    background: #ffffff;
+    color: #0070A1;
+    border: 2px solid #0070A1;
+    border-radius: 14px;
+    padding: 10px;
+    text-align: left;
+    font-weight: 700;
+}
+
+QPushButton:hover{
+    background: #0070A1;
+    color: #ffffff;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Exportar</string>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                  <property name="autoExclusive">
+                   <bool>true</bool>
+                  </property>
+                  <property name="flat">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
                 </widget>
                 <widget class="QFrame" name="frame_8">
                  <property name="geometry">
